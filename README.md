@@ -159,6 +159,9 @@ For a submitted candidate, also confirm that the local commit matches the pushed
 | 56 | `evgenyzinoviev/gravitydefied` | Ensured both streams in `LevelsManager.copy` are closed on failure using the latest answer's nested `try`/`finally` structure. | No relevant test exists in the project. | [evgenyzinoviev/gravitydefied#13](https://github.com/evgenyzinoviev/gravitydefied/pull/13) |
 | 69 | `DaxiaK/MyDiary` | Ensured both streams in `FileManager.copy` are closed on failure. | No relevant test exists in the project. | [DaxiaK/MyDiary#77](https://github.com/DaxiaK/MyDiary/pull/77) |
 | 79 | `yahoo/elide` | Sorted archive inputs and normalized file-entry timestamps for deterministic test archives. | Targeted Maven test could not start from the sparse checkout because the parent requires all sibling modules. | [yahoo/elide#3420](https://github.com/yahoo/elide/pull/3420) |
+| 80 | `dietzm/GCodeInfo` | Updated the webpage helpers to return whether browsing succeeded and added the latest answer's `URL` overload. | No relevant test exists in the project. | [dietzm/GCodeInfo#17](https://github.com/dietzm/GCodeInfo/pull/17) |
+| 88 | `joshiejack/Harvest-Festival` | Renamed the rotation helper's input from `array` to `matrix`. | `bash gradlew compileJava` could not start because Gradle 4.9 fails during daemon initialization on the available current JDK. | [joshiejack/Harvest-Festival#233](https://github.com/joshiejack/Harvest-Festival/pull/233) |
+| 89 | `MesquiteProject/MesquiteCore` | Ensured both streams in `MesquiteFile.copy` are closed on failure. | No relevant test exists in the project. | [MesquiteProject/MesquiteCore#135](https://github.com/MesquiteProject/MesquiteCore/pull/135) |
 
 ## Skipped candidates
 
@@ -238,6 +241,13 @@ For a submitted candidate, also confirm that the local commit matches the pushed
 | 76 | `prometheus/client_java` | The file-flattening example has no match in the volume metadata test. |
 | 77 | `geoodk/collect` | The target uses separate control-character and whitespace filters, not the edited alphanumeric filter. |
 | 78 | `huawei-hadoop/hindex` | The generic Mockito answer's exception field/getter is absent from the specific coordinator callback. |
+| 81 | `openjdk-mirror/jdk7u-jdk` | The target shares only the answer's unchanged byte-to-hex helpers; the added multi-party Diffie-Hellman demos are unrelated to KeyTool digest formatting. |
+| 82 | `openjdk-mirror/jdk7u-jdk` | The only later selected revision is unchanged, and `ComparableTimSort` already contains the same natural-ordering algorithm. |
+| 83 | `openjdk-mirror/jdk7u-jdk` | The only later selected revision is unchanged, and `TimSort` already contains the same comparator-based algorithm. |
+| 84 | `openjdk-mirror/jdk7u-jdk` | The matched `Timer.sched` block is unchanged; the answer's other edits concern example `TimerTask` usage. |
+| 85 | `openjdk-mirror/jdk7u-jdk` | The answer's `AbstractButton` UI state logic cannot be applied to a tabbed-pane UI delegate. |
+| 86 | `openjdk-mirror/jdk7u-jdk` | The recommendation is for an application subclass of `BasicTableHeaderUI`; the mapped file is the base implementation in a legacy OpenJDK mirror without an accepted GitHub PR workflow. |
+| 87 | `PebbleTemplates/pebble` | The selected revision only removes the surrounding snippet wrapper and does not change resource loading or add the claimed null guards; Pebble already has the complete implementation. |
 
 ## Candidate 1 record
 
