@@ -86,7 +86,7 @@ unless (cross_check_values - ["", "FOUND"]).empty?
 end
 found_count = output.count { |row| row["Useful Pairs Cross-Check"] == "FOUND" }
 pr_links = output.map { |row| row["Open PR Link"].to_s.strip }.reject(&:empty?)
-raise "Expected 46 Open PR links, found #{pr_links.length}" unless pr_links.length == 46
+raise "Expected 55 Open PR links, found #{pr_links.length}" unless pr_links.length == 55
 unless pr_links.all? { |link| link.match?(%r{\Ahttps://github\.com/.+/pull/\d+\z}) }
   raise "Invalid Open PR link format"
 end
@@ -97,7 +97,7 @@ raise "Unexpected Old PR Status value" unless unexpected_old_values.empty?
 recommendation_skips = output.count do |row|
   row["Recommendation PR Status"] == "SKIPPED"
 end
-raise "Expected 153 rows with skipped recommendations" unless recommendation_skips == 153
+raise "Expected 742 rows with skipped recommendations" unless recommendation_skips == 742
 missing_skip_reasons = output.count do |row|
   row["Recommendation PR Status"] == "SKIPPED" &&
     row["Recommendation PR Reason"].to_s.strip.empty?

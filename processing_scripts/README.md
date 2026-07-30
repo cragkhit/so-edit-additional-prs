@@ -100,6 +100,149 @@ ruby processing_scripts/record_next_40_pr_audit.rb
 This records all forty audit outcomes, including the submitted Ant Media
 `ClientList` fix and thirty-nine evidence-backed `SKIPPED` decisions.
 
+Record the following top-down batch, positions 81–120 beginning at CSV line 88,
+with:
+
+```bash
+ruby processing_scripts/record_following_40_pr_audit.rb
+```
+
+All forty records are marked `SKIPPED` with evidence-backed reasons. The
+candidate edits were already present, unrelated to the matched method,
+non-behavioral, or unsafe/incomplete to apply.
+
+Record positions 121–160, beginning at CSV line 140, with:
+
+```bash
+ruby processing_scripts/record_next_positions_121_160_pr_audit.rb
+```
+
+All forty records are marked `SKIPPED`. Current upstream checks confirmed that
+the only apparent production issue in the historical source had already been
+fixed; the other recommendations were inapplicable or non-behavioral.
+
+Record positions 161–200, beginning at CSV line 196, with:
+
+```bash
+ruby processing_scripts/record_next_positions_161_200_pr_audit.rb
+```
+
+This records thirty-nine evidence-backed `SKIPPED` decisions and the submitted
+Clusion null-directory-listing fix.
+
+Record positions 201–240, beginning at CSV line 240, with:
+
+```bash
+ruby processing_scripts/record_next_positions_201_240_pr_audit.rb
+```
+
+This records thirty-three new `SKIPPED` decisions, the submitted Freedomotic
+stream-safety fix, and preserves six outcomes already populated from earlier
+PR and recommendation cross-checks.
+
+Record positions 241–280, beginning at CSV line 280, with:
+
+```bash
+ruby processing_scripts/record_next_positions_241_280_pr_audit.rb
+```
+
+This records thirty-three new `SKIPPED` decisions, the submitted CCSocialShare
+stream-cleanup fix, and preserves six outcomes already populated from earlier
+PR and recommendation cross-checks.
+
+Record positions 281–320, beginning at CSV line 320, with:
+
+```bash
+ruby processing_scripts/record_next_positions_281_320_pr_audit.rb
+```
+
+This records thirty-seven new `SKIPPED` decisions and preserves three outcomes
+already populated by an earlier recommendation audit.
+
+Record positions 321–360, beginning at CSV line 360, with:
+
+```bash
+ruby processing_scripts/record_next_positions_321_360_pr_audit.rb
+```
+
+This records thirty-eight new `SKIPPED` decisions and preserves two outcomes
+already populated by an earlier recommendation audit.
+
+Record positions 361–400, beginning at CSV line 400, with:
+
+```bash
+ruby processing_scripts/record_next_positions_361_400_pr_audit.rb
+```
+
+This records thirty-two new `SKIPPED` decisions, two submitted fixes for
+Kickflip and Knowage Server, and preserves six prior outcomes.
+
+Record positions 401–440, beginning at CSV line 440, with:
+
+```bash
+ruby processing_scripts/record_next_positions_401_440_pr_audit.rb
+```
+
+This records thirty-five new `SKIPPED` decisions and preserves five prior
+outcomes, including historical and previously submitted PR records.
+
+Record positions 441–480, beginning at CSV line 480, with:
+
+```bash
+ruby processing_scripts/record_next_positions_441_480_pr_audit.rb
+```
+
+This records thirty-five new `SKIPPED` decisions and preserves five prior
+outcomes, including historical and previously submitted PR records.
+
+Record positions 481–520, beginning at CSV line 520, with:
+
+```bash
+ruby processing_scripts/record_next_positions_481_520_pr_audit.rb
+```
+
+This records twenty-four new `SKIPPED` decisions, the submitted p2abcengine
+stream-cleanup fix, and preserves fifteen prior audit or historical PR outcomes.
+
+Record positions 521–560, beginning at CSV line 560, with:
+
+```bash
+ruby processing_scripts/record_next_positions_521_560_pr_audit.rb
+```
+
+This records twenty-nine new `SKIPPED` decisions, submitted XInstaller and
+Red5 fixes, and preserves nine prior audit outcomes.
+
+Record positions 561–600, beginning at CSV line 600, with:
+
+```bash
+ruby processing_scripts/record_next_positions_561_600_pr_audit.rb
+```
+
+This records thirty-seven new `SKIPPED` decisions and preserves three prior
+outcomes. The only applicable source issue was in an archived repository.
+
+Record positions 601–700, beginning at CSV line 640, with:
+
+```bash
+ruby processing_scripts/record_next_positions_601_700_pr_audit.rb
+```
+
+This records eighty-eight new `SKIPPED` decisions, the submitted
+logback-android test stream-cleanup fix, and preserves eleven prior outcomes.
+
+Record every remaining uncovered row with:
+
+```bash
+ruby processing_scripts/record_remaining_49_pr_audit.rb
+```
+
+This closes the 49 gaps left across the beginning and end of the CSV. All 49
+are marked `SKIPPED` with record-specific reasons: the selected Stack Overflow
+revision was identical, formatting-only, unrelated to the matched method,
+contract-changing or invalid for the target type, or (for Sealnote) the
+otherwise useful cleanup targeted an archived repository.
+
 ## Validate
 
 ```bash
