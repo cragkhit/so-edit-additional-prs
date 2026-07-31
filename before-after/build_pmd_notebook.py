@@ -27,12 +27,15 @@ cells = [
         """
         # PMD Before–After Analysis of Stack Overflow Snippets
 
-        This notebook compares PMD findings between 205 deduplicated original
-        and recent/latest Stack Overflow snippet pairs.
+        This notebook compares PMD findings for the subset of original and
+        recent/latest Stack Overflow snippet pairs whose manual-validation
+        value is exactly `Agress Yes`.
 
         Design principles:
 
         - The unique SO question/code-block history is the independent unit.
+        - `Agree No` rows are outside the analysis scope.
+        - Repeated `Agress Yes` study rows are deduplicated by `Snippet ID`.
         - Original and after versions must use the same parse wrapper.
         - Wrapper-only findings are removed.
         - Raw violation counts and violations per 100 non-comment lines are
@@ -96,6 +99,7 @@ cells = [
         ROOT = Path.cwd().resolve()
         DATASET = ROOT / "dataset"
         MANIFEST_PATH = DATASET / "snippet_pairs.csv"
+        MAPPING_PATH = DATASET / "study_pair_mapping.csv"
         RULESET_PATH = ROOT / "pmd-ruleset.xml"
         WORK_ROOT = ROOT / "work" / "pmd"
         RESULTS_ROOT = ROOT / "results" / "pmd"
@@ -113,6 +117,7 @@ cells = [
         TOOLS_ROOT.mkdir(parents=True, exist_ok=True)
 
         assert MANIFEST_PATH.is_file(), MANIFEST_PATH
+        assert MAPPING_PATH.is_file(), MAPPING_PATH
         assert RULESET_PATH.is_file(), RULESET_PATH
         """
     ),
@@ -152,22 +157,67 @@ cells = [
     ),
     markdown(
         """
-        ## 3. Load the deduplicated manifest
+        ## 3. Apply the `Agress Yes` scope and deduplicate
 
-        Excluded histories are retained in the manifest but are not passed to
-        PMD. The 12 identical before/after pairs remain in the analysis.
+        The spelling `Agress Yes` is intentional because it is the exact value
+        in the source data. The filter is applied to the study-row mapping
+        before deduplication. Dataset-excluded rows are retained for the audit
+        output but are not passed to PMD.
+
+        Several GitHub study rows may point to the same Stack Overflow snippet
+        history. Those rows are collapsed to one independent observation per
+        `Snippet ID`. If an accepted history appears under both recommendation
+        types, its subgroup is recorded as `MULTIPLE_TYPES`.
         """
     ),
     code(
         """
         manifest = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False)
-        eligible = manifest.loc[manifest["Status"] == "ELIGIBLE"].copy()
+        mapping = pd.read_csv(MAPPING_PATH, dtype=str, keep_default_na=False)
 
-        print("Manifest histories:", len(manifest))
-        print("Eligible pairs:", len(eligible))
-        print("Excluded histories:", (manifest["Status"] == "EXCLUDED").sum())
+        accepted_rows = mapping.loc[
+            mapping["Final Manual Validation"] == "Agress Yes"
+        ].copy()
+        accepted_eligible_rows = accepted_rows.loc[
+            accepted_rows["Dataset Status"] == "ELIGIBLE"
+        ].copy()
+        accepted_excluded_rows = accepted_rows.loc[
+            accepted_rows["Dataset Status"] != "ELIGIBLE"
+        ].copy()
+
+        def recommendation_group(values):
+            normalized = {
+                value.strip().lower().replace("bug fixing", "Bug Fixing")
+                .replace("improving code", "Improving Code")
+                for value in values
+                if value.strip()
+            }
+            return next(iter(normalized)) if len(normalized) == 1 else "MULTIPLE_TYPES"
+
+        scope_metadata = (
+            accepted_eligible_rows.groupby("Snippet ID", as_index=False)
+            .agg(
+                accepted_study_rows=("No", "size"),
+                recommendation_group=("Recommendation Type", recommendation_group),
+            )
+        )
+        eligible = (
+            manifest.loc[manifest["Status"] == "ELIGIBLE"]
+            .merge(scope_metadata, on="Snippet ID", how="inner", validate="one_to_one")
+            .copy()
+        )
+
+        assert len(accepted_rows) == 391
+        assert len(accepted_eligible_rows) == 387
+        assert len(eligible) == 125
+
+        print("All study rows:", len(mapping))
+        print("Agress Yes study rows:", len(accepted_rows))
+        print("Eligible Agress Yes study rows:", len(accepted_eligible_rows))
+        print("Excluded Agress Yes study rows:", len(accepted_excluded_rows))
+        print("Unique eligible Agress Yes snippet pairs:", len(eligible))
         print("Identical pairs:", (eligible["Identical Before After"] == "YES").sum())
-        display(manifest["Validation Group"].value_counts(dropna=False).rename("histories"))
+        display(eligible["recommendation_group"].value_counts().rename("histories"))
         """
     ),
     markdown(
@@ -514,8 +564,8 @@ cells = [
                 "snippet_id": snippet_id,
                 "status": "ANALYZED" if selected_mode else "PARSE_EXCLUDED",
                 "parse_mode": selected_mode,
-                "validation_group": row["Validation Group"],
-                "study_pair_count": int(row["Study Pair Count"]),
+                "accepted_study_rows": int(row["accepted_study_rows"]),
+                "recommendation_group": row["recommendation_group"],
                 "identical_before_after": row["Identical Before After"],
             }
             for version, column in (
@@ -669,23 +719,21 @@ cells = [
     ),
     markdown(
         """
-        ## 11. Accepted versus rejected sensitivity analysis
+        ## 11. Recommendation-type subgroup analysis
 
-        Manual validation is project-specific. Only histories whose associated
-        GitHub pairs are unanimously accepted or unanimously rejected are used
-        here. `MIXED` histories are reported but excluded from this binary
-        comparison.
-
-        This is a secondary association analysis, not a causal test.
+        Every history in the primary analysis has at least one `Agress Yes`
+        study row. Bug Fixing and Improving Code histories are summarized
+        separately. Histories assigned both labels are reported as
+        `MULTIPLE_TYPES` and excluded from the single-type subgroup tests.
         """
     ),
     code(
         """
         subgroup = analyzed.loc[
-            analyzed["validation_group"].isin(["ALL_ACCEPTED", "ALL_REJECTED"])
+            analyzed["recommendation_group"].isin(["Bug Fixing", "Improving Code"])
         ].copy()
         subgroup_summary = (
-            subgroup.groupby("validation_group")
+            subgroup.groupby("recommendation_group")
             .agg(
                 histories=("snippet_id", "size"),
                 median_delta=("delta_violations", "median"),
@@ -696,20 +744,29 @@ cells = [
             )
             .reset_index()
         )
-        display(subgroup_summary)
-
-        accepted_delta = subgroup.loc[
-            subgroup["validation_group"] == "ALL_ACCEPTED", "delta_violations"
-        ]
-        rejected_delta = subgroup.loc[
-            subgroup["validation_group"] == "ALL_REJECTED", "delta_violations"
-        ]
-        if len(accepted_delta) and len(rejected_delta):
-            comparison = stats.mannwhitneyu(
-                accepted_delta, rejected_delta, alternative="two-sided", method="auto"
+        subgroup_tests = []
+        for group_name, group_data in subgroup.groupby("recommendation_group"):
+            subgroup_tests.append(
+                {
+                    "recommendation_group": group_name,
+                    **paired_summary(
+                        group_data, "before_violations", "after_violations"
+                    ),
+                }
             )
-            print("Mann–Whitney U:", comparison.statistic)
-            print("p-value:", comparison.pvalue)
+        subgroup_statistical_summary = pd.DataFrame(subgroup_tests)
+        subgroup_summary.to_csv(
+            RESULTS_ROOT / "pmd_recommendation_subgroup_summary.csv", index=False
+        )
+        subgroup_statistical_summary.to_csv(
+            RESULTS_ROOT / "pmd_recommendation_subgroup_tests.csv", index=False
+        )
+        display(subgroup_summary)
+        display(subgroup_statistical_summary)
+        print(
+            "MULTIPLE_TYPES histories excluded from subgroup tests:",
+            (analyzed["recommendation_group"] == "MULTIPLE_TYPES").sum(),
+        )
         """
     ),
     markdown(
@@ -768,12 +825,19 @@ cells = [
         )
         parse_coverage.to_csv(RESULTS_ROOT / "pmd_parse_coverage.csv", index=False)
         processing_errors.to_csv(RESULTS_ROOT / "pmd_processing_errors.csv", index=False)
+        accepted_excluded_rows.to_csv(
+            RESULTS_ROOT / "pmd_agress_yes_dataset_exclusions.csv", index=False
+        )
 
         run_summary = {
             "pmd_version": PMD_VERSION,
             "java_language_version": JAVA_LANGUAGE_VERSION,
             "manifest_histories": int(len(manifest)),
-            "eligible_pairs": int(len(eligible)),
+            "manual_validation_filter": "Agress Yes",
+            "agress_yes_study_rows": int(len(accepted_rows)),
+            "eligible_agress_yes_study_rows": int(len(accepted_eligible_rows)),
+            "excluded_agress_yes_study_rows": int(len(accepted_excluded_rows)),
+            "unique_eligible_agress_yes_pairs": int(len(eligible)),
             "analyzed_pairs": int((pair_metrics["status"] == "ANALYZED").sum()),
             "parse_excluded_pairs": int((pair_metrics["status"] == "PARSE_EXCLUDED").sum()),
             "identical_pairs": int((eligible["Identical Before After"] == "YES").sum()),

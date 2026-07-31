@@ -25,16 +25,34 @@ Do not reduce code quality to one opaque score. Use a paired, multi-measure
 analysis in which every original Stack Overflow snippet is directly compared
 with its corresponding recent version.
 
+## Analysis scope
+
+The analysis will include **only study pairs whose `Final Manual Validation`
+value is exactly `Agress Yes`** in
+[`dataset/study_pair_mapping.csv`](dataset/study_pair_mapping.csv). `Agress
+Yes` is intentionally written here exactly as it appears in the source data.
+Rows marked `Agree No` are outside the scope of this analysis.
+
+After applying that decision filter, only rows with `Dataset Status` equal to
+`ELIGIBLE` are retained. Because several GitHub matches can refer to the same
+Stack Overflow revision history, the retained rows are deduplicated by
+`Snippet ID` before PMD or statistical analysis. This prevents a frequently
+matched snippet from receiving disproportionate weight.
+
+The prepared mapping currently contains 391 `Agress Yes` study rows. Of these,
+387 are dataset-eligible and represent 125 unique Stack Overflow before–after
+snippet pairs. The four excluded rows must remain in the exclusion report and
+must not enter the quality calculations.
+
 The recommended implementation order is:
 
 1. JavaParser normalization and metric extraction.
 2. A curated PMD ruleset.
 3. Selected Checkstyle readability checks.
-4. Paired statistical analysis across all eligible pairs.
-5. Comparison of manually accepted and rejected recommendations.
-6. Separate analyses for Bug Fixing and Improving Code.
-7. SpotBugs sensitivity analysis on symmetrically compilable pairs.
-8. Manual auditing of a random sample of analyzer findings.
+4. Paired statistical analysis across eligible `Agress Yes` pairs.
+5. Separate analyses for Bug Fixing and Improving Code.
+6. SpotBugs sensitivity analysis on symmetrically compilable pairs.
+7. Manual auditing of a random sample of analyzer findings.
 
 ## Recommended tools
 
@@ -295,7 +313,7 @@ A revision that makes intrinsically invalid code parseable or compilable
 provides strong evidence, as long as the original failure was not caused by the
 synthetic wrapper.
 
-## Use the manual validation as a comparison group
+## Use the manual validation as the inclusion criterion
 
 The manual-validation data contains:
 
@@ -305,23 +323,11 @@ The manual-validation data contains:
   - 334 Improving Code
   - 57 Bug Fixing
 
-Perform two main analyses.
-
-### Analysis A: All original–recent pairs
-
-Test whether recent versions generally have better quality indicators than
-their corresponding original versions.
-
-### Analysis B: Accepted versus rejected recommendations
-
-Compare the change scores:
-
-```text
-Δquality(accepted) versus Δquality(rejected)
-```
-
-If manually accepted revisions have more favorable changes than rejected
-revisions, this supports the validity of the manual classification.
+For this study, retain only the 391 recommendations recorded as `Agress Yes`;
+do not use the 402 `Agree No` recommendations as a comparison group. After
+dataset eligibility filtering and deduplication by `Snippet ID`, run the
+paired original-versus-recent analysis on the resulting 125 unique snippet
+histories.
 
 Also analyze the following independently:
 
@@ -487,16 +493,19 @@ cd before-after
 python3 -m jupyter lab PMD_Before_After_Analysis.ipynb
 ```
 
-Run all cells in order. The notebook:
+Run all cells in order. Before results are used for the study, the notebook's
+data-loading stage must enforce the scope above. The scoped PMD run:
 
-1. loads the eligible pairs from `dataset/snippet_pairs.csv`;
+1. filters `dataset/study_pair_mapping.csv` to eligible rows whose
+   `Final Manual Validation` value is exactly `Agress Yes`, then deduplicates
+   them by `Snippet ID`;
 2. tries each pair symmetrically as raw Java, a class member, and a method
    body;
 3. retains only pairs for which both versions share a successful parse mode;
 4. removes wrapper-only findings and restores source-relative line numbers;
 5. compares PMD violations per 100 non-comment code lines;
 6. reports paired Wilcoxon tests, effect sizes, rule-level transitions, and
-   accepted/rejected subgroup comparisons; and
+   Bug Fixing/Improving Code subgroup results; and
 7. writes raw reports, exclusions, tables, plots, and a reproducibility
    summary under `results/pmd/`.
 
