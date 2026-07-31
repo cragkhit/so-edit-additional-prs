@@ -1,0 +1,794 @@
+No,Project Name,Full Project Name,Faii's,Phob's and Others,Result Compare Before Resolve Conflict,Change (Before→After),Result Compare Afte Resolve Conflict,Recommendation Type (Summary),GitHub Java File Path,Stack Overflow Java File Path
+1,ziliang001,ziliang001/etl-kettle-web,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ziliang001/etl-kettle-web/etl-kettle-admin/src/main/java/com/caixin/data/middle/etl/kettle/admin/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+2,actiontech,actiontech/dble,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,actiontech/dble/src/main/java/com/actiontech/dble/util/HexFormatUtil.java,60266789/60266789_2_recent.java
+3,alphaautoleak,alphaautoleak/zelix-injection,No,No,Agree No,,Agree No,,alphaautoleak/zelix-injection/src/main/java/zelix/otherhacks/net/wurstclient/forge/utils/MathUtils.java,25985720/25985720_14_recent.java
+4,getodk,getodk/collect,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,getodk/collect/collect_app/src/main/java/org/odk/collect/android/preferences/filters/WhitespaceFilter.java,55003173/55003173_2_recent.java
+5,webjournal,webjournal/journaldev,No,No,Agree No,,Agree No,,webjournal/journaldev/Android/EfficientSearch/app/src/main/java/com/journaldev/efficientsearch/ListViewAdapter.java,39717275/39717275_2_recent.java
+6,webjournal,webjournal/journaldev,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,webjournal/journaldev/Spring/Spring-Controller/src/main/java/com/journaldev/spring/controller/HomeController.java,10195366/10195366_2_recent.java
+7,webjournal,webjournal/journaldev,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,webjournal/journaldev/Spring/SpringMVCSecurity/src/main/java/com/journaldev/spring/controller/HomeController.java,10195366/10195366_2_recent.java
+8,webjournal,webjournal/journaldev,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,webjournal/journaldev/Spring/SpringMVCExample/src/main/java/com/journaldev/spring/HomeController.java,10195366/10195366_2_recent.java
+9,kontalk,kontalk/desktopclient-java,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,kontalk/desktopclient-java/src/main/java/org/kontalk/view/ComponentUtils.java,3519182/3519182_2_7342658.java
+10,fesch,fesch/canze,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,fesch/canze/app/src/main/java/lu/fisch/canze/widgets/Label.java,9709606/9709606_2_recent.java
+11,fesch,fesch/canze,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,fesch/canze/app/src/main/java/lu/fisch/awt/Rectangle.java,9709606/9709606_2_recent.java
+12,aionnetwork,aionnetwork/aion,Yes,Yes,Agress Yes,,Agress Yes,Bug fixing,aionnetwork/aion/modPrecompiled/src/org/aion/precompiled/util/HexConvert.java,60266789/60266789_2_recent.java
+13,aionnetwork,aionnetwork/aion,No,No,Agree No,,Agree No,,aionnetwork/aion/modUtil/src/main/java/org/aion/util/map/HashMap.java,46830988/46830988_4_158689916.java
+14,aionnetwork,aionnetwork/aion,Yes,Yes,Agress Yes,,Agress Yes,Bug fixing,aionnetwork/aion/modUtil/src/main/java/org/aion/util/types/HexConvert.java,60266789/60266789_2_recent.java
+15,nervenetwork,nervenetwork/nerve,No,No,Agree No,,Agree No,,nervenetwork/nerve/common/nuls-core/src/main/java/io/nuls/core/crypto/ByteStreams.java,54298032/54298032_2_190009745.java
+16,leapframework,leapframework/framework,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,leapframework/framework/base/core/src/main/java/leap/core/security/crypto/bcrypt/BCryptPasswordEncoder.java,41471859/41471859_4_135239059.java
+17,leapframework,leapframework/framework,No,No,Agree No,,Agree No,,leapframework/framework/base/lang/src/main/java/leap/lang/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+18,pgmdev,pgmdev/pgm,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,pgmdev/pgm/util/src/main/java/tc/oc/pgm/util/text/UTF8Control.java,4429257/4429257_2_9347476.java
+19,datastax,datastax/dsbulk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,datastax/dsbulk/tests/src/main/java/com/datastax/oss/dsbulk/tests/utils/FileUtils.java,18454342/18454342_2_recent.java
+20,mesquiteproject,mesquiteproject/mesquitecore,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mesquiteproject/mesquitecore/Source/mesquite/lib/MesquiteFile.java,9293885/9293885_2_recent.java
+21,facebook,facebook/fresco,No,No,Agree No,,Agree No,,facebook/fresco/fbcore/src/main/java/com/facebook/common/internal/ByteStreams.java,54298032/54298032_2_190009745.java
+22,zfdang,zfdang/asm-android-client-for-newsmth,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,zfdang/asm-android-client-for-newsmth/src/com/athena/asm/util/SimpleCrypto.java,6788456/6788456_2_209269621.java
+23,zfdang,zfdang/asm-android-client-for-newsmth,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,zfdang/asm-android-client-for-newsmth/src/com/athena/asm/util/SimpleCrypto.java,6788456/6788456_2_209269621.java
+24,antonkast,antonkast/lightzone,No,No,Agree No,,Agress Yes,Bug Fixing,antonkast/lightzone/lightcrafts/src/com/lightcrafts/image/metadata/values/DoubleMetaValue.java,359634/359634_2_recent.java
+25,grakic,grakic/jfreesteel,No,No,Agree No,,Agree No,,grakic/jfreesteel/eidviewer/src/main/java/net/devbase/jfreesteel/viewer/EidViewer.java,6702420/6702420_2_89518975.java
+26,snowblossomcoin,snowblossomcoin/snowblossom,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,snowblossomcoin/snowblossom/lib/src/OverlayMap.java,29548090/29548090_4_recent.java
+27,triggerreactor,triggerreactor/triggerreactor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,triggerreactor/triggerreactor/core/src/main/java/io/github/wysohn/gsoncopy/Gson.java,24127188/24127188_2_recent.java
+28,triggerreactor,triggerreactor/triggerreactor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,triggerreactor/triggerreactor/core/src/main/java/io/github/wysohn/gsoncopy/Gson.java,24127188/24127188_2_recent.java
+29,triggerreactor,triggerreactor/triggerreactor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,triggerreactor/triggerreactor/core/src/main/java/io/github/wysohn/gsoncopy/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+30,triggerreactor,triggerreactor/triggerreactor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,triggerreactor/triggerreactor/core/src/main/java/io/github/wysohn/gsoncopy/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+31,rythmengine,rythmengine/rythmengine,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,rythmengine/rythmengine/src/main/java/org/rythmengine/conf/RythmConfiguration.java,4429257/4429257_2_9347476.java
+32,pkainulainen,pkainulainen/spring-data-jpa-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-jpa-examples/tutorial-part-eight/src/main/java/net/petrikainulainen/spring/datajpa/config/ApplicationContext.java,52148106/52148106_4_181012547.java
+33,pkainulainen,pkainulainen/spring-data-jpa-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-jpa-examples/tutorial-part-seven/src/main/java/net/petrikainulainen/spring/datajpa/config/ApplicationContext.java,52148106/52148106_4_181012547.java
+34,pkainulainen,pkainulainen/spring-data-solr-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-solr-examples/query-methods-pagination/src/main/java/net/petrikainulainen/spring/datasolr/config/ExampleApplicationContext.java,52148106/52148106_4_181012547.java
+35,pkainulainen,pkainulainen/spring-data-solr-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-solr-examples/query-methods/src/main/java/net/petrikainulainen/spring/datasolr/config/ExampleApplicationContext.java,52148106/52148106_4_181012547.java
+36,pkainulainen,pkainulainen/spring-data-solr-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-solr-examples/criteria-pagination/src/main/java/net/petrikainulainen/spring/datasolr/config/ExampleApplicationContext.java,52148106/52148106_4_181012547.java
+37,pkainulainen,pkainulainen/spring-data-solr-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-solr-examples/custom-repository-all/src/main/java/net/petrikainulainen/spring/datasolr/config/ExampleApplicationContext.java,52148106/52148106_4_181012547.java
+38,pkainulainen,pkainulainen/spring-data-solr-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pkainulainen/spring-data-solr-examples/criteria/src/main/java/net/petrikainulainen/spring/datasolr/config/ExampleApplicationContext.java,52148106/52148106_4_181012547.java
+39,aws,aws/amazon-redshift-jdbc-driver,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,aws/amazon-redshift-jdbc-driver/src/main/java/com/amazon/redshift/util/JdbcBlackHole.java,32855556/32855556_4_100737457.java
+40,tomoya92,tomoya92/pybbs,No,No,Agree No,,Agree No,,tomoya92/pybbs/src/main/java/co/yiiu/pybbs/util/bcrypt/BCryptPasswordEncoder.java,41471859/41471859_4_135239059.java
+41,devs-immortal,devs-immortal/the-aether,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,devs-immortal/the-aether/src/main/java/net/id/paradiselost/util/UncheckedWriter.java,65112087/65112087_2_236114933.java
+42,rosemoe,rosemoe/codeeditor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,rosemoe/codeeditor/editor-lsp/src/main/java/io/github/rosemoe/sora/lsp/client/connection/SocketStreamConnectionProvider.java,35094888/35094888_2_recent.java
+43,mrcrayfish,mrcrayfish/modelcreator,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mrcrayfish/modelcreator/src/main/java/com/mrcrayfish/modelcreator/Exporter.java,36950444/36950444_6_116982498.java
+44,hantsy,hantsy/quarkus-sample,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hantsy/quarkus-sample/post-service/src/main/java/com/example/web/StreamBodyWriter.java,29226591/29226591_2_recent.java
+45,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+46,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+47,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+48,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+49,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/src/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+50,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+51,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+52,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+53,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+54,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+55,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/sun/security/pkcs11/tls/TestLeadingZeroesP11.java,58993471/58993471_2_recent.java
+56,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+57,corretto,corretto/corretto-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-8/jdk/test/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+58,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+59,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+60,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+61,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+62,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+63,corretto,corretto/corretto-8,No,No,Agree No,,Agree No,,corretto/corretto-8/jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+64,corretto,corretto/corretto-11,No,Yes,Disagree,Disagree → Agree No,Agree No,,corretto/corretto-11/src/java.desktop/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+65,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/src/java.base/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+66,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/src/java.base/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+67,corretto,corretto/corretto-11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-11/src/java.base/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+68,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/src/java.base/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+69,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/src/java.base/share/classes/java/util/Random.java,62919983/62919983_2_recent.java
+70,corretto,corretto/corretto-11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-11/src/java.base/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+71,corretto,corretto/corretto-11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-11/src/java.base/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+72,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/src/java.base/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+73,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/sun/security/pkcs11/PKCS11Test.java,58993471/58993471_2_recent.java
+74,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/sun/security/pkcs11/PKCS11Test.java,58993471/58993471_2_recent.java
+75,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+76,corretto,corretto/corretto-11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,corretto/corretto-11/test/jdk/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+77,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+78,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreementPadding.java,58993471/58993471_2_recent.java
+79,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+80,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+81,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+82,corretto,corretto/corretto-11,No,No,Agree No,,Agree No,,corretto/corretto-11/test/jdk/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+83,corretto,corretto/corretto-11,No,Yes,Disagree,Disagree → Agree No,Agree No,,corretto/corretto-11/test/jdk/javax/net/ssl/DTLS/DTLSSequenceNumberTest.java,1520212/1520212_2_recent.java
+84,corretto,corretto/corretto-11,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,corretto/corretto-11/test/jdk/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+85,liquibase,liquibase/liquibase,No,No,Agree No,,Agree No,,liquibase/liquibase/liquibase-core/src/main/java/liquibase/resource/AbstractPathResourceAccessor.java,18454342/18454342_2_recent.java
+86,mucommander,mucommander/mucommander,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mucommander/mucommander/mucommander-viewer-image/src/main/java/com/mucommander/viewer/image/ImageViewer.java,36805363/36805363_2_recent.java
+87,convertapi,convertapi/convertapi-java,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,convertapi/convertapi-java/src/main/java/com/convertapi/client/RequestBodyStream.java,41251473/41251473_6_recent.java
+88,hudson,hudson/hudson-2.x,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hudson/hudson-2.x/hudson-remoting/src/main/java/hudson/remoting/ProxyOutputStream.java,50738131/50738131_2_recent.java
+89,sci2sugr,sci2sugr/keel,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sci2sugr/keel/src/keel/Algorithms/UnsupervisedLearning/AssociationRules/Visualization/keelassotiationrulesbarchart/ResultsProccessor.java,12738229/12738229_2_30063703.java
+90,sci2sugr,sci2sugr/keel,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sci2sugr/keel/src/keel/Algorithms/UnsupervisedLearning/AssociationRules/Visualization/KeelToPMML/KeelToPMMLProcessor.java,12738229/12738229_2_30063703.java
+91,sci2sugr,sci2sugr/keel,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sci2sugr/keel/src/keel/Algorithms/UnsupervisedLearning/AssociationRules/Visualization/KeelToPMML/KeelToPMMLFuzzyProcessor.java,12738229/12738229_2_30063703.java
+92,sci2sugr,sci2sugr/keel,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sci2sugr/keel/src/keel/Algorithms/UnsupervisedLearning/AssociationRules/Visualization/keellatextables/ResultsProccessor.java,12738229/12738229_2_30063703.java
+93,chatty,chatty/chatty,No,No,Agree No,,Agree No,,chatty/chatty/src/chatty/util/commands/Calc.java,45262825/45262825_4_recent.java
+94,chatty,chatty/chatty,No,No,Agree No,,Agree No,,chatty/chatty/src/chatty/util/commands/Calc.java,45262825/45262825_4_recent.java
+95,rubenlagus,rubenlagus/telegrambotsexample,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,rubenlagus/telegrambotsexample/src/main/java/org/telegram/services/LocalisationService.java,4429257/4429257_2_9347476.java
+96,polypheny,polypheny/polypheny-db,No,No,Agree No,,Agree No,,polypheny/polypheny-db/webui/src/main/java/org/polypheny/db/webui/models/DbColumn.java,34511731/34511731_2_recent.java
+97,scada-lts,scada-lts/scada-lts,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,scada-lts/scada-lts/src/br/org/scadabr/db/configuration/ConfigurationDB.java,9293885/9293885_2_recent.java
+98,teamapps-org,teamapps-org/teamapps,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,teamapps-org/teamapps/teamapps-ux/src/main/java/org/teamapps/ux/i18n/TeamAppsResourceBundleControl.java,4429257/4429257_2_9347476.java
+99,jfxtras,jfxtras/jfxtras,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jfxtras/jfxtras/jfxtras-icalendarfx/src/main/java/jfxtras/icalendarfx/utilities/ICalendarUtilities.java,20765715/20765715_2_recent.java
+100,jfxtras,jfxtras/jfxtras,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jfxtras/jfxtras/jfxtras-icalendarfx/src/main/java/jfxtras/icalendarfx/properties/component/recurrence/rrule/RecurrenceRuleValue.java,20765715/20765715_2_recent.java
+101,dragon66,dragon66/icafe,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,dragon66/icafe/src/com/icafe4j/test/TestMetadata.java,28458368/28458368_4_recent.java
+102,us-cbp,us-cbp/gtas,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,us-cbp/gtas/gtas-parent/gtas-webapp/src/main/java/gov/gtas/controller/HomeController.java,10195366/10195366_2_recent.java
+103,allwefantasy,allwefantasy/serviceframework,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,allwefantasy/serviceframework/serviceframework-web/src/main/java/net/csdn/modules/http/HttpServer.java,59664498/59664498_2_recent.java
+104,citybench,citybench/benchmark,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,citybench/benchmark/src/org/insight_centre/aceis/utils/MapUtils.java,12738229/12738229_2_30063703.java
+105,safetysystemtechnology,safetysystemtechnology/location-tracker-background,No,No,Agree No,,Agree No,,safetysystemtechnology/location-tracker-background/location-tracker-background/src/main/java/br/com/safety/locationlistenerhelper/core/LocationService.java,28039909/28039909_2_recent.java
+106,shevchik,shevchik/autosaveworld,No,No,Agree No,,Agree No,,shevchik/autosaveworld/src/autosaveworld/zlibs/com/google/api/client/util/ByteStreams.java,54298032/54298032_2_190009745.java
+107,dunwu,dunwu/spring-tutorial,No,No,Agree No,,Agree No,,dunwu/spring-tutorial/codes/integration/mq/spring-boot-mq-kafka/src/test/java/io/github/dunwu/springboot/SpringKafkaTest.java,58496526/58496526_2_207696359.java
+108,raj-m01,raj-m01/android-chat-app,No,No,Agree No,,Agree No,,raj-m01/android-chat-app/app/src/main/java/com/example/chatapp/AESUtils.java,6788456/6788456_2_209269621.java
+109,raj-m01,raj-m01/android-chat-app,No,No,Agree No,,Agree No,,raj-m01/android-chat-app/app/src/main/java/com/example/chatapp/AESUtils.java,6788456/6788456_2_209269621.java
+110,bumptech,bumptech/glide,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,bumptech/glide/instrumentation/src/androidTest/java/com/bumptech/glide/CachingTest.java,33561612/33561612_2_recent.java
+111,mirakelx,mirakelx/mirakel-android,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mirakelx/mirakel-android/new_ui/src/main/java/de/azapps/mirakel/new_ui/views/ProgressDoneView.java,27436796/27436796_2_recent.java
+112,iqss,iqss/dataverse,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,iqss/dataverse/src/main/java/edu/harvard/iq/dataverse/mydata/Pager.java,56259221/56259221_5_recent.java
+113,overturetool,overturetool/overture,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,overturetool/overture/core/combinatorialtesting/ctruntime/src/main/java/org/overture/ct/ctruntime/server/common/Utils.java,25985720/25985720_14_recent.java
+114,overturetool,overturetool/overture,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,overturetool/overture/ide/plugins/combinatorialtesting/src/main/java/org/overture/combinatorialtesting/vdmj/server/common/Utils.java,25985720/25985720_14_recent.java
+115,camunda-community-hub,camunda-community-hub/camunda-8-lowcode-ui-template,No,No,Agree No,,Agree No,,camunda-community-hub/camunda-8-lowcode-ui-template/src/main/java/org/example/camunda/process/solution/ProcessApplication.java,59430454/59430454_2_recent.java
+116,hidroh,hidroh/materialistic,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hidroh/materialistic/app/src/main/java/io/github/hidroh/materialistic/Preferences.java,41800354/41800354_2_recent.java
+117,aragozin,aragozin/jvm-tools,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,aragozin/jvm-tools/bstub/src/test/java/org/gridkit/jvmtool/bstub/DummyWorker.java,61780137/61780137_2_recent.java
+118,atjiu,atjiu/pybbs,No,No,Agree No,,Agree No,,atjiu/pybbs/src/main/java/co/yiiu/pybbs/util/bcrypt/BCryptPasswordEncoder.java,41471859/41471859_4_135239059.java
+119,denzilferreira,denzilferreira/aware-client,No,No,Agree No,,Agree No,,denzilferreira/aware-client/aware-core/src/main/java/com/aware/utils/Encrypter.java,6788456/6788456_2_209269621.java
+120,denzilferreira,denzilferreira/aware-client,No,No,Agree No,,Agree No,,denzilferreira/aware-client/aware-core/src/main/java/com/aware/utils/Encrypter.java,6788456/6788456_2_209269621.java
+121,kartaview,kartaview/android,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,kartaview/android/app/src/main/java/com/telenav/osv/ui/custom/RoundedCornerLayout.java,54349072/54349072_2_190220971.java
+122,vipshop,vipshop/pallas,Yes,Yes,Agress Yes,,Agress Yes,Bug fixing,vipshop/pallas/pallas-core/src/test/java/com/vip/pallas/thread/ExtendableThreadPoolExecutorTest.java,64804977/64804977_4_recent.java
+123,ramack,ramack/activitydiary,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ramack/activitydiary/app/src/main/java/de/rampro/activitydiary/helpers/GraphicsHelper.java,52144662/52144662_2_181397043.java
+124,seleniumhq,seleniumhq/selenium,No,No,Agree No,,Agree No,,seleniumhq/selenium/java/src/org/openqa/selenium/support/pagefactory/DefaultFieldDecorator.java,36004572/36004572_4_recent.java
+125,seleniumhq,seleniumhq/selenium,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,seleniumhq/selenium/java/src/org/openqa/selenium/firefox/AddHasExtensions.java,57997601/57997601_2_recent.java
+126,journaldev,journaldev/journaldev,No,No,Agree No,,Agree No,,journaldev/journaldev/Android/EfficientSearch/app/src/main/java/com/journaldev/efficientsearch/ListViewAdapter.java,39717275/39717275_2_recent.java
+127,journaldev,journaldev/journaldev,No,No,Agree No,,Agree No,,journaldev/journaldev/Spring/Spring-Controller/src/main/java/com/journaldev/spring/controller/HomeController.java,10195366/10195366_2_recent.java
+128,journaldev,journaldev/journaldev,No,No,Agree No,,Agree No,,journaldev/journaldev/Spring/SpringMVCSecurity/src/main/java/com/journaldev/spring/controller/HomeController.java,10195366/10195366_2_recent.java
+129,journaldev,journaldev/journaldev,No,No,Agree No,,Agree No,,journaldev/journaldev/Spring/SpringMVCExample/src/main/java/com/journaldev/spring/HomeController.java,10195366/10195366_2_recent.java
+130,peergos,peergos/peergos,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,peergos/peergos/src/peergos/server/storage/S3AdminRequests.java,56815/56815_2_recent.java
+131,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+132,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+133,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+134,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+135,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+136,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/main/java/mkl/testarea/itext5/content/SimpleTextRemover.java,57398454/57398454_2_recent.java
+137,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/test/java/mkl/testarea/itext5/extract/ExtractPaths.java,41751396/41751396_8_136432238.java
+138,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/test/java/mkl/testarea/itext5/extract/ExtractPaths.java,41751396/41751396_8_136432238.java
+139,mkl-public,mkl-public/testarea-itext5,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,mkl-public/testarea-itext5/src/test/java/mkl/testarea/itext5/extract/ExtractPaths.java,41751396/41751396_8_136432238.java
+140,eclipse-jdt,eclipse-jdt/eclipse.jdt.core,No,No,Agree No,,Agree No,,eclipse-jdt/eclipse.jdt.core/org.eclipse.jdt.core.tests.model/workspace/Formatter/test086/A_out.java,19648723/19648723_1_recent.java
+141,openjdk-mirror,openjdk-mirror/jdk7u-jdk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,openjdk-mirror/jdk7u-jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+142,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/src/share/classes/sun/security/tools/KeyTool.java,58993471/58993471_2_recent.java
+143,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,openjdk-mirror/jdk7u-jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+144,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+145,openjdk-mirror,openjdk-mirror/jdk7u-jdk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,openjdk-mirror/jdk7u-jdk/src/share/classes/java/util/HashMap.java,3870210/3870210_4_recent.java
+146,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+147,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+148,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,openjdk-mirror/jdk7u-jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+149,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+150,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+151,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+152,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+153,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,No,Agree No,,Agree No,,openjdk-mirror/jdk7u-jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+154,openjdk-mirror,openjdk-mirror/jdk7u-jdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,openjdk-mirror/jdk7u-jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+155,pokefenn,pokefenn/chisel,No,No,Agree No,,Agree No,,pokefenn/chisel/src/main/java/info/jbcs/minecraft/chisel/client/gui/GuiElement.java,63631995/63631995_6_recent.java
+156,bramp,bramp/ffmpeg-cli-wrapper,No,No,Agree No,,Agree No,,bramp/ffmpeg-cli-wrapper/src/main/java/net/bramp/commons/lang3/math/gson/FractionAdapter.java,31764338/31764338_6_96458495.java
+157,zhangkaitao,zhangkaitao/spring4-showcase,No,No,Agree No,,Agree No,,zhangkaitao/spring4-showcase/spring4-annotation/src/main/java/com/sishuok/spring4/MvcConfiguration.java,52148106/52148106_4_181012547.java
+158,zhangkaitao,zhangkaitao/spring4-showcase,No,No,Agree No,,Agree No,,zhangkaitao/spring4-showcase/spring-mvc-test/src/main/java/com/sishuok/config/MvcConfig.java,52148106/52148106_4_181012547.java
+159,waikato,waikato/moa,No,No,Agree No,,Agree No,,waikato/moa/moa/src/main/java/moa/classifiers/lazy/neighboursearch/NormalizableDistance.java,10774468/10774468_2_recent.java
+160,waikato,waikato/weka-trunk,No,No,Agree No,,Agree No,,waikato/weka-trunk/weka/src/main/java/weka/core/NormalizableDistance.java,10774468/10774468_2_recent.java
+161,waikato,waikato/weka-3.8,No,No,Agree No,,Agree No,,waikato/weka-3.8/weka/src/main/java/weka/core/NormalizableDistance.java,10774468/10774468_2_recent.java
+162,netty,netty/netty,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,netty/netty/common/src/test/java/io/netty/util/internal/ObjectCleanerTest.java,20274776/20274776_2_recent.java
+163,netty,netty/netty,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,netty/netty/common/src/test/java/io/netty/util/internal/ObjectCleanerTest.java,20274776/20274776_2_recent.java
+164,netty,netty/netty,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,netty/netty/example/src/main/java/io/netty/example/proxy/HexDumpProxyBackendHandler.java,42681543/42681543_4_recent.java
+165,netty,netty/netty,No,No,Agree No,,Agree No,,netty/netty/example/src/main/java/io/netty/example/proxy/HexDumpProxyFrontendHandler.java,42681543/42681543_4_recent.java
+166,netty,netty/netty,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,netty/netty/example/src/main/java/io/netty/example/proxy/HexDumpProxyFrontendHandler.java,42681543/42681543_4_recent.java
+167,eclipse-cognicrypt,eclipse-cognicrypt/cognicrypt,No,No,Agree No,,Agree No,,eclipse-cognicrypt/cognicrypt/plugins/de.cognicrypt.staticanalyzer/src/de/cognicrypt/staticanalyzer/view/StatisticsView.java,13329885/13329885_2_recent.java
+168,clouway,clouway/oauth2-server,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,clouway/oauth2-server/oauth2-example-app/src/main/java/com/clouway/oauth2/app/AppServer.java,59664498/59664498_2_recent.java
+169,yangchong211,yangchong211/ycapptool,No,No,Agree No,,Agree No,,yangchong211/ycapptool/CommonLib/AppEncryptLib/src/main/java/com/yc/appencryptlib/AesEncryptUtils.java,6788456/6788456_2_209269621.java
+170,yangchong211,yangchong211/lifehelper,No,No,Agree No,,Agree No,,yangchong211/lifehelper/CommonLib/AppEncryptLib/src/main/java/com/yc/appencryptlib/AesEncryptUtils.java,6788456/6788456_2_209269621.java
+171,eternita,eternita/frontcache,No,No,Agree No,,Agree No,,eternita/frontcache/frontcache-console/src/main/java/org/frontcache/console/config/WebMVCConfig.java,52148106/52148106_4_181012547.java
+172,eternita,eternita/frontcache,No,No,Agree No,,Agree No,,eternita/frontcache/examples/frontcache-spring/src/main/java/org/frontcache/example/WebConfig.java,52148106/52148106_4_181012547.java
+173,java-aid,java-aid/hackerrank-solutions,No,No,Agree No,,Agree No,,java-aid/hackerrank-solutions/HackerRankDashboard/CoreCS/DataStructures/src/main/java/com/javaaid/hackerrank/solutions/datastructures/trees/PreorderTraversal.java,31386664/31386664_4_95005617.java
+174,shulietech,shulietech/linkagent,No,No,Agree No,,Agree No,,shulietech/linkagent/instrument-modules/user-modules/module-pradar-register/src/main/java/com/shulie/instrument/module/register/zk/impl/ZipCompressionProvider.java,54298032/54298032_2_recent.java
+175,shulietech,shulietech/linkagent,No,No,Agree No,,Agree No,,shulietech/linkagent/instrument-modules/user-modules/module-pradar-core/src/main/java/com/pamirs/pradar/common/ByteUtils.java,58993471/58993471_2_recent.java
+176,foxinmy,foxinmy/weixin4j,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,foxinmy/weixin4j/weixin4j-base/src/main/java/com/foxinmy/weixin4j/http/support/okhttp/OkHttpClient2.java,41251473/41251473_6_recent.java
+177,vishesh,vishesh/sealnote,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,vishesh/sealnote/Sealnote/src/main/java/com/twistedplane/sealnote/storage/BackupUtils.java,52144662/52144662_2_181397043.java
+178,vishesh,vishesh/sealnote,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,vishesh/sealnote/Sealnote/src/main/java/com/twistedplane/sealnote/storage/BackupUtils.java,9293885/9293885_2_recent.java
+179,hapjs-platform,hapjs-platform/hapjs,No,No,Agree No,,Agree No,,hapjs-platform/hapjs/core/runtime/android/widgets/src/main/java/org/hapjs/widgets/input/Edit.java,19876516/19876516_2_recent.java
+180,hapjs-platform,hapjs-platform/hapjs,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hapjs-platform/hapjs/core/runtime/android/runtime/src/main/java/org/hapjs/common/utils/MediaUtils.java,52144662/52144662_2_181397043.java
+181,reneargento,reneargento/algorithms-sedgewick-wayne,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,reneargento/algorithms-sedgewick-wayne/src/chapter4/section2/Exercise55_StrongComponents.java,46887834/46887834_2_recent.java
+182,reneargento,reneargento/algorithms-sedgewick-wayne,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,reneargento/algorithms-sedgewick-wayne/src/chapter4/section1/Exercise50_ConnectedComponents.java,46887834/46887834_2_recent.java
+183,mercyblitz,mercyblitz/geekbang-lessons,No,No,Agree No,,Agree No,,mercyblitz/geekbang-lessons/projects/stage-1/user-platform/servlet-web/src/main/java/org/geektimes/projects/servlet/filter/EncodingFilter.java,45590884/45590884_2_recent.java
+184,svn2github,svn2github/icepdf,No,No,Agree No,,Agree No,,svn2github/icepdf/core/core-awt/src/main/java/org/icepdf/core/pobjects/acroform/signature/certificates/CertificateVerifier.java,42527750/42527750_2_recent.java
+185,svn2github,svn2github/icepdf,No,No,Agree No,,Agree No,,svn2github/icepdf/viewer/viewer-awt/src/main/java/org/icepdf/ri/common/views/annotations/signatures/CertificatePropertiesDialog.java,58993471/58993471_2_recent.java
+186,cryptoguardoss,cryptoguardoss/cryptoguard,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,cryptoguardoss/cryptoguard/src/main/java/util/Utils.java,30952083/30952083_2_93280714.java
+187,processing,processing/processing4,No,No,Agree No,,Agree No,,processing/processing4/java/src/processing/mode/java/CompletionPanel.java,60929154/60929154_2_218030952.java
+188,processing,processing/processing,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,processing/processing/core/src/processing/core/PApplet.java,58346204/58346204_2_recent.java
+189,processing,processing/processing,No,No,Agree No,,Agree No,,processing/processing/app/src/processing/app/ui/Welcome2.java,7607044/7607044_2_recent.java
+190,processing,processing/processing,No,No,Agree No,,Agree No,,processing/processing/java/src/processing/mode/java/pdex/CompletionPanel.java,60929154/60929154_2_218030952.java
+191,unidata,unidata/idv,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,unidata/idv/src/ucar/unidata/ui/JpegImagesToMovie.java,6236324/6236324_2_recent.java
+192,unidata,unidata/idv,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,unidata/idv/src/ucar/unidata/ui/JpegImagesToMovie.java,6236324/6236324_2_recent.java
+193,unidata,unidata/rosetta,No,No,Agree No,,Agree No,,unidata/rosetta/src/test/java/edu/ucar/unidata/rosetta/config/WebAppContext.java,52148106/52148106_4_181012547.java
+194,zhou-you,zhou-you/rxeasyhttp,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,zhou-you/rxeasyhttp/rxeasyhttp/src/main/java/com/zhouyou/http/body/RequestBodyUtils.java,41251473/41251473_6_recent.java
+195,aicis,aicis/fresco,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,aicis/fresco/suite/spdz/src/test/java/dk/alexandra/fresco/suite/spdz/storage/InitializeStorage.java,3775893/3775893_6_recent.java
+196,aicis,aicis/fresco,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,aicis/fresco/suite/tinytables/src/test/java/dk/alexandra/fresco/suite/tinytables/TestTinyTables.java,3775893/3775893_6_recent.java
+197,yalcin-ata,yalcin-ata/godot-plugin-firebase,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,yalcin-ata/godot-plugin-firebase/src/org/godotengine/godot/Utils.java,52144662/52144662_2_181397043.java
+198,iipc,iipc/openwayback,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,iipc/openwayback/wayback-core/src/main/java/org/archive/wayback/core/UTF8Control.java,4429257/4429257_2_9347476.java
+199,giginet,giginet/ccsocialshare,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,giginet/ccsocialshare/CCSocialShare/android/java/src/org/kawaz/socialshare/SocialShare.java,9293885/9293885_2_recent.java
+200,walmartlabs,walmartlabs/concord,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,walmartlabs/concord/client/src/main/java/com/walmartlabs/concord/client/ClientUtils.java,41251473/41251473_6_recent.java
+201,tapdata,tapdata/tapdata,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tapdata/tapdata/tapdata-cli/src/main/java/io/tapdata/pdk/cli/services/UploadFileService.java,41251473/41251473_6_recent.java
+202,piwigo,piwigo/piwigo-android,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,piwigo/piwigo-android/app/src/main/java/org/piwigo/data/repository/ImageRepository.java,52144662/52144662_2_181397043.java
+203,code4craft,code4craft/jsoup-learning,No,No,Agree No,,Agree No,,code4craft/jsoup-learning/src/main/java/org/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+204,kiegroup,kiegroup/kie-tools,No,No,Agree No,,Agree No,,kiegroup/kie-tools/packages/dashbuilder/kie-soup-dataset/kie-soup-dataset-core/src/main/java/org/dashbuilder/dataset/UUIDGeneratorImpl.java,36214665/36214665_2_114074670.java
+205,kiegroup,kiegroup/kogito-tooling,No,No,Agree No,,Agree No,,kiegroup/kogito-tooling/packages/dashbuilder/kie-soup-dataset/kie-soup-dataset-core/src/main/java/org/dashbuilder/dataset/UUIDGeneratorImpl.java,36214665/36214665_2_114074670.java
+206,micromata,micromata/projectforge,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,micromata/projectforge/projectforge-business/src/main/java/org/projectforge/business/teamcal/servlet/TeamCalResponseServlet.java,23839705/23839705_2_65821537.java
+207,pentaho,pentaho/pentaho-platform,No,No,Agree No,,Agree No,,pentaho/pentaho-platform/extensions/src/main/java/org/pentaho/platform/web/http/api/resources/utils/EscapeUtils.java,30316055/30316055_2_recent.java
+208,yassirh,yassirh/digitalocean-swimmer,No,No,Agree No,,Agree No,,yassirh/digitalocean-swimmer/DigitalOceanSwimmer/src/main/java/android/support/v4/preference/PreferenceFragment.java,49393023/49393023_1_recent.java
+209,cplutte,cplutte/bts,No,No,Agree No,,Agree No,,cplutte/bts/org.bbaw.bts.ui.main/src/org/bbaw/bts/ui/main/wizards/newProject/ProjectCollectionPage.java,13329885/13329885_2_recent.java
+210,openintents,openintents/sensorsimulator,No,No,Agree No,,Agress Yes,Bug Fixing,openintents/sensorsimulator/SensorSimulator/src/org/openintents/tools/simulator/util/JTextFieldLimit.java,3519182/3519182_2_7342658.java
+211,starexec,starexec/starexec,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,starexec/starexec/src/org/starexec/command/CommandValidator.java,2086792/2086792_2_recent.java
+212,punchthrough,punchthrough/bean-sdk-android,No,No,Agree No,,Agress Yes,Bug Fixing,punchthrough/bean-sdk-android/sdk/src/main/java/com/punchthrough/bean/sdk/internal/utility/Convert.java,60266789/60266789_2_recent.java
+213,sepinf-inc,sepinf-inc/iped,No,No,Agree No,,Agree No,,sepinf-inc/iped/iped-api/src/main/java/iped/localization/Messages.java,4429257/4429257_2_9347476.java
+214,sikuli,sikuli/sikuli-slides,No,No,Agree No,,Agree No,,sikuli/sikuli-slides/src/main/java/org/sikuli/slides/driver/DefaultFieldDecorator.java,36004572/36004572_4_recent.java
+215,klinker24,klinker24/talon-for-twitter-android,No,No,Agree No,,Agree No,,klinker24/talon-for-twitter-android/app/src/main/java/com/klinker/android/twitter_l/activities/compose/Compose.java,28039909/28039909_2_recent.java
+216,lecturestudio,lecturestudio/lecturestudio,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,lecturestudio/lecturestudio/lect-media/src/main/java/org/lecturestudio/media/playback/FileEventExecutor.java,61780137/61780137_2_recent.java
+217,alchitry,alchitry/alchitry-labs,No,No,Agree No,,Agree No,,alchitry/alchitry-labs/src/com/alchitry/labs/parsers/BigFunctions.java,745987/745987_2_recent.java
+218,rptools,rptools/maptool,No,No,Agree No,,Agree No,,rptools/maptool/src/main/java/net/rptools/maptool/util/ExtractImagesFromPDF.java,32650814/32650814_2_recent.java
+219,rptools,rptools/maptool,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,rptools/maptool/src/main/java/net/rptools/maptool/client/ui/token/dialog/edit/EditTokenDialog.java,62722315/62722315_2_recent.java
+220,rptools,rptools/maptool,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,rptools/maptool/src/main/java/net/rptools/maptool/client/ui/token/dialog/edit/EditTokenDialog.java,62722315/62722315_2_recent.java
+221,linkedin,linkedin/rest.li,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,linkedin/rest.li/pegasus-common/src/main/java/com/linkedin/common/callback/FutureCallback.java,2180534/2180534_2_recent.java
+222,jaamsim,jaamsim/jaamsim,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,jaamsim/jaamsim/src/main/java/com/jaamsim/ui/GUIFrame.java,22968559/22968559_2_recent.java
+223,wso2,wso2/product-apim,No,no,Agree No,,Agree No,,wso2/product-apim/modules/integration/tests-integration/tests-backend/src/test/java/org/wso2/am/integration/tests/ui/APIMANAGERUIIntegrationTestRunner.java,34303187/34303187_6_106529352.java
+224,proofpoint,proofpoint/platform,No,No,Agree No,,Agree No,,proofpoint/platform/jaxrs/src/main/java/com/proofpoint/jaxrs/JsonMapper.java,30316055/30316055_2_recent.java
+225,anuken,anuken/arc,No,No,Agree No,,Agree No,,anuken/arc/arc-core/src/arc/util/Strings.java,6711693/6711693_2_recent.java
+226,anuken,anuken/arc,No,No,Agree No,,Agree No,,anuken/arc/arc-core/src/arc/struct/TimSort.java,29866762/29866762_2_89013107.java
+227,ralphite,ralphite/j7cc,Yes,Yes,Agress Yes,,Agress Yes,Bug fixing,ralphite/j7cc/Chap1/Chap1_13.java,64804977/64804977_4_recent.java
+228,giloutho,giloutho/logfly5,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,giloutho/logfly5/src/main/java/littlewins/winAirDraw.java,32164598/32164598_8_recent.java
+229,projectbuendia,projectbuendia/client,No,No,Agree No,,Agree No,,projectbuendia/client/third_party/odkcollect/src/main/java/org/odk/collect/android/widgets/AutoCompleteWidget.java,19876516/19876516_2_recent.java
+230,projectbuendia,projectbuendia/client,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,projectbuendia/client/third_party/odkcollect/src/main/java/org/odk/collect/android/preferences/AggregatePreferencesActivity.java,55003173/55003173_2_recent.java
+231,ballerina-platform,ballerina-platform/ballerina-lang,No,No,Agree No,,Agree No,,ballerina-platform/ballerina-lang/cli/ballerina-cli/src/main/java/io/ballerina/cli/launcher/util/BFileUtil.java,18454342/18454342_2_recent.java
+232,ballerina-platform,ballerina-platform/ballerina-lang,No,No,Agree No,,Agree No,,ballerina-platform/ballerina-lang/tests/ballerina-test-utils/src/main/java/org/ballerinalang/test/util/BFileUtil.java,18454342/18454342_2_recent.java
+233,penguinsquad,penguinsquad/harvest-festival,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,penguinsquad/harvest-festival/src/main/java/uk/joshiejack/harvestcore/world/mine/dimension/floors/RoomGeneratorTemplate.java,53110509/53110509_2_185004841.java
+234,top-q,top-q/difido-reports,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,top-q/difido-reports/server/difido-server/src/main/java/il/co/topq/report/business/elastic/ESController.java,10599247/10599247_2_recent.java
+235,gluufederation,gluufederation/oxtrust,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,gluufederation/oxtrust/server/src/main/java/org/gluu/oxtrust/util/RecaptchaUtil.java,47622507/47622507_4_196832552.java
+236,cyriux,cyriux/mpcmaid,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,cyriux/mpcmaid/MpcMaid/src/com/mpcmaid/gui/Utils.java,9293885/9293885_2_recent.java
+237,xnnyygn,xnnyygn/xraft,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,xnnyygn/xraft/xraft-kvstore/src/main/java/in/xnnyygn/xraft/kvstore/server/ServerLauncher.java,59664498/59664498_2_recent.java
+238,xdev-software,xdev-software/xapi,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,xdev-software/xapi/src/main/java/xdev/ui/XdevScrollPane.java,27437289/27437289_16_106782972.java
+239,jetbrains,jetbrains/jediterm,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,jetbrains/jediterm/JediTerm/src/main/java/com/jediterm/ui/JTextFieldLimit.java,3519182/3519182_2_7342658.java
+240,gitlab4j,gitlab4j/gitlab4j-api,No,No,Agree No,,Agree No,,gitlab4j/gitlab4j-api/src/main/java/org/gitlab4j/api/utils/JacksonJson.java,22918204/22918204_2_62450522.java
+241,pixelmaid,pixelmaid/dresscode_v0.5,No,No,Agree No,,Agree No,,pixelmaid/dresscode_v0.5/src/com/pixelmaid/dresscode/app/CodeField.java,54704257/54704257_2_recent.java
+242,elastic,elastic/elasticsearch,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,elastic/elasticsearch/server/src/test/java/org/elasticsearch/cluster/service/TaskExecutorTests.java,33561612/33561612_2_recent.java
+243,hugegraph,hugegraph/hugegraph-loader,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hugegraph/hugegraph-loader/hugegraph-hubble/hubble-be/src/main/java/org/apache/hugegraph/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+244,kruize,kruize/autotune,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,kruize/autotune/src/main/java/com/autotune/analyzer/utils/GsonUTCDateAdapter.java,26046107/26046107_2_124698665.java
+245,nvv,nvv/far-on-droid,No,No,Agree No,,Agree No,,nvv/far-on-droid/farondroid/src/main/java/com/github/junrar/MVTest.java,4305365/4305365_2_recent.java
+246,nvv,nvv/far-on-droid,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,nvv/far-on-droid/farondroid/src/main/java/com/openfarmanager/android/filesystem/FileSystemScanner.java,189739/189739_2_recent.java
+247,sergueik,sergueik/selenium_java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,sergueik/selenium_java/swet_javafx/src/main/java/com/github/sergueik/swet_javafx/TableViewExtendedEx.java,32164598/32164598_8_recent.java
+248,jankotek,jankotek/mapdb,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jankotek/mapdb/src/main/java/org/mapdb/store/legacy/LongConcurrentHashMap.java,19340685/19340685_2_49198640.java
+249,zelgimi,zelgimi/supersolarpanels,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,zelgimi/supersolarpanels/src/main/java/com/denfop/items/book/GUIBook.java,61391737/61391737_2_recent.java
+250,google,google/wycheproof,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,google/wycheproof/java/com/google/security/wycheproof/testcases/DhiesTest.java,60565131/60565131_4_recent.java
+251,google,google/data-transfer-project,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/data-transfer-project/extensions/data-transfer/portability-data-transfer-koofr/src/main/java/org/datatransferproject/transfer/koofr/common/InputStreamRequestBody.java,41251473/41251473_6_134298162.java
+252,google,google/j2objc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/j2objc/jre_emul/openjdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+253,google,google/j2objc,No,No,Agree No,,Agree No,,google/j2objc/jre_emul/openjdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+254,google,google/j2objc,No,No,Agree No,,Agree No,,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+255,google,google/j2objc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/TimSort.java,29866762/29866762_2_89013107.java
+256,google,google/j2objc,No,No,Agree No,,Agree No,,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/HashMap.java,46830988/46830988_4_158689916.java
+257,google,google/j2objc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/Timer.java,16799135/16799135_10_41317480.java
+258,google,google/j2objc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/stream/ReferencePipeline.java,29230939/29230939_4_201996375.java
+259,google,google/j2objc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/j2objc/jre_emul/android/platform/libcore/ojluni/src/main/java/java/util/stream/ReferencePipeline.java,29230939/29230939_4_201996375.java
+260,google,google/gson,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/gson/gson/src/main/java/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+261,google,google/gson,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/gson/gson/src/main/java/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+262,google,google/gson,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/gson/gson/src/main/java/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+263,google,google/cdep,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,google/cdep/cdep/src/main/java/io/cdep/cdep/utils/ArchiveUtils.java,57997601/57997601_2_recent.java
+264,google,google/guava,No,No,Agree No,,Agree No,,google/guava/android/guava/src/com/google/common/base/Splitter.java,30942772/30942772_4_recent.java
+265,google,google/guava,No,No,Agree No,,Agree No,,google/guava/guava/src/com/google/common/base/Splitter.java,30942772/30942772_4_recent.java
+266,devil-chen,devil-chen/dvmediaselector,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,devil-chen/dvmediaselector/library/src/main/java/com/devil/library/camera/util/FileUtil.java,52144662/52144662_2_181397043.java
+267,knowagelabs,knowagelabs/knowage-server,No,No,Agree No,,Agree No,,knowagelabs/knowage-server/knowage-api/src/main/java/it/eng/knowage/knowageapi/utils/messages/UTF8Control.java,4429257/4429257_2_9347476.java
+268,knowagelabs,knowagelabs/knowage-server,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,knowagelabs/knowage-server/knowage-core/src/main/java/it/eng/spagobi/sdk/documents/impl/DocumentsServiceImpl.java,20680556/20680556_2_recent.java
+269,knowagelabs,knowagelabs/knowage-server,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,knowagelabs/knowage-server/knowage-core/src/main/java/it/eng/spagobi/sdk/documents/impl/DocumentsServiceImpl.java,56611483/56611483_2_recent.java
+270,knowagelabs,knowagelabs/knowage-server,No,No,Agree No,,Agree No,,knowagelabs/knowage-server/knowageutils/src/main/java/it/eng/spagobi/utilities/messages/UTF8Control.java,4429257/4429257_2_9347476.java
+271,knowagelabs,knowagelabs/knowage-server,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,knowagelabs/knowage-server/knowageutils/src/main/java/it/eng/spagobi/utilities/scripting/SpagoBIScriptManager.java,11838438/11838438_2_recent.java
+272,knowagelabs,knowagelabs/knowage-server,No,No,Agree No,,Agree No,,knowagelabs/knowage-server/knowage-spring-boot-api-common/src/main/java/it/eng/knowage/boot/utils/UTF8Control.java,4429257/4429257_2_9347476.java
+273,agreementmaker,agreementmaker/agreementmaker,No,No,Agree No,,Agree No,,agreementmaker/agreementmaker/projects/ui/src/main/java/am/ui/controlpanel/table/MatchersTablePanel.java,6702420/6702420_2_89518975.java
+274,spoonlabs,spoonlabs/astor,No,No,Agree No,,Agree No,,spoonlabs/astor/examples/librepair-experiments-jhy-jsoup-285353482-20171009-062400_bugonly_with_package_info/src/main/java/org/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+275,spoonlabs,spoonlabs/astor,No,No,Agree No,,Agree No,,spoonlabs/astor/examples/jsoup31be24/src/main/java/org/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+276,spoonlabs,spoonlabs/astor,No,No,Agree No,,Agree No,,spoonlabs/astor/examples/librepair-experiments-jhy-jsoup-285353482-20171009-062400_bugonly/src/main/java/org/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+277,h819,h819/spring-boot,No,No,Agree No,,Agree No,,h819/spring-boot/spring-boot-webapp/src/main/java/com/base/spring/utils/Test.java,5079864/5079864_2_136918794.java
+278,iiitv,iiitv/algos,No,No,Agree No,,Agree No,,iiitv/algos/binary_search_tree/Mirror_of_Binary_Search_Tree.java,31386664/31386664_4_95005617.java
+279,firebase,firebase/snippets-android,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,firebase/snippets-android/firestore/app/src/main/java/com/google/example/firestore/DocSnippets.java,59394165/59394165_2_211463641.java
+280,eclipse-platform,eclipse-platform/eclipse.platform.swt,No,No,Agree No,,Agree No,,eclipse-platform/eclipse.platform.swt/examples/org.eclipse.swt.snippets/src/org/eclipse/swt/snippets/Snippet230.java,41588054/41588054_2_recent.java
+281,eclipse-platform,eclipse-platform/eclipse.platform.swt,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eclipse-platform/eclipse.platform.swt/tests/org.eclipse.swt.tests.gtk/ManualTests/org/eclipse/swt/tests/gtk/snippets/Bug299045_TableLines.java,41588054/41588054_2_135725905.java
+282,eclipse-platform,eclipse-platform/eclipse.platform.swt,No,No,Agree No,,Agree No,,eclipse-platform/eclipse.platform.swt/tests/org.eclipse.swt.tests.gtk/ManualTests/org/eclipse/swt/tests/gtk/snippets/Bug528691_StyledTextNull.java,56297618/56297618_2_recent.java
+283,mycatapache,mycatapache/mycat2,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,mycatapache/mycat2/common/src/main/java/io/mycat/util/HexFormatUtil.java,60266789/60266789_2_recent.java
+284,mycatapache,mycatapache/mycat-server,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,mycatapache/mycat-server/src/main/java/io/mycat/util/HexFormatUtil.java,60266789/60266789_2_recent.java
+285,camunda-consulting,camunda-consulting/camunda-7-code-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/camunda-7-code-examples/snippets/camunda-migration-examples/src/test/java/org/camunda/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+286,camunda-consulting,camunda-consulting/camunda-7-code-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/camunda-7-code-examples/snippets/auto-tenant-generator/dynamo/src/test/java/com/camunda/poc/demo/ProcessUnitTest.java,15160629/15160629_2_recent.java
+287,camunda-consulting,camunda-consulting/camunda-7-code-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/camunda-7-code-examples/snippets/auto-tenant-generator/dynamo/src/test/java/com/camunda/poc/demo/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+288,camunda-consulting,camunda-consulting/camunda-7-code-examples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/camunda-7-code-examples/snippets/test-delegate-createinstances/src/test/java/org/camunda/bpm/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+289,camunda-consulting,camunda-consulting/camunda-7-code-examples,No,No,Agree No,,Agree No,,camunda-consulting/camunda-7-code-examples/one-time-examples/fitnesse-dmn/camunda-dmn-fitnesse-fixture/src/main/java/com/camunda/demo/dmntraining/taskrouting/fitnesse/SysoutClasspath.java,56259221/56259221_5_recent.java
+290,camunda-consulting,camunda-consulting/code,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/code/snippets/camunda-migration-examples/src/test/java/org/camunda/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+291,camunda-consulting,camunda-consulting/code,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/code/snippets/auto-tenant-generator/dynamo/src/test/java/com/camunda/poc/demo/ProcessUnitTest.java,15160629/15160629_2_recent.java
+292,camunda-consulting,camunda-consulting/code,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/code/snippets/auto-tenant-generator/dynamo/src/test/java/com/camunda/poc/demo/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+293,camunda-consulting,camunda-consulting/code,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,camunda-consulting/code/snippets/test-delegate-createinstances/src/test/java/org/camunda/bpm/ProcessScenarioTest.java,15160629/15160629_2_recent.java
+294,camunda-consulting,camunda-consulting/code,No,No,Agree No,,Agree No,,camunda-consulting/code/one-time-examples/fitnesse-dmn/camunda-dmn-fitnesse-fixture/src/main/java/com/camunda/demo/dmntraining/taskrouting/fitnesse/SysoutClasspath.java,56259221/56259221_5_recent.java
+295,tencent,tencent/tencentkona-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+296,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/src/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+297,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+298,tencent,tencent/tencentkona-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+299,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/src/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+300,tencent,tencent/tencentkona-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+301,tencent,tencent/tencentkona-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+302,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+303,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+304,tencent,tencent/tencentkona-8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+305,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/sun/security/pkcs11/tls/TestLeadingZeroesP11.java,58993471/58993471_2_recent.java
+306,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+307,tencent,tencent/tencentkona-8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/test/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+308,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+309,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+310,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+311,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+312,tencent,tencent/tencentkona-8,No,No,Agree No,,Agree No,,tencent/tencentkona-8/jdk/test/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+313,tencent,tencent/tencentkona-8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,tencent/tencentkona-8/jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+314,chrislacy,chrislacy/tweetlanes,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,chrislacy/tweetlanes/android/app/src/main/java/com/tweetlanes/android/core/view/ImageViewActivity.java,9293885/9293885_2_recent.java
+315,nativejdb,nativejdb/nativejdb,No,No,Agree No,,Agree No,,nativejdb/nativejdb/src/test/data/Hellosources/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+316,nativejdb,nativejdb/nativejdb,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,nativejdb/nativejdb/src/test/data/Hellosources/java/util/TimSort.java,29866762/29866762_2_89013107.java
+317,nativejdb,nativejdb/nativejdb,No,No,Agree No,,Agree No,,nativejdb/nativejdb/src/test/data/Hellosources/java/util/HashMap.java,46830988/46830988_4_158689916.java
+318,nativejdb,nativejdb/nativejdb,No,No,Agree No,,Agree No,,nativejdb/nativejdb/src/test/data/Hellosources/java/util/Random.java,62919983/62919983_2_recent.java
+319,nativejdb,nativejdb/nativejdb,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,nativejdb/nativejdb/src/test/data/Hellosources/java/nio/DirectByteBuffer.java,50578162/50578162_2_recent.java
+320,nativejdb,nativejdb/nativejdb,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,nativejdb/nativejdb/src/test/data/Hellosources/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+321,nativejdb,nativejdb/nativejdb,No,No,Agree No,,Agree No,,nativejdb/nativejdb/src/test/data/Hellosources/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+322,gmu-swe,gmu-swe/phosphor,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,gmu-swe/phosphor/Phosphor/src/main/java/edu/columbia/cs/psl/phosphor/struct/harmony/util/ConcurrentHashMap.java,19340685/19340685_2_49198640.java
+323,drjia,drjia/androidlogcollector,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,drjia/androidlogcollector/LogCollector/src/com/qihoo/linker/logcollector/utils/LogCollectorUtility.java,52144662/52144662_2_181397043.java
+324,meituan-dianping,meituan-dianping/zebra,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,meituan-dianping/zebra/zebra-client/src/main/java/com/dianping/zebra/util/StringUtils.java,37957745/37957745_2_recent.java
+325,linlinjava,linlinjava/litemall,No,No,Agree No,,Agree No,,linlinjava/litemall/litemall-core/src/main/java/org/linlinjava/litemall/core/util/bcrypt/BCryptPasswordEncoder.java,41471859/41471859_4_135239059.java
+326,yyon,yyon/grapplemod,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,yyon/grapplemod/src/main/java/com/yyon/grapplinghook/utils/Vec.java,23916259/23916259_2_recent.java
+327,orcid,orcid/orcid-source,No,No,Agree No,,Agree No,,orcid/orcid-source/orcid-core/src/main/java/org/orcid/core/utils/UTF8Control.java,4429257/4429257_2_9347476.java
+328,cruxframework,cruxframework/crux,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,cruxframework/crux/crux-dev/src/main/java/org/cruxframework/crux/core/declarativeui/ViewProcessor.java,41225553/41225553_2_recent.java
+329,wrensecurity,wrensecurity/wrends,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wrensecurity/wrends/opendj-server-legacy/src/test/java/org/opends/server/controls/PersistentSearchControlTest.java,28329032/28329032_6_147347267.java
+330,openequella,openequella/openequella,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,openequella/openequella/Source/Plugins/Applet/com.tle.web.filemanager.applet/appletsrc/src/main/java/com/tle/web/filemanager/applet/actions/DesktopApi.java,18004334/18004334_4_recent.java
+331,wupeixuan,wupeixuan/jdksourcecode1.8,No,No,Agree No,,Agree No,,wupeixuan/jdksourcecode1.8/src/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+332,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/util/TimSort.java,29866762/29866762_2_89013107.java
+333,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/util/HashMap.java,46830988/46830988_4_158689916.java
+334,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/util/Timer.java,16799135/16799135_10_41317480.java
+335,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/util/stream/ReferencePipeline.java,29230939/29230939_4_201996375.java
+336,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/util/stream/ReferencePipeline.java,29230939/29230939_4_201996375.java
+337,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/nio/DirectByteBuffer.java,50578162/50578162_2_recent.java
+338,wupeixuan,wupeixuan/jdksourcecode1.8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+339,wupeixuan,wupeixuan/jdksourcecode1.8,No,No,Agree No,,Agree No,,wupeixuan/jdksourcecode1.8/src/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+340,wupeixuan,wupeixuan/jdksourcecode1.8,No,No,Agree No,,Agree No,,wupeixuan/jdksourcecode1.8/src/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+341,wupeixuan,wupeixuan/jdksourcecode1.8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,wupeixuan/jdksourcecode1.8/src/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+342,mpue,mpue/blackboard,No,No,Agree No,,Agree No,,mpue/blackboard/src/org/pmedv/core/gui/controller/ApplicationLoginController.java,62722315/62722315_2_recent.java
+343,dengsinkiang,dengsinkiang/sk-admin,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,dengsinkiang/sk-admin/sk-system/src/main/java/com/dxj/config/ConfigurerAdapter.java,58370217/58370217_2_recent.java
+344,jhy,jhy/jsoup,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jhy/jsoup/src/main/java/org/jsoup/helper/HttpConnection.java,31868761/31868761_4_96856276.java
+345,crazyhitty,crazyhitty/munch,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,crazyhitty/munch/mindb/src/main/java/com/crazyhitty/chdev/ks/mindb/DatabaseHelper.java,9109728/9109728_6_recent.java
+346,crazyhitty,crazyhitty/munch,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,crazyhitty/munch/mindb/src/main/java/com/crazyhitty/chdev/ks/mindb/DatabaseAdapter.java,9109728/9109728_8_133022768.java
+347,luohuayu,luohuayu/catserver,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,luohuayu/catserver/src/fmllauncher/java/com/google/gson/internal/bind/TypeAdapters$EnumTypeAdapter.java,24127188/24127188_2_recent.java
+348,sendowlorganization,sendowlorganization/sendowl,No,No,Agree No,,Agree No,,sendowlorganization/sendowl/src/main/java/com/example/sendowl/config/OpenApiConfig.java,59430454/59430454_2_recent.java
+349,actframework,actframework/actframework,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,actframework/actframework/src/main/java/act/conf/AppConfig.java,4429257/4429257_2_9347476.java
+350,sofastack,sofastack/sofa-jraft,No,No,Agree No,,Agree No,,sofastack/sofa-jraft/jraft-core/src/main/java/com/alipay/sofa/jraft/util/BytesUtil.java,60266789/60266789_2_recent.java
+351,shradha-khapra,shradha-khapra/apnacollege-alpha,No,No,Agree No,,Agree No,,shradha-khapra/apnacollege-alpha/10_Backtracking/Classroom.java,46193578/46193578_2_recent.java
+352,sharispe,sharispe/slib,No,No,Agree No,,Agree No,,sharispe/slib/slib-dsm/src/main/java/com/github/sharispe/slib/dsm/utils/Utils.java,453067/453067_2_recent.java
+353,tsiemens,tsiemens/pathfinder-toolkit,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tsiemens/pathfinder-toolkit/pathfinder-toolkit/src/main/com/lateensoft/pathfinder/toolkit/util/FileUtils.java,52144662/52144662_2_181397043.java
+354,f117-sercet,f117-sercet/qztc-mall,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,f117-sercet/qztc-mall/Mall/Mall-admin/src/main/java/com/dsc/mall/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+355,asolarlez,asolarlez/sketch-frontend,No,No,Agree No,,Agree No,,asolarlez/sketch-frontend/src/main/java/sketch/compiler/solvers/parallel/WilcoxonStrategy.java,1520212/1520212_2_recent.java
+356,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+357,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+358,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+359,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+360,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+361,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+362,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+363,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+364,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+365,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+366,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/sun/security/pkcs11/tls/TestLeadingZeroesP11.java,58993471/58993471_2_recent.java
+367,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+368,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/test/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+369,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+370,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+371,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+372,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+373,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk8/jdk/test/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+374,ibmruntimes,ibmruntimes/openj9-openjdk-jdk8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk8/jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+375,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.desktop/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+376,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+377,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+378,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+379,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+380,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/util/Random.java,62919983/62919983_2_recent.java
+381,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+382,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+383,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/src/java.base/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+384,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/sun/security/pkcs11/PKCS11Test.java,58993471/58993471_2_recent.java
+385,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/sun/security/pkcs11/PKCS11Test.java,58993471/58993471_2_recent.java
+386,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+387,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk11/test/jdk/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+388,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+389,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreementPadding.java,58993471/58993471_2_recent.java
+390,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+391,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+392,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+393,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+394,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,No,Agree No,,Agree No,,ibmruntimes/openj9-openjdk-jdk11/test/jdk/javax/net/ssl/DTLS/DTLSSequenceNumberTest.java,1520212/1520212_2_recent.java
+395,ibmruntimes,ibmruntimes/openj9-openjdk-jdk11,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ibmruntimes/openj9-openjdk-jdk11/test/jdk/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+396,changmingxie,changmingxie/tcc-transaction,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,changmingxie/tcc-transaction/tcc-transaction-dashboard/src/main/java/org/mengyun/tcctransaction/dashboard/security/SecurityConfig.java,58370217/58370217_2_recent.java
+397,dietzm,dietzm/gcodeinfo,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,dietzm/gcodeinfo/GCodeInfo/src/de/dietzm/gcodesim/GcodeSimulator.java,10967469/10967469_2_recent.java
+398,vaadin,vaadin/framework,No,No,Agree No,,Agree No,,vaadin/framework/compatibility-server/src/test/java/com/vaadin/v7/data/util/BeanItemContainerGenerator.java,18531276/18531276_2_recent.java
+399,vaadin,vaadin/framework,No,No,Agree No,,Agree No,,vaadin/framework/uitest/src/main/java/com/vaadin/tests/util/PortableRandom.java,18531276/18531276_2_recent.java
+400,aliview,aliview/aliview,No,No,Agree No,,Agree No,,aliview/aliview/src/main/java/aliview/test/CreateColorChooserDialog.java,6702420/6702420_2_89518975.java
+401,ilmila,ilmila/j2eescan,No,No,Agree No,,Agree No,,ilmila/j2eescan/src/main/java/burp/j2ee/passive/strutstoken/ReplayRandom.java,18531276/18531276_2_recent.java
+402,refactoringguru,refactoringguru/design-patterns-java,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,refactoringguru/design-patterns-java/src/refactoring_guru/visitor/example/shapes/Rectangle.java,9709606/9709606_2_recent.java
+403,polystat,polystat/j2eo,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,polystat/j2eo/src/test/resources/test_candidates/ch_10_arrays/sec_10_4_array_access/DisplayMatrixSquare.java,5061920/5061920_1_recent.java
+404,polystat,polystat/j2eo,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,polystat/j2eo/src/test/resources/test_candidates/ch_10_arrays/sec_10_4_array_access/DisplayMatrixNoSquare.java,5061920/5061920_1_recent.java
+405,tonikelope,tonikelope/megabasterd,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tonikelope/megabasterd/src/main/java/com/tonikelope/megabasterd/BoundedExecutor.java,2001205/2001205_2_recent.java
+406,daxiak,daxiak/mydiary,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,daxiak/mydiary/app/src/main/java/com/kiminonawa/mydiary/shared/FileManager.java,9293885/9293885_2_recent.java
+407,daxiak,daxiak/mydiary,No,No,Agree No,,Agree No,,daxiak/mydiary/app/src/main/java/com/kiminonawa/mydiary/entries/DiaryActivity.java,30321780/30321780_2_recent.java
+408,asystat,asystat/final-android-resizer,No,No,Agree No,,Agree No,,asystat/final-android-resizer/src/FinalResizer.java,6702420/6702420_2_89518975.java
+409,sukritishah15,sukritishah15/ds-algo-point,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,sukritishah15/ds-algo-point/Java/Algorithms/inorder.java,57560955/57560955_2_recent.java
+410,pamguard,pamguard/pamguard,No,No,Agree No,,Agree No,,pamguard/pamguard/src/soundtrap/BCLReader.java,28137956/28137956_4_recent.java
+411,pamguard,pamguard/pamguard,No,No,Agree No,,Agree No,,pamguard/pamguard/src/difar/display/SonobuoyManagerPanel.java,17627497/17627497_2_recent.java
+412,ebay,ebay/yidb,No,No,Agree No,,Agree No,,ebay/yidb/cms-core/web/src/test/java/com/ebay/cloud/cms/web/RunTestServer.java,13731858/13731858_2_recent.java
+413,yangzongzhuan,yangzongzhuan/ruoyi-vue,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,yangzongzhuan/ruoyi-vue/ruoyi-framework/src/main/java/com/ruoyi/framework/config/ResourcesConfig.java,58370217/58370217_2_recent.java
+414,ccrama,ccrama/slide,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ccrama/slide/app/src/main/java/me/ccrama/redditslide/util/DrawableUtil.java,27436796/27436796_2_recent.java
+415,h-mdm,h-mdm/hmdm-server,No,No,Agree No,,Agree No,,h-mdm/hmdm-server/common/src/main/java/com/hmdm/util/ResourceBundleUTF8Control.java,4429257/4429257_2_9347476.java
+416,ripmeapp,ripmeapp/ripme,No,No,Agree No,,Agree No,,ripmeapp/ripme/src/main/java/com/rarchives/ripme/utils/UTF8Control.java,4429257/4429257_2_9347476.java
+417,pippokill,pippokill/tri,No,No,Agree No,,Agree No,,pippokill/tri/src/main/java/di/uniba/it/tri/changepoint/v2/ComputeCPTTaylor.java,1520212/1520212_2_recent.java
+418,springdoc,springdoc/springdoc-openapi,No,No,Agree No,,Agree No,,springdoc/springdoc-openapi/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/v30/app76/SpringDocApp76Test.java,59430454/59430454_2_recent.java
+419,springdoc,springdoc/springdoc-openapi,No,No,Agree No,,Agree No,,springdoc/springdoc-openapi/springdoc-openapi-javadoc/src/test/java/test/org/springdoc/api/app76/SpringDocApp76Test.java,59430454/59430454_2_recent.java
+420,sromku,sromku/android-storage,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sromku/android-storage/storage/src/main/java/com/snatik/storage/Storage.java,52144662/52144662_2_181397043.java
+421,zitmen,zitmen/thunderstorm,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,zitmen/thunderstorm/src/main/java/cz/cuni/lf1/lge/ThunderSTORM/colocalization/CBC.java,40056844/40056844_2_recent.java
+422,zitmen,zitmen/thunderstorm,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,zitmen/thunderstorm/src/main/java/cz/cuni/lf1/lge/ThunderSTORM/ImportExport/XMLImportExport.java,61006461/61006461_2_recent.java
+423,dragome,dragome/dragome-sdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,dragome/dragome-sdk/dragome-js-jre/src/main/java/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+424,dragome,dragome/dragome-sdk,No,No,Agree No,,Agree No,,dragome/dragome-sdk/dragome-js-jre/src/main/java/java/util/TimSort.java,29866762/29866762_2_89013107.java
+425,dragome,dragome/dragome-sdk,No,No,Agree No,,Agree No,,dragome/dragome-sdk/dragome-js-jre/src/main/java/java/util/Timer.java,16799135/16799135_10_41317480.java
+426,dragome,dragome/dragome-sdk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,dragome/dragome-sdk/dragome-js-jre/src/main/java/java/io/PrintStream.java,55728841/55728841_2_recent.java
+427,davidwhitlock,davidwhitlock/portlandstatejava,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,davidwhitlock/portlandstatejava/projects-parent/projects/src/main/java/edu/pdx/cs410J/AbstractLRUMap.java,29548090/29548090_4_recent.java
+428,open-hand,open-hand/choerodon-starters,No,No,Agree No,,Agree No,,open-hand/choerodon-starters/choerodon-gitlab4j-api/src/main/java/org/gitlab4j/api/utils/JacksonJson.java,22918204/22918204_2_62450522.java
+429,algorithm004-01,algorithm004-01/algorithm004-01,No,No,Agree No,,Agree No,,algorithm004-01/algorithm004-01/Week 08/id_081/MaximalRectangle.java,62802127/62802127_2_recent.java
+430,bookdash,bookdash/bookdash-android-app,No,No,Agree No,,Agree No,,bookdash/bookdash-android-app/app/src/main/java/org/bookdash/android/data/utils/ZipManager.java,54298032/54298032_2_recent.java
+431,haulmont,haulmont/jmix-core,No,No,Agree No,,Agree No,,haulmont/jmix-core/jmix-reports/reports/src/main/java/io/jmix/reports/util/ReportsUtils.java,36494384/36494384_1_174279059.java
+432,anuj-kumar-sharma,anuj-kumar-sharma/ds-algo,No,No,Agree No,,Agree No,,anuj-kumar-sharma/ds-algo/trees/Tree.java,31386664/31386664_4_95005617.java
+433,anuj-kumar-sharma,anuj-kumar-sharma/ds-algo,No,No,Agree No,,Agree No,,anuj-kumar-sharma/ds-algo/trees/Tree.java,31386664/31386664_4_95005617.java
+434,alibaba,alibaba/spring-cloud-alibaba,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/spring-cloud-alibaba/spring-cloud-alibaba-examples/integrated-example/integrated-gateway/src/main/java/com/alibaba/cloud/integration/gateway/config/GatewayConfig.java,58370217/58370217_2_recent.java
+435,alibaba,alibaba/compileflow-idea-designer,No,No,Agree No,,Agree No,,alibaba/compileflow-idea-designer/src/main/java/com/alibaba/compileflow/idea/graph/nodeview/component/ActionPanel.java,35360983/35360983_2_recent.java
+436,alibaba,alibaba/compileflow-idea-designer,No,No,Agree No,,Agree No,,alibaba/compileflow-idea-designer/src/main/java/com/alibaba/compileflow/idea/graph/nodeview/component/ScriptTaskParamsPanel.java,35360983/35360983_2_recent.java
+437,alibaba,alibaba/compileflow-idea-designer,No,No,Agree No,,Agree No,,alibaba/compileflow-idea-designer/src/main/java/com/alibaba/compileflow/idea/graph/nodeview/component/SubBpmCodeParamsPanel.java,35360983/35360983_2_recent.java
+438,alibaba,alibaba/mdrill,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/mdrill/trunk/adhoc-solr/src/main/java/org/apache/solr/request/mdrill/QuickHashMap.java,3870210/3870210_4_recent.java
+439,alibaba,alibaba/mdrill,No,No,Agree No,,Agree No,,alibaba/mdrill/trunk/adhoc-internal/src/main/java/weka/core/NormalizableDistance.java,10774468/10774468_2_recent.java
+440,alibaba,alibaba/dragonwell8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/dragonwell8/jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+441,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+442,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+443,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+444,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+445,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+446,alibaba,alibaba/dragonwell8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/dragonwell8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+447,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+448,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+449,alibaba,alibaba/dragonwell8,No,Yes,Disagree,Disagree → Agree No,Agree No,,alibaba/dragonwell8/jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+450,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/sun/security/pkcs11/tls/TestLeadingZeroesP11.java,58993471/58993471_2_recent.java
+451,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+452,alibaba,alibaba/dragonwell8,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/dragonwell8/jdk/test/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+453,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+454,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+455,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+456,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+457,alibaba,alibaba/dragonwell8,No,No,Agree No,,Agree No,,alibaba/dragonwell8/jdk/test/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+458,alibaba,alibaba/dragonwell8,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,alibaba/dragonwell8/jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+459,alibaba,alibaba/nacos,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/nacos/console/src/main/java/com/alibaba/nacos/console/config/ConsoleConfig.java,58370217/58370217_2_recent.java
+460,alibaba,alibaba/atlas,No,No,Agree No,,Agree No,,alibaba/atlas/atlas-gradle-plugin/dexpatch/src/main/java/com/taobao/android/tpatch/utils/PathUtils.java,41842039/41842039_2_recent.java
+461,alibaba,alibaba/druid,No,No,Agree No,,Agree No,,alibaba/druid/core/src/test/java/com/alibaba/druid/test/util/OracleUtilsTest.java,19440217/19440217_2_recent.java
+462,alibaba,alibaba/fastjson,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,alibaba/fastjson/src/main/java/com/alibaba/fastjson/util/AntiCollisionHashMap.java,3870210/3870210_4_recent.java
+463,alibaba,alibaba/alink,No,No,Agree No,,Agree No,,alibaba/alink/core/src/main/java/com/alibaba/alink/common/annotation/UTF8Control.java,4429257/4429257_2_9347476.java
+464,tranleduy2000,tranleduy2000/pascalnide,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tranleduy2000/pascalnide/app/src/main/java/com/duy/pascal/ui/common/utils/SysUtils.java,52144662/52144662_2_181397043.java
+465,tranleduy2000,tranleduy2000/pascalnide,No,No,Agree No,,Agree No,,tranleduy2000/pascalnide/app/src/main/java/com/duy/pascal/ui/activities/SplashScreenActivity.java,59372145/59372145_2_recent.java
+466,tranleduy2000,tranleduy2000/ncalc,No,No,Agree No,,Agree No,,tranleduy2000/ncalc/app/src/main/java/com/duy/ncalc/utils/FileUtils.java,52144662/52144662_2_181397043.java
+467,icyphy,icyphy/ptii,No,No,Agree No,,Agree No,,icyphy/ptii/ptolemy/verification/kernel/maude/RTMExpTranslator.java,25890405/25890405_4_73691184.java
+468,icyphy,icyphy/ptii,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,icyphy/ptii/edu/umich/eecs/april/jmat/LinAlg.java,60816572/60816572_6_recent.java
+469,restlet,restlet/restlet-framework-java,No,No,Agree No,,Agree No,,restlet/restlet-framework-java/modules/org.restlet.ext.gae/src/main/java/org/restlet/ext/gae/GaeAuthenticator.java,28943344/28943344_6_85432010.java
+470,grahamar,grahamar/cron-parser,No,No,Agree No,,Agree No,,grahamar/cron-parser/cron-parser-core/src/main/java/net/redhogs/cronparser/I18nMessages.java,4429257/4429257_2_9347476.java
+471,mabe02,mabe02/lanterna,No,No,Agree No,,Agree No,,mabe02/lanterna/src/main/java/com/googlecode/lanterna/bundle/BundleLocator.java,4429257/4429257_2_9347476.java
+472,ciallo-dev,ciallo-dev/zelix-injection,No,No,Agree No,,Agree No,,ciallo-dev/zelix-injection/src/main/java/zelix/otherhacks/net/wurstclient/forge/utils/MathUtils.java,25985720/25985720_14_recent.java
+473,eclipse,eclipse/deeplearning4j,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eclipse/deeplearning4j/deeplearning4j/deeplearning4j-modelimport/src/main/java/org/deeplearning4j/nn/modelimport/keras/preprocessing/text/KerasTokenizer.java,12738229/12738229_2_30063703.java
+474,eclipse,eclipse/deeplearning4j,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eclipse/deeplearning4j/nd4j/nd4j-common/src/main/java/org/nd4j/common/util/InputStreamUtil.java,453067/453067_2_recent.java
+475,eclipse,eclipse/packagedrone,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eclipse/packagedrone/testing/server-test/src/test/java/org/eclipse/packagedrone/testing/server/TestSuite.java,59664498/59664498_2_recent.java
+476,evosuite,evosuite/evosuite,No,No,Agree No,,Agree No,,evosuite/evosuite/master/src/test/java/com/examples/with/different/packagename/staticfield/StaticBlockCoverage.java,19648723/19648723_1_recent.java
+477,evosuite,evosuite/evosuite,No,No,Agree No,,Agree No,,evosuite/evosuite/plugins/maven-test/projects/CoverageModule/src/main/java/org/maven_test_project/cm/SimpleClass.java,19648723/19648723_1_recent.java
+478,evosuite,evosuite/evosuite,No,No,Agree No,,Agree No,,evosuite/evosuite/plugins/maven-test/projects/SimpleModule/src/main/java/org/maven_test_project/sm/SimpleClass.java,19648723/19648723_1_recent.java
+479,evosuite,evosuite/evosuite,No,No,Agree No,,Agree No,,evosuite/evosuite/plugins/maven-test/projects/ModuleWithOneDependency/src/main/java/org/maven_test_project/mwod/OneDependencyClass.java,19648723/19648723_1_recent.java
+480,evosuite,evosuite/evosuite,No,No,Agree No,,Agree No,,evosuite/evosuite/plugins/gradle/gradle-test-projects/SimpleProject/src/main/java/org/gradle_test_project/sm/SimpleClass.java,19648723/19648723_1_recent.java
+481,matsim-org,matsim-org/matsim-libs,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,matsim-org/matsim-libs/contribs/pseudosimulation/src/main/java/org/matsim/contrib/pseudosimulation/distributed/io/SimpleFileServer.java,29575747/29575747_2_recent.java
+482,matsim-org,matsim-org/matsim-libs,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,matsim-org/matsim-libs/matsim/src/main/java/org/matsim/pt/counts/SimpleWriter.java,65112087/65112087_2_236114933.java
+483,matsim-org,matsim-org/matsim-libs,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,matsim-org/matsim-libs/matsim/src/main/java/org/matsim/pt/counts/SimpleWriter.java,65112087/65112087_2_recent.java
+484,boecker-lab,boecker-lab/sirius,No,No,Agree No,,Agree No,,boecker-lab/sirius/sirius_cli/src/main/java/de/unijena/bioinf/ms/frontend/core/PasswordCrypter.java,12981202/12981202_2_recent.java
+485,boecker-lab,boecker-lab/sirius,No,No,Agree No,,Agree No,,boecker-lab/sirius/sirius_cli/src/main/java/de/unijena/bioinf/ms/frontend/core/PasswordCrypter.java,12981202/12981202_2_recent.java
+486,siaorg,siaorg/sia-gateway,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,siaorg/sia-gateway/sia-gateway-admin/src/test/java/com/creditease/gateway/test/pressuretest/ConcurrentTest.java,27469652/27469652_4_recent.java
+487,qalingo,qalingo/qalingo-engine,No,No,Agree No,,Agree No,,qalingo/qalingo-engine/apis/api-core/api-core-common/src/main/java/org/hoteia/qalingo/core/web/util/BeanUtilsBean.java,5079864/5079864_2_136918794.java
+488,ldoublem,ldoublem/loadingview,No,No,Agree No,,Agress Yes,Bug Fixing,ldoublem/loadingview/loadingviewlib/src/main/java/com/ldoublem/loadingviewlib/view/LVCircularZoom.java,34590765/34590765_2_recent.java
+489,ldoublem,ldoublem/loadingview,No,No,Agree No,,Agress Yes,Bug Fixing,ldoublem/loadingview/loadingviewlib/src/main/java/com/ldoublem/loadingviewlib/view/LVCircularJump.java,34590765/34590765_2_recent.java
+490,ldoublem,ldoublem/loadingview,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,ldoublem/loadingview/loadingviewlib/src/main/java/com/ldoublem/loadingviewlib/view/LVWifi.java,34590765/34590765_2_recent.java
+491,ldoublem,ldoublem/loadingview,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,ldoublem/loadingview/loadingviewlib/src/main/java/com/ldoublem/loadingviewlib/LVSunSetView.java,34590765/34590765_2_recent.java
+492,nuls-io,nuls-io/nuls-v2,No,No,Agree No,,Agree No,,nuls-io/nuls-v2/common/nuls-core/src/main/java/io/nuls/core/crypto/ByteStreams.java,54298032/54298032_2_190009745.java
+493,cityzenapp,cityzenapp/androidapp,No,No,Agree No,,Agree No,,cityzenapp/androidapp/CityZenApp/app/src/main/java/com/cityzen/cityzen/Models/DeviceLocationData.java,60128473/60128473_8_recent.java
+494,yangziwen,yangziwen/web-monitor,No,No,Agree No,,Agree No,,yangziwen/web-monitor/src/main/java/io/github/yangziwen/webmonitor/command/ImportDataCommand.java,20274776/20274776_2_recent.java
+495,openda-association,openda-association/openda,No,No,Agree No,,Agree No,,openda-association/openda/core/java/src/org/openda/utils/io/FileSupport.java,14676464/14676464_2_recent.java
+496,openda-association,openda-association/openda,No,No,Agree No,,Agree No,,openda-association/openda/application/java/src/org/openda/application/gui/TreeDemo.java,6702420/6702420_2_89518975.java
+497,abfab3d,abfab3d/abfab3d,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,abfab3d/abfab3d/src/java/abfab3d/shapejs/Project.java,21178275/21178275_2_recent.java
+498,samczsun,samczsun/skype4j,No,No,Agree No,,Agree No,,samczsun/skype4j/src/main/java/com/samczsun/skype4j/internal/Utils.java,54298032/54298032_2_recent.java
+499,funwayguy,funwayguy/betterquesting,No,No,Agree No,,Agree No,,funwayguy/betterquesting/src/main/java/betterquesting/api2/client/gui/misc/GuiRectangle.java,63631995/63631995_6_recent.java
+500,grpc,grpc/grpc-java,No,No,Agree No,,Agree No,,grpc/grpc-java/gcp-observability/src/test/java/io/grpc/gcp/observability/interceptors/LogHelperTest.java,54298032/54298032_2_190009745.java
+501,grpc,grpc/grpc-java,No,No,Agree No,,Agree No,,grpc/grpc-java/services/src/main/java/io/grpc/protobuf/services/BinaryLogProvider.java,54298032/54298032_2_190009745.java
+502,pig-mesh,pig-mesh/pig,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pig-mesh/pig/pig-register/src/main/java/com/alibaba/nacos/config/ConsoleConfig.java,58370217/58370217_2_recent.java
+503,playframework,playframework/play1,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,playframework/play1/samples-and-tests/just-test-cases/test/Chunked2Test.java,46887834/46887834_2_recent.java
+504,controlsfx,controlsfx/controlsfx,No,No,Agree No,,Agree No,,controlsfx/controlsfx/controlsfx-samples/src/main/java/org/controlsfx/samples/tablefilter/TableFilterMemoryTest.java,54491401/54491401_2_190812542.java
+505,freedomotic,freedomotic/freedomotic,No,No,Agree No,,Agree No,,freedomotic/freedomotic/framework/freedomotic-core/src/main/java/com/freedomotic/i18n/I18nImpl.java,4429257/4429257_2_9347476.java
+506,freedomotic,freedomotic/freedomotic,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,freedomotic/freedomotic/plugins/legacy/bluetooth-id/src/main/java/com/freedomotic/plugins/devices/bluetooth_id/BluetoothID.java,59823215/59823215_2_recent.java
+507,sfplayer1,sfplayer1/matcher,No,No,Agree No,,Agree No,,sfplayer1/matcher/src/matcher/Util.java,2699270/2699270_2_recent.java
+508,breznak,breznak/opends-oss,No,No,Agree No,,Agree No,,breznak/opends-oss/src/eu/opends/settingsController/ConnectionHandler.java,16540679/16540679_1_64924359.java
+509,yahoo,yahoo/elide,No,No,Agree No,,Agree No,,yahoo/elide/elide-model-config/src/test/java/com/yahoo/elide/modelconfig/verify/DynamicConfigVerifierTest.java,64741139/64741139_2_recent.java
+510,yahoo,yahoo/elide,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,yahoo/elide/elide-model-config/src/test/java/com/yahoo/elide/modelconfig/verify/DynamicConfigVerifierTest.java,34174309/34174309_2_recent.java
+511,hmkcode,hmkcode/android,No,No,Agree No,,Agree No,,hmkcode/android/android-get-last-location-fused-api/src/com/hmkcode/locations/MainActivity.java,28039909/28039909_2_recent.java
+512,icecooly,icecooly/fasthttpclient,No,No,Agree No,,Agree No,,icecooly/fasthttpclient/src/main/java/io/itit/itf/okhttp/OkHttpRequest.java,41251473/41251473_6_recent.java
+513,timothymiko,timothymiko/narrate-android,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,timothymiko/narrate-android/app/src/main/java/com/datonicgroup/narrate/app/util/NetworkUtil.java,16114563/16114563_2_recent.java
+514,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/PagesMultiViewElement.java,6702420/6702420_2_89518975.java
+515,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/ServletsMultiViewElement.java,6702420/6702420_2_89518975.java
+516,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/OverviewMultiViewElement.java,6702420/6702420_2_89518975.java
+517,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/ReferencesMultiViewElement.java,6702420/6702420_2_89518975.java
+518,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/SecurityMultiViewElement.java,6702420/6702420_2_89518975.java
+519,apache,apache/netbeans,No,No,Agree No,,Agree No,,apache/netbeans/enterprise/j2ee.ddloaders/src/org/netbeans/modules/j2ee/ddloaders/web/multiview/FiltersMultiViewElement.java,6702420/6702420_2_89518975.java
+520,apache,apache/netbeans,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,apache/netbeans/javafx/javafx2.samples/ChartAdvancedStockLine/src/chartadvancedstockline/ChartAdvancedStockLine.java,28901180/28901180_2_recent.java
+521,apache,apache/netbeans,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,apache/netbeans/java/form/test/qa-functional/src/org/netbeans/qa/form/VisualDevelopmentUtil.java,9293885/9293885_2_recent.java
+522,apache,apache/incubator-hugegraph-toolchain,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,apache/incubator-hugegraph-toolchain/hugegraph-hubble/hubble-be/src/main/java/org/apache/hugegraph/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+523,apache,apache/rocketmq,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,apache/rocketmq/proxy/src/main/java/org/apache/rocketmq/proxy/remoting/protocol/http2proxy/Http2ProxyBackendHandler.java,42681543/42681543_4_recent.java
+524,apache,apache/rocketmq,No,No,Agree No,,Agree No,,apache/rocketmq/proxy/src/main/java/org/apache/rocketmq/proxy/remoting/protocol/http2proxy/Http2ProxyFrontendHandler.java,42681543/42681543_4_recent.java
+525,apache,apache/iotdb,No,No,Agree No,,Agree No,,apache/iotdb/consensus/src/main/java/org/apache/iotdb/consensus/common/Utils.java,18454342/18454342_2_recent.java
+526,apache,apache/pulsar,No,No,Agree No,,Agree No,,apache/pulsar/pulsar-broker/src/test/java/org/apache/pulsar/broker/auth/PortForwarder.java,42681543/42681543_4_recent.java
+527,apache,apache/pulsar,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,apache/pulsar/pulsar-broker/src/test/java/org/apache/pulsar/broker/auth/PortForwarder.java,42681543/42681543_4_recent.java
+528,prometheus,prometheus/client_java,No,No,Agree No,,Agree No,,prometheus/client_java/integration_tests/it_common/src/test/java/io/prometheus/client/it/common/Volume.java,18454342/18454342_2_recent.java
+529,uavorg,uavorg/uavstack,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,uavorg/uavstack/com.creditease.uav.fastjson/src/main/java/com/alibaba/fastjson/util/AntiCollisionHashMap.java,3870210/3870210_4_recent.java
+530,threerings,threerings/getdown,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,threerings/getdown/core/src/main/java/com/threerings/getdown/util/Rectangle.java,9709606/9709606_2_recent.java
+531,bluesoft-rnd,bluesoft-rnd/aperte-workflow-core,No,No,Agree No,,Agree No,,bluesoft-rnd/aperte-workflow-core/core/editor/src/main/java/org/aperteworkflow/editor/actioneditor/EncodingFilter.java,138950/138950_6_recent.java
+532,red5,red5/red5-server,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,red5/red5-server/common/src/main/java/org/red5/server/ClientList.java,7901334/7901334_2_recent.java
+533,red5,red5/red5-server,No,No,Agree No,,Agree No,,red5/red5-server/common/src/main/java/org/red5/server/ClientList.java,7901334/7901334_2_recent.java
+534,vespa-engine,vespa-engine/vespa,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,vespa-engine/vespa/jdisc_core/src/main/java/com/yahoo/jdisc/client/AbstractClientApplication.java,36789749/36789749_6_116354184.java
+535,huanghongxun,huanghongxun/hmcl,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,huanghongxun/hmcl/HMCL/src/main/java/org/jackhuang/hmcl/util/i18n/UTF8Control.java,4429257/4429257_2_9347476.java
+536,barchart,barchart/barchart-udt,No,No,Agree No,,Agree No,,barchart/barchart-udt/barchart-udt-reference-jdk6/src/main/java/sun/security/tools/KeyTool.java,58993471/58993471_2_recent.java
+537,osgi,osgi/osgi,No,No,Agree No,,Agree No,,osgi/osgi/org.osgi.test.cases.cm/src/org/osgi/test/cases/cm/junit/CMCoordinationTestCase.java,19689932/19689932_6_147013208.java
+538,osgi,osgi/osgi,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,osgi/osgi/org.osgi.test.cases.rest/src/org/osgi/test/cases/rest/junit/RestServiceXMLTestCase.java,2325407/2325407_2_recent.java
+539,owasp,owasp/mastg-hacking-playground,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,owasp/mastg-hacking-playground/Android/MSTG-Android-Java-App/app/src/main/java/sg/vp/owasp_mobile/OMTG_Android/OMTG_DATAST_001_ExternalStorage.java,52144662/52144662_2_181397043.java
+540,eclipse-ee4j,eclipse-ee4j/yasson,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eclipse-ee4j/yasson/src/main/java/org/eclipse/yasson/internal/properties/Messages.java,4429257/4429257_2_9347476.java
+541,eclipse-ee4j,eclipse-ee4j/jersey,No,No,Agree No,,Agree No,,eclipse-ee4j/jersey/containers/simple-http/src/test/java/org/glassfish/jersey/simple/ParallelTest.java,12646338/12646338_8_recent.java
+542,eclipse-ee4j,eclipse-ee4j/jersey,No,No,Agree No,,Agree No,,eclipse-ee4j/jersey/core-server/src/main/java/org/glassfish/jersey/server/filter/RolesAllowedDynamicFeature.java,32484638/32484638_2_recent.java
+543,eclipse-ee4j,eclipse-ee4j/jersey,No,No,Agree No,,Agree No,,eclipse-ee4j/jersey/connectors/grizzly-connector/src/test/java/org/glassfish/jersey/grizzly/connector/ParallelTest.java,12646338/12646338_8_recent.java
+544,eclipse-ee4j,eclipse-ee4j/jersey,No,No,Agree No,,Agree No,,eclipse-ee4j/jersey/connectors/helidon-connector/src/test/java/org/glassfish/jersey/helidon/connector/ParallelTest.java,12646338/12646338_8_recent.java
+545,eclipse-ee4j,eclipse-ee4j/jersey,No,No,Agree No,,Agree No,,eclipse-ee4j/jersey/connectors/netty-connector/src/test/java/org/glassfish/jersey/netty/connector/ParallelTest.java,12646338/12646338_8_recent.java
+546,apna-college,apna-college/alpha,No,No,Agree No,,Agree No,,apna-college/alpha/10_Backtracking/Classroom.java,46193578/46193578_2_recent.java
+547,neuroph,neuroph/neuroph,No,No,Agree No,,Agree No,,neuroph/neuroph/neuroph-2.9/Samples/src/main/java/org/neuroph/samples/mnist/master/FuNet1.java,6133827/6133827_2_recent.java
+548,neuroph,neuroph/neuroph,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,neuroph/neuroph/NeurophStudio/NeurophClassificationSample/src/org/neuroph/netbeans/classificationsample/SelectInputsDialog.java,38367701/38367701_2_recent.java
+549,googleapis,googleapis/google-http-java-client,No,No,Agree No,,Agree No,,googleapis/google-http-java-client/google-http-client/src/main/java/com/google/api/client/util/ByteStreams.java,54298032/54298032_2_190009745.java
+550,powernukkitx,powernukkitx/powernukkitx,No,No,Agree No,,Agree No,,powernukkitx/powernukkitx/src/main/java/cn/nukkit/utils/Utils.java,57997601/57997601_2_recent.java
+551,repast,repast/repast.simphony,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,repast/repast.simphony/repast.simphony.gui/src/repast/simphony/ui/widget/MovieMaker.java,6236324/6236324_2_recent.java
+552,azure,azure/azure-sdk-for-java,No,No,Agree No,,Agree No,,azure/azure-sdk-for-java/sdk/cosmos/azure-cosmos/src/main/java/com/azure/cosmos/implementation/guava25/base/Splitter.java,30942772/30942772_4_recent.java
+553,azure,azure/azure-sdk-for-java,No,No,Agree No,,Agree No,,azure/azure-sdk-for-java/sdk/cosmos/azure-cosmos/src/test/java/com/azure/cosmos/implementation/directconnectivity/ConsistencyWriterTest.java,32365355/32365355_2_recent.java
+554,azure,azure/azure-sdk-for-java,No,No,Agree No,,Agree No,,azure/azure-sdk-for-java/sdk/cosmos/azure-cosmos/src/test/java/com/azure/cosmos/implementation/directconnectivity/StoreReaderTest.java,32365355/32365355_2_recent.java
+555,adoptopenjdk,adoptopenjdk/icedtea-web,No,No,Agree No,,Agree No,,adoptopenjdk/icedtea-web/core/src/main/java/net/sourceforge/jnlp/util/docprovider/TextsProvider.java,54298032/54298032_2_recent.java
+556,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/core/src/test/java/org/bouncycastle/asn1/test/OCSPTest.java,40056844/40056844_2_recent.java
+557,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/core/src/test/java/org/bouncycastle/crypto/test/PKCS12Test.java,40056844/40056844_2_recent.java
+558,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/util/src/test/java/org/bouncycastle/asn1/smime/test/SMIMETest.java,40056844/40056844_2_recent.java
+559,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/util/src/test/java/org/bouncycastle/asn1/cms/test/CMSTest.java,40056844/40056844_2_recent.java
+560,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/jdk1.3/org/bouncycastle/jce/provider/test/PSSTest.java,40056844/40056844_2_recent.java
+561,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/java/org/bouncycastle/jce/provider/test/PSSTest.java,40056844/40056844_2_recent.java
+562,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/java/org/bouncycastle/jce/provider/test/FIPSDESTest.java,40056844/40056844_2_recent.java
+563,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/java/org/bouncycastle/jce/provider/test/DESedeTest.java,40056844/40056844_2_recent.java
+564,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/jdk1.1/org/bouncycastle/jce/provider/test/RSATest.java,40056844/40056844_2_recent.java
+565,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/jdk1.4/org/bouncycastle/jce/provider/test/ECIESTest.java,40056844/40056844_2_recent.java
+566,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/jdk1.4/org/bouncycastle/jce/provider/test/DHTest.java,40056844/40056844_2_recent.java
+567,bcgit,bcgit/bc-java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,bcgit/bc-java/prov/src/test/jdk1.4/org/bouncycastle/jce/provider/test/PSSTest.java,40056844/40056844_2_recent.java
+568,tibcosoftware,tibcosoftware/jaspersoft-studio-ce,No,No,Agree No,,Agree No,,tibcosoftware/jaspersoft-studio-ce/com.jaspersoft.studio/src/com/jaspersoft/studio/editor/gef/parts/band/NotMovablePartDragTracker.java,6702029/6702029_1_117495632.java
+569,bazelbuild,bazelbuild/bazel,No,No,Agree No,,Agree No,,bazelbuild/bazel/src/tools/android/java/com/google/devtools/build/android/desugar/io/HeaderClassLoader.java,63342907/63342907_2_recent.java
+570,bazelbuild,bazelbuild/bazel,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,bazelbuild/bazel/src/main/java/com/google/devtools/build/lib/vfs/FileSystemUtils.java,54298032/54298032_2_190009745.java
+571,plutext,plutext/jaxb-2_2_5_1,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,plutext/jaxb-2_2_5_1/samples/src/processor/util/Util.java,9293885/9293885_2_recent.java
+572,swati4star,swati4star/images-to-pdf,No,No,Agree No,,Agree No,,swati4star/images-to-pdf/app/src/main/java/swati4star/createpdf/util/InvertPdf.java,16877278/16877278_2_recent.java
+573,fanhongtao,fanhongtao/jdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,fanhongtao/jdk/src/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+574,fanhongtao,fanhongtao/jdk,No,No,Agree No,,Agree No,,fanhongtao/jdk/src/java/util/TimSort.java,29866762/29866762_2_89013107.java
+575,fanhongtao,fanhongtao/jdk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,fanhongtao/jdk/src/java/util/HashMap.java,3870210/3870210_4_recent.java
+576,fanhongtao,fanhongtao/jdk,No,No,Agree No,,Agree No,,fanhongtao/jdk/src/java/util/Timer.java,16799135/16799135_10_41317480.java
+577,fanhongtao,fanhongtao/jdk,No,No,Agree No,,Agree No,,fanhongtao/jdk/src/java/nio/DirectByteBuffer.java,50578162/50578162_2_recent.java
+578,fanhongtao,fanhongtao/jdk,No,No,Agree No,,Agree No,,fanhongtao/jdk/src/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+579,fanhongtao,fanhongtao/jdk,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,fanhongtao/jdk/src/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+580,massivecraft,massivecraft/massivecore,No,No,Agree No,,Agree No,,massivecraft/massivecore/src/com/massivecraft/massivecore/adapter/AdapterModdedEnumType.java,24127188/24127188_2_recent.java
+581,robolectric,robolectric/robolectric,No,No,Agree No,,Agree No,,robolectric/robolectric/robolectric/src/test/java/org/robolectric/shadows/ShadowPausedLooperTest.java,20274776/20274776_2_recent.java
+582,cymcsg,cymcsg/ultimateandroid,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,cymcsg/ultimateandroid/deprecated/UltimateAndroidGradle/demoofui/src/main/java/com/marshalchen/common/demoofui/jsoup/UtilsDemoActivity.java,20276324/20276324_2_recent.java
+583,kickflip,kickflip/kickflip-android-sdk,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,kickflip/kickflip-android-sdk/sdk/src/main/java/io/kickflip/sdk/FileUtils.java,9293885/9293885_2_recent.java
+584,xuzhijvn,xuzhijvn/ifcs,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,xuzhijvn/ifcs/src/test/java/ims/Test.java,13558161/13558161_6_32316591.java
+585,nasaworldwind,nasaworldwind/worldwindjava,No,No,Agree No,,Agree No,,nasaworldwind/worldwindjava/src/gov/nasa/worldwindx/examples/SimpleShapeDragging.java,13542540/13542540_2_recent.java
+586,nasaworldwind,nasaworldwind/worldwindjava,No,No,Agree No,,Agree No,,nasaworldwind/worldwindjava/src/gov/nasa/worldwindx/examples/SimplestPossibleExample.java,13542540/13542540_2_recent.java
+587,phoenixctms,phoenixctms/ctsms,No,No,Agree No,,Agree No,,phoenixctms/ctsms/web/src/main/java/org/phoenixctms/ctsms/web/jersey/provider/CORSFilter.java,50241292/50241292_2_173099365.java
+588,knowm,knowm/xchart,No,No,Agree No,,Agree No,,knowm/xchart/xchart-demo/src/main/java/org/knowm/xchart/demo/XChartStyleDemo.java,6702420/6702420_2_89518975.java
+589,knowm,knowm/xchart,No,No,Agree No,,Agree No,,knowm/xchart/xchart-demo/src/main/java/org/knowm/xchart/demo/XChartDemo.java,6702420/6702420_2_89518975.java
+590,knowm,knowm/xchart,No,No,Agree No,,Agree No,,knowm/xchart/xchart-demo/src/main/java/org/knowm/xchart/standalone/SwingDemo.java,6702420/6702420_2_89518975.java
+591,bwssytems,bwssytems/ha-bridge,No,No,Agree No,,Agree No,,bwssytems/ha-bridge/src/main/java/com/bwssystems/HABridge/BridgeSecurity.java,12981202/12981202_2_recent.java
+592,bwssytems,bwssytems/ha-bridge,No,No,Agree No,,Agree No,,bwssytems/ha-bridge/src/main/java/com/bwssystems/HABridge/BridgeSecurity.java,12981202/12981202_2_recent.java
+593,spring-projects,spring-projects/spring-integration,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,spring-projects/spring-integration/spring-integration-file/src/main/java/org/springframework/integration/file/splitter/FileSplitter.java,33270545/33270545_2_102375019.java
+594,spring-projects,spring-projects/spring-integration,No,No,Agree No,,Agree No,,spring-projects/spring-integration/spring-integration-zip/src/main/java/org/springframework/integration/zip/transformer/SpringZipUtils.java,2086792/2086792_2_recent.java
+595,spring-projects,spring-projects/spring-kafka,No,No,Agree No,,Agree No,,spring-projects/spring-kafka/spring-kafka-docs/src/main/java/org/springframework/kafka/jdocs/started/noboot/Config.java,58496526/58496526_2_207696359.java
+596,spring-projects,spring-projects/spring-boot,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,spring-projects/spring-boot/spring-boot-tests/spring-boot-smoke-tests/spring-boot-smoke-test-traditional/src/main/java/smoketest/traditional/config/WebConfig.java,52148106/52148106_4_181012547.java
+597,spring-projects,spring-projects/sts4,No,No,Agree No,,Agree No,,spring-projects/sts4/headless-services/spring-boot-language-server/src/test/resources/test-projects/test-xml-validations/src/main/java/u/t/r/HomeController.java,10195366/10195366_2_recent.java
+598,spring-projects,spring-projects/sts4,No,No,Agree No,,Agree No,,spring-projects/sts4/headless-services/spring-boot-language-server/src/test/resources/test-projects/test-xml-hyperlinks/src/main/java/u/t/r/HomeController.java,10195366/10195366_2_recent.java
+599,technicpack,technicpack/launcherv3,No,No,Agree No,,Agree No,,technicpack/launcherv3/src/main/java/net/technicpack/launchercore/install/verifiers/ValidZipFileVerifier.java,2086792/2086792_2_recent.java
+600,togglz,togglz/togglz,No,No,Agree No,,Agree No,,togglz/togglz/core/src/main/java/org/togglz/core/util/IOUtils.java,54298032/54298032_2_190009745.java
+601,douglascraigschmidt,douglascraigschmidt/livelessons,No,No,Agree No,,Agree No,,douglascraigschmidt/livelessons/Folders/ParallelStreams/src/main/resources/works/LiveLessons/Java8/ex25/src/utils/ExceptionUtils.java,27644392/27644392_4_103987644.java
+602,douglascraigschmidt,douglascraigschmidt/livelessons,No,No,Agree No,,Agree No,,douglascraigschmidt/livelessons/Java8/ex25/src/main/java/utils/ExceptionUtils.java,27644392/27644392_4_103987644.java
+603,strapdata,strapdata/elassandra,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,strapdata/elassandra/server/src/test/java/org/elasticsearch/cluster/service/TaskExecutorTests.java,33561612/33561612_2_recent.java
+604,huawei-hadoop,huawei-hadoop/hindex,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,huawei-hadoop/hindex/src/test/java/org/apache/hadoop/hbase/procedure/TestZKProcedure.java,59239733/59239733_4_210806800.java
+605,conventions,conventions/core,No,No,Agree No,,Agree No,,conventions/core/src/main/java/org/conventionsframework/util/ResourceBundle.java,4429257/4429257_2_9347476.java
+606,jonathangerbaud,jonathangerbaud/klyph,No,No,Agree No,,Agree No,,jonathangerbaud/klyph/Klyph/src/com/abewy/android/apps/klyph/gcm/WakeLocker.java,27287511/27287511_2_79053914.java
+607,jonathangerbaud,jonathangerbaud/klyph,No,No,Agree No,,Agree No,,jonathangerbaud/klyph/Klyph/src/com/abewy/android/apps/klyph/gcm/WakeLocker.java,27287511/27287511_2_79053914.java
+608,nightscoutfoundation,nightscoutfoundation/xdrip,No,No,Agree No,,Agree No,,nightscoutfoundation/xdrip/wear/src/main/java/com/eveningoutpost/dexdrip/ListenerService.java,32061893/32061893_2_recent.java
+609,nightscoutfoundation,nightscoutfoundation/xdrip,No,No,Agree No,,Agree No,,nightscoutfoundation/xdrip/app/src/main/java/com/eveningoutpost/dexdrip/wearintegration/WatchUpdaterService.java,32061893/32061893_2_recent.java
+610,waylau,waylau/netty-4-user-guide-demos,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,waylau/netty-4-user-guide-demos/netty4-demos/src/main/java/com/waylau/netty/demo/time/TimeServer.java,34717151/34717151_6_recent.java
+611,waylau,waylau/netty-4-user-guide-demos,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,waylau/netty-4-user-guide-demos/netty4-demos/src/main/java/com/waylau/netty/demo/discard/DiscardServer.java,34717151/34717151_6_recent.java
+612,waylau,waylau/netty-4-user-guide-demos,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,waylau/netty-4-user-guide-demos/netty4-demos/src/main/java/com/waylau/netty/demo/pojo/TimeServer.java,34717151/34717151_6_recent.java
+613,intuit,intuit/benten,No,No,Agree No,,Agree No,,intuit/benten/benten-core/src/main/java/com/intuit/benten/channel/slack/SlackHelper.java,49348068/49348068_2_recent.java
+614,addstarmc,addstarmc/minigames,No,No,Agree No,,Agree No,,addstarmc/minigames/Minigames/src/main/java/au/com/mineauz/minigames/managers/message/UTF8Control.java,4429257/4429257_2_9347476.java
+615,swellrt,swellrt/swellrt,No,No,Agree No,,Agree No,,swellrt/swellrt/wave/src/main/java/com/google/wave/api/oauth/impl/OpenSocialHttpClient.java,54298032/54298032_2_recent.java
+616,pylersm,pylersm/xinstaller,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,pylersm/xinstaller/src/com/pyler/xinstaller/Utils.java,9293885/9293885_2_recent.java
+617,subhra74,subhra74/snowflake,No,No,Agree No,,Agree No,,subhra74/snowflake/muon-jediterm/src/main/java/com/jediterm/terminal/util/JTextFieldLimit.java,3519182/3519182_2_7342658.java
+618,longjuncai,longjuncai/deepdriver,No,No,Agree No,,Agree No,,longjuncai/deepdriver/src/deepDriver/dl/aml/math/MathUtilBase.java,33612373/33612373_2_103731026.java
+619,eugenp,eugenp/tutorials,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eugenp/tutorials/libraries-server/src/main/java/com/baeldung/netty/NettyServer.java,34717151/34717151_6_recent.java
+620,eugenp,eugenp/tutorials,No,No,Agree No,,Agree No,,eugenp/tutorials/spring-boot-modules/spring-boot-properties/src/main/java/com/baeldung/properties/spring/PropertySourcesPlaceholderConfig.java,13730854/13730854_2_recent.java
+621,eugenp,eugenp/tutorials,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eugenp/tutorials/core-java-modules/core-java-nio/src/test/java/com/baeldung/async/AsyncEchoClient.java,53360610/53360610_4_186072235.java
+622,eugenp,eugenp/tutorials,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,eugenp/tutorials/core-java-modules/core-java-date-operations-2/src/main/java/com/baeldung/skipweekends/AddSubtractDaysSkippingWeekendsUtils.java,33943576/33943576_2_175039647.java
+623,eugenp,eugenp/tutorials,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eugenp/tutorials/core-java-modules/core-java-security-2/src/main/java/com/baeldung/passwordhashing/SHA512Hasher.java,33085670/33085670_2_recent.java
+624,eugenp,eugenp/tutorials,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,eugenp/tutorials/core-java-modules/core-java-9-streams/src/main/java/com/baeldung/streams/breakforeach/CustomSpliterator.java,20765715/20765715_2_recent.java
+625,eugenp,eugenp/tutorials,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,eugenp/tutorials/spring-4/src/test/java/com/baeldung/spring43/attributeannotations/AttributeAnnotationConfiguration.java,52148106/52148106_4_181012547.java
+626,eugenp,eugenp/tutorials,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,eugenp/tutorials/spring-4/src/test/java/com/baeldung/spring43/scopeannotations/ScopeAnnotationsConfiguration.java,52148106/52148106_4_181012547.java
+627,eugenp,eugenp/tutorials,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,eugenp/tutorials/spring-4/src/test/java/com/baeldung/spring43/composedmapping/ComposedMappingConfiguration.java,52148106/52148106_4_181012547.java
+628,lenve,lenve/javaeetest,No,No,Agree No,,Agree No,,lenve/javaeetest/Test18-SpringMVC3/src/main/java/org/sang/MVCConfig.java,52148106/52148106_4_181012547.java
+629,lenve,lenve/javaeetest,No,No,Agree No,,Agree No,,lenve/javaeetest/MyBlog/src/main/java/org/sang/config/MyMVCConfig.java,52148106/52148106_4_181012547.java
+630,lenve,lenve/javaeetest,No,No,Agree No,,Agree No,,lenve/javaeetest/Test18-SpringMVC1/src/main/java/org/sang/MyMVCConfig.java,52148106/52148106_4_181012547.java
+631,lenve,lenve/javaeetest,No,No,Agree No,,Agree No,,lenve/javaeetest/Test18-SpringMVC2/src/main/java/org/sang/MVCConfig.java,52148106/52148106_4_181012547.java
+632,lenve,lenve/javaeetest,No,No,Agree No,,Agree No,,lenve/javaeetest/Test18-FileUpload/src/main/java/org/sang/MVCConfig.java,52148106/52148106_4_181012547.java
+633,thingsboard,thingsboard/thingsboard,No,No,Agree No,,Agree No,,thingsboard/thingsboard/rule-engine/rule-engine-components/src/main/java/org/thingsboard/rule/engine/credentials/CertPemCredentials.java,19435226/19435226_1_recent.java
+634,thingsboard,thingsboard/thingsboard,No,No,Agree No,,Agree No,,thingsboard/thingsboard/rule-engine/rule-engine-components/src/main/java/org/thingsboard/rule/engine/credentials/CertPemCredentials.java,19435226/19435226_1_recent.java
+635,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/exchange/src/main/java/cn/ztuo/bitrade/config/CorsConfig.java,58370217/58370217_2_recent.java
+636,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/open-api/src/main/java/cn/ztuo/bitrade/config/ApplicationConfig.java,58370217/58370217_2_recent.java
+637,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/market/src/main/java/cn/ztuo/bitrade/config/ContextConfig.java,58370217/58370217_2_recent.java
+638,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/ucenter-api/src/main/java/cn/ztuo/bitrade/config/ApplicationConfig.java,58370217/58370217_2_recent.java
+639,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/otc-api/src/main/java/cn/ztuo/bitrade/config/ApplicationConfig.java,58370217/58370217_2_recent.java
+640,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/admin/src/main/java/cn/ztuo/bitrade/config/ApplicationConfig.java,58370217/58370217_2_recent.java
+641,sevenex,sevenex/bitrade-parent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,sevenex/bitrade-parent/exchange-api/src/main/java/cn/ztuo/bitrade/config/ApplicationConfig.java,58370217/58370217_2_recent.java
+642,dsibournemouth,dsibournemouth/autoweka,No,No,Agree No,,Agree No,,dsibournemouth/autoweka/weka-3.7.7/src/main/java/weka/core/NormalizableDistance.java,10774468/10774468_2_recent.java
+643,grpc-nebula,grpc-nebula/grpc-nebula-java,No,No,Agree No,,Agree No,,grpc-nebula/grpc-nebula-java/core/src/main/java/io/grpc/internal/IoUtils.java,54298032/54298032_2_190009745.java
+644,grpc-nebula,grpc-nebula/grpc-nebula-java,No,No,Agree No,,Agree No,,grpc-nebula/grpc-nebula-java/services/src/main/java/io/grpc/services/BinaryLogProvider.java,54298032/54298032_2_190009745.java
+645,grpc-nebula,grpc-nebula/grpc-nebula-java,No,No,Agree No,,Agree No,,grpc-nebula/grpc-nebula-java/protobuf-nano/src/main/java/io/grpc/protobuf/nano/NanoUtils.java,54298032/54298032_2_190009745.java
+646,grpc-nebula,grpc-nebula/grpc-nebula-java,No,No,Agree No,,Agree No,,grpc-nebula/grpc-nebula-java/protobuf-lite/src/main/java/io/grpc/protobuf/lite/ProtoLiteUtils.java,54298032/54298032_2_190009745.java
+647,mitchtabian,mitchtabian/android-instagram-clone,No,No,Agree No,,Agree No,,mitchtabian/android-instagram-clone/app/src/main/java/tabian/com/instagramclone2/Utils/FirebaseMethods.java,50930455/50930455_6_recent.java
+648,evgenyzinoviev,evgenyzinoviev/gravitydefied,No,No,Agree No,,Agree No,,evgenyzinoviev/gravitydefied/src/org/happysanta/gd/Storage/LevelsManager.java,52144662/52144662_2_181397043.java
+649,evgenyzinoviev,evgenyzinoviev/gravitydefied,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,evgenyzinoviev/gravitydefied/src/org/happysanta/gd/Storage/LevelsManager.java,9293885/9293885_2_recent.java
+650,airlift,airlift/airlift,No,No,Agree No,,Agree No,,airlift/airlift/jaxrs/src/main/java/io/airlift/jaxrs/JsonMapper.java,30316055/30316055_2_recent.java
+651,p2abcengine,p2abcengine/p2abcengine,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,p2abcengine/p2abcengine/Code/core-abce/abce-components/src/main/java/eu/abc4trust/util/StorageUtil.java,9293885/9293885_2_recent.java
+652,googlesamples,googlesamples/io2015-codelabs,No,No,Agree No,,Agree No,,googlesamples/io2015-codelabs/geofence/GeoFenceCodeLab/app/src/main/java/com/lmoroney/geofencecodelab/MainActivity.java,28039909/28039909_2_recent.java
+653,ctripcorp,ctripcorp/x-pipe,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ctripcorp/x-pipe/redis/redis-core/src/test/java/com/ctrip/xpipe/redis/core/client/AsyncNettyClientTest.java,59664498/59664498_2_recent.java
+654,skriptlang,skriptlang/skript,No,No,Agree No,,Agree No,,skriptlang/skript/src/main/java/ch/njol/util/EnumTypeAdapter.java,24127188/24127188_2_recent.java
+655,arduino,arduino/arduino,No,No,Agree No,,Agree No,,arduino/arduino/arduino-core/src/processing/app/legacy/PApplet.java,58346204/58346204_2_recent.java
+656,arduino,arduino/arduino,No,No,Agree No,,Agree No,,arduino/arduino/arduino-core/src/processing/app/legacy/PApplet.java,58346204/58346204_2_recent.java
+657,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/clients/GVGAI-JavaClient/src/utils/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+658,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/clients/GVGAI-JavaClient/src/utils/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+659,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/clients/GVGAI-JavaClient/src/utils/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+660,essexuniversitymcts,essexuniversitymcts/gvgai,No,No,Agree No,,Agree No,,essexuniversitymcts/gvgai/clients/GVGAI-JavaClient/src/utils/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+661,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/src/tools/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+662,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/src/tools/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+663,essexuniversitymcts,essexuniversitymcts/gvgai,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,essexuniversitymcts/gvgai/src/tools/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+664,essexuniversitymcts,essexuniversitymcts/gvgai,No,No,Agree No,,Agree No,,essexuniversitymcts/gvgai/src/tools/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+665,daliyan,daliyan/mykeep,No,No,Agree No,,Agree No,,daliyan/mykeep/app/src/main/java/akiyama/mykeep/util/AESUtils.java,6788456/6788456_2_209269621.java
+666,daliyan,daliyan/mykeep,No,No,Agree No,,Agree No,,daliyan/mykeep/app/src/main/java/akiyama/mykeep/util/AESUtils.java,6788456/6788456_2_209269621.java
+667,deeplearning4j,deeplearning4j/deeplearning4j,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,deeplearning4j/deeplearning4j/deeplearning4j/deeplearning4j-modelimport/src/main/java/org/deeplearning4j/nn/modelimport/keras/preprocessing/text/KerasTokenizer.java,12738229/12738229_2_30063703.java
+668,deeplearning4j,deeplearning4j/deeplearning4j,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,deeplearning4j/deeplearning4j/nd4j/nd4j-common/src/main/java/org/nd4j/common/util/InputStreamUtil.java,453067/453067_2_recent.java
+669,stanfordnlp,stanfordnlp/corenlp,No,No,Agree No,,Agree No,,stanfordnlp/corenlp/src/edu/stanford/nlp/util/ConfusionMatrix.java,15422801/15422801_2_102469581.java
+670,stanfordnlp,stanfordnlp/corenlp,No,No,Agree No,,Agree No,,stanfordnlp/corenlp/src/edu/stanford/nlp/util/ConfusionMatrix.java,15422801/15422801_2_recent.java
+671,tyron12233,tyron12233/codeassist,No,No,Agree No,,Agree No,,tyron12233/codeassist/build-tools/build-logic/src/main/java/com/tyron/builder/compiler/aab/AabTask.java,57997601/57997601_2_recent.java
+672,rstudio,rstudio/rstudio,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,rstudio/rstudio/src/gwt/src/org/rstudio/core/client/Rectangle.java,9709606/9709606_2_recent.java
+673,freeplane,freeplane/freeplane,No,No,Agree No,,Agree No,,freeplane/freeplane/freeplane_plugin_script/src/main/java/org/freeplane/plugin/script/PrecompiledClasses.java,61006461/61006461_2_recent.java
+674,ambiverse-nlu,ambiverse-nlu/ambiverse-nlu,No,No,Agree No,,Agree No,,ambiverse-nlu/ambiverse-nlu/src/main/java/de/mpg/mpi_inf/ambiversenlu/nlu/ner/util/Util.java,18454342/18454342_2_recent.java
+675,dnmilne,dnmilne/wikipediaminer,No,No,Agree No,,Agree No,,dnmilne/wikipediaminer/wikipedia-miner-web/src/main/java/org/wikipedia/miner/web/util/CharsetFilter.java,138950/138950_6_recent.java
+676,whamtet,whamtet/chunkmapper,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,whamtet/chunkmapper/src/com/chunkmapper/OpenURL.java,10967469/10967469_2_recent.java
+677,minecraftmoddevelopment,minecraftmoddevelopment/mmdbot,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,minecraftmoddevelopment/mmdbot/src/painter/java/com/mcmoddev/mmdbot/painter/util/ImageUtils.java,51608517/51608517_2_recent.java
+678,minecraftmoddevelopment,minecraftmoddevelopment/mmdbot,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,minecraftmoddevelopment/mmdbot/src/painter/java/com/mcmoddev/mmdbot/painter/util/ImageUtils.java,51608517/51608517_2_recent.java
+679,openliberty,openliberty/open-liberty,No,No,Agree No,,Agree No,,openliberty/open-liberty/dev/com.ibm.ws.security.fat.common.backchannelLogout/test-applications/backchannelLogoutTestApp/src/com/ibm/ws/security/fat/backChannelLogoutTestApps/BackChannelLogout_logJSessionId_Servlet.java,44379671/44379671_6_recent.java
+680,openliberty,openliberty/open-liberty,No,No,Agree No,,Agree No,,openliberty/open-liberty/dev/com.ibm.ws.jdbc_fat_krb5/fat/src/com/ibm/ws/jdbc/fat/krb5/containers/KerberosPlatformRule.java,40317313/40317313_6_130395681.java
+681,openliberty,openliberty/open-liberty,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,openliberty/open-liberty/dev/com.ibm.ws.jdbc_fat_krb5/fat/src/com/ibm/ws/jdbc/fat/krb5/OracleKerberosTest.java,40317313/40317313_6_130395681.java
+682,carlspring,carlspring/s3fs-nio,No,No,Agree No,,Agree No,,carlspring/s3fs-nio/src/test/java/org/carlspring/cloud/storage/s3fs/util/S3ClientMock.java,18454342/18454342_2_recent.java
+683,iotoasis,iotoasis/si,No,No,Agree No,,Agree No,,iotoasis/si/si-modules/LWM2M_IPE_Server/leshan-server-core/src/main/java/org/eclipse/leshan/server/client/Client.java,25985720/25985720_14_recent.java
+684,iotoasis,iotoasis/si,No,No,Agree No,,Agree No,,iotoasis/si/si-modules/DM_Web_Server/src/main/java/net/herit/business/HomeController.java,10195366/10195366_2_recent.java
+685,emmanuelbernard,emmanuelbernard/hibernate-core-ogm,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,emmanuelbernard/hibernate-core-ogm/hibernate-core/src/matrix/java/org/hibernate/test/mappingexception/MappingExceptionTest.java,9293885/9293885_2_recent.java
+686,xwjie,xwjie/plmcodetemplate,No,No,Agree No,,Agree No,,xwjie/plmcodetemplate/javasource-springboot/src/main/java/cn/xiaowenjie/codetemplate/controllers/HomeController.java,10195366/10195366_2_recent.java
+687,xwjie,xwjie/plmcodetemplate,No,No,Agree No,,Agree No,,xwjie/plmcodetemplate/source/src/main/java/plm/controllers/HomeController.java,10195366/10195366_2_recent.java
+688,aliyun,aliyun/aliyun-odps-java-sdk,No,No,Agree No,,Agree No,,aliyun/aliyun-odps-java-sdk/odps-sdk/odps-sdk-commons/src/main/java/com/aliyun/odps/utils/StringUtils.java,801987/801987_2_recent.java
+689,robotmedia,robotmedia/droid-comic-viewer,No,No,Agree No,,Agree No,,robotmedia/droid-comic-viewer/src/com/github/junrar/MVTest.java,4305365/4305365_2_recent.java
+690,odoo-mobile,odoo-mobile/framework,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,odoo-mobile/framework/app/src/main/java/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+691,odoo-mobile,odoo-mobile/framework,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,odoo-mobile/framework/app/src/main/java/com/google/gson/Gson.java,24127188/24127188_2_recent.java
+692,odoo-mobile,odoo-mobile/framework,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,odoo-mobile/framework/app/src/main/java/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+693,odoo-mobile,odoo-mobile/framework,No,No,Agree No,,Agree No,,odoo-mobile/framework/app/src/main/java/com/google/gson/internal/bind/TypeAdapters.java,24127188/24127188_2_recent.java
+694,dromara,dromara/hodor,No,No,Agree No,,Agree No,,dromara/hodor/hodor-common/src/main/java/org/dromara/hodor/common/utils/BytesUtil.java,60266789/60266789_2_recent.java
+695,oauth-apis,oauth-apis/apis,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,oauth-apis/apis/apis-example-client-app/src/main/java/org/surfnet/oaaas/config/SpringConfiguration.java,52148106/52148106_4_181012547.java
+696,szhnet,szhnet/kcp-netty,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,szhnet/kcp-netty/kcp-netty/src/main/java/io/jpower/kcp/netty/internal/ReItrHashMap.java,3870210/3870210_4_recent.java
+697,renrenio,renrenio/renren-security,No,No,Agree No,,Agree No,,renrenio/renren-security/renren-admin/src/main/java/io/renren/modules/security/password/BCryptPasswordEncoder.java,41471859/41471859_4_135239059.java
+698,geoodk,geoodk/collect,No,No,Agree No,,Agree No,,geoodk/collect/app/src/main/java/com/geoodk/collect/android/widgets/AutoCompleteWidget.java,19876516/19876516_2_recent.java
+699,geoodk,geoodk/collect,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,geoodk/collect/app/src/main/java/com/geoodk/collect/android/preferences/AggregatePreferencesActivity.java,55003173/55003173_2_recent.java
+700,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/examples/extendedExamples/src/main/java/smartMeterExample/M2MDisplay.java,59664498/59664498_2_recent.java
+701,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/examples/memap/src/main/java/memap/external/M2MDisplay.java,59664498/59664498_2_recent.java
+702,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/examples/exampleMemapScenario/src/main/java/exampleScenario/external/M2MDisplay.java,59664498/59664498_2_recent.java
+703,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/examples/exampleMemapScenario/src/main/java/exampleScenario/external/M2MDisplay.java,59664498/59664498_2_recent.java
+704,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/memapCore/src/main/java/memap/external/M2MDisplay.java,59664498/59664498_2_recent.java
+705,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/previousProjects/memapLinProgDenisThesisArchive/src/main/java/linprogMPC/external/M2MDisplay.java,59664498/59664498_2_recent.java
+706,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/previousProjects/memapLinProgDenisPlayground/src/main/java/linprogMPC/external/M2MDisplay.java,59664498/59664498_2_recent.java
+707,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/previousProjects/memapLinProgHDN/src/main/java/linprogMPC/external/M2MDisplay.java,59664498/59664498_2_recent.java
+708,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/previousProjects/memapLinProgDenisThesis_2Houses/src/main/java/linprogMPC/external/M2MDisplay.java,59664498/59664498_2_recent.java
+709,ses-fortiss,ses-fortiss/smartgridcosimulation,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ses-fortiss/smartgridcosimulation/projects/previousProjects/memapLinProgDenisThesis/src/main/java/linprogMPC/external/M2MDisplay.java,59664498/59664498_2_recent.java
+710,neo4j,neo4j/graph-data-science,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,neo4j/graph-data-science/io/csv/src/main/java/org/neo4j/gds/core/io/file/csv/UserInfoVisitor.java,65112087/65112087_2_236114933.java
+711,graxcode,graxcode/jbytemod-beta,No,No,Agree No,,Agree No,,graxcode/jbytemod-beta/src/main/java/me/grax/jbytemod/ui/dialogue/ClassDialogue.java,3519182/3519182_2_7342658.java
+712,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+713,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+714,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+715,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+716,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+717,artisynth,artisynth/artisynth_core,No,No,Agree No,,Agree No,,artisynth/artisynth_core/src/artisynth/core/moviemaker/MakeMovieFromData.java,6236324/6236324_2_recent.java
+718,puniverse,puniverse/quasar,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,puniverse/quasar/quasar-core/src/main/java/co/paralleluniverse/fibers/instrument/QuasarInstrumentor.java,54298032/54298032_2_recent.java
+719,zhaokaiqiang,zhaokaiqiang/jiandan,No,No,Agree No,,Agree No,,zhaokaiqiang/jiandan/app/src/main/java/com/socks/jiandan/ui/ImageDetailActivity.java,47481521/47481521_1_recent.java
+720,elunez,elunez/eladmin,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,elunez/eladmin/eladmin-system/src/main/java/me/zhengjie/config/ConfigurerAdapter.java,58370217/58370217_2_recent.java
+721,opensearch-project,opensearch-project/opensearch,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,opensearch-project/opensearch/server/src/test/java/org/opensearch/cluster/service/TaskExecutorTests.java,33561612/33561612_2_recent.java
+722,dockstore,dockstore/dockstore,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,dockstore/dockstore/dockstore-webservice/src/main/java/io/dockstore/webservice/resources/rss/RSSWriter.java,61006461/61006461_2_recent.java
+723,jcodec,jcodec/jcodec,No,No,Agree No,,Agree No,,jcodec/jcodec/src/main/java/org/jcodec/common/io/IOUtils.java,2699270/2699270_2_recent.java
+724,hiwepy,hiwepy/spring-boot-starter-samples,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,hiwepy/spring-boot-starter-samples/spring-boot-sample-pf4j/src/main/java/ro/fortsoft/pf4j/spring/boot/Pf4jApplication.java,60123437/60123437_2_recent.java
+725,novskey,novskey/pallettown,No,No,Agree No,,Agree No,,novskey/pallettown/src/pallettown/PalletTown.java,28797486/28797486_2_recent.java
+726,haptic-apps,haptic-apps/slide,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,haptic-apps/slide/app/src/main/java/me/ccrama/redditslide/util/DrawableUtil.java,27436796/27436796_2_recent.java
+727,ant-media,ant-media/ant-media-server,No,No,Agree No,,Agree No,,ant-media/ant-media-server/src/main/java/org/red5/server/ClientList.java,7901334/7901334_2_recent.java
+728,ant-media,ant-media/ant-media-server,No,No,Agree No,,Agree No,,ant-media/ant-media-server/src/main/java/org/red5/server/ClientList.java,7901334/7901334_2_recent.java
+729,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleCashDropFetcher/src/maplecashdropfetcher/MapleCashDropFetcher.java,14676464/14676464_2_recent.java
+730,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleMapFieldLimitChecker/src/maplemapfieldlimitchecker/MapleMapFieldLimitChecker.java,14676464/14676464_2_recent.java
+731,ronancpl,ronancpl/heavenms,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleIdRetriever/src/mapleidretriever/MapleIdRetriever.java,14676464/14676464_2_recent.java
+732,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleCashCosmeticsChecker/src/maplecashcosmeticschecker/MapleCashCosmeticsChecker.java,14676464/14676464_2_recent.java
+733,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleEmptyItemWzChecker/src/mapleemptyitemwzchecker/MapleEmptyItemWzChecker.java,14676464/14676464_2_recent.java
+734,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/tools/MapleCashCosmeticsFetcher/src/maplecashcosmeticsfetcher/MapleCashCosmeticsFetcher.java,14676464/14676464_2_recent.java
+735,ronancpl,ronancpl/heavenms,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,ronancpl/heavenms/src/net/server/handlers/login/LoginPasswordHandler.java,32855556/32855556_4_100737457.java
+736,ronancpl,ronancpl/heavenms,No,Yes,Disagree,Disagree → Agree Yes,Agress Yes,Improving Code,ronancpl/heavenms/src/server/MapleSkillbookInformationProvider.java,14676464/14676464_2_recent.java
+737,openpnp,openpnp/openpnp,No,No,Agree No,,Agree No,,openpnp/openpnp/src/main/java/org/openpnp/Translations.java,4429257/4429257_2_9347476.java
+738,marlinski,marlinski/rumble,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,marlinski/rumble/app/src/main/java/org/disrupted/rumble/util/FileUtil.java,52144662/52144662_2_181397043.java
+739,googlecreativelab,googlecreativelab/landmarker,No,No,Agree No,,Agree No,,googlecreativelab/landmarker/app/src/main/java/com/androidexperiments/landmarker/MainActivity.java,28039909/28039909_2_recent.java
+740,nextgenhealthcare,nextgenhealthcare/connect,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,nextgenhealthcare/connect/client/src/com/mirth/connect/client/ui/FindRplDialog.java,62722315/62722315_2_recent.java
+741,w3c,w3c/epubcheck,No,No,Agree No,,Agree No,,w3c/epubcheck/src/main/java/com/adobe/epubcheck/messages/LocalizedMessages.java,4429257/4429257_2_9347476.java
+742,w3c,w3c/epubcheck,No,No,Agree No,,Agree No,,w3c/epubcheck/src/main/java/com/adobe/epubcheck/util/Messages.java,4429257/4429257_2_9347476.java
+743,macrozheng,macrozheng/mall-learning,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall-learning/mall-tiny-oss/src/main/java/com/macro/mall/tiny/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+744,macrozheng,macrozheng/mall-learning,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall-learning/mall-tiny-redis/src/main/java/com/macro/mall/tiny/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+745,macrozheng,macrozheng/mall-learning,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall-learning/mall-tiny/src/main/java/com/macro/mall/tiny/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+746,macrozheng,macrozheng/mall-tiny,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall-tiny/src/main/java/com/macro/mall/tiny/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+747,macrozheng,macrozheng/mall,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall/mall-admin/src/main/java/com/macro/mall/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+748,macrozheng,macrozheng/mall,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,macrozheng/mall/mall-portal/src/main/java/com/macro/mall/portal/config/GlobalCorsConfig.java,58370217/58370217_2_recent.java
+749,pebbletemplates,pebbletemplates/pebble,No,No,Agree No,,Agree No,,pebbletemplates/pebble/pebble/src/main/java/io/pebbletemplates/pebble/extension/i18n/UTF8Control.java,4429257/4429257_2_9347476.java
+750,tony19,tony19/logback-android,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,tony19/logback-android/logback-android/src/test/java/ch/qos/logback/core/rolling/helper/CompressTest.java,9293885/9293885_2_recent.java
+751,jackkolokasis,jackkolokasis/teraheap,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jackkolokasis/teraheap/jdk8u345/jdk/src/share/demo/jfc/SwingApplet/SwingApplet.java,13462440/13462440_6_32050882.java
+752,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/sun/security/tools/keytool/Main.java,58993471/58993471_2_recent.java
+753,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/util/ComparableTimSort.java,29866762/29866762_2_89013107.java
+754,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/util/TimSort.java,29866762/29866762_2_89013107.java
+755,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/util/HashMap.java,46830988/46830988_4_158689916.java
+756,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/util/Timer.java,16799135/16799135_10_41317480.java
+757,jackkolokasis,jackkolokasis/teraheap,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+758,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/java/math/BigDecimal.java,29330741/29330741_6_86929181.java
+759,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/javax/swing/plaf/metal/MetalTabbedPaneUI.java,45774144/45774144_4_recent.java
+760,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/src/share/classes/javax/swing/plaf/basic/BasicTableHeaderUI.java,54119640/54119640_4_189259651.java
+761,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/sun/security/pkcs11/tls/TestLeadingZeroesP11.java,58993471/58993471_2_recent.java
+762,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/sun/security/x509/X500Name/DerValueConstructor.java,58993471/58993471_2_recent.java
+763,jackkolokasis,jackkolokasis/teraheap,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,jackkolokasis/teraheap/jdk8u345/jdk/test/jdk/jfr/jcmd/TestJcmdStartWithSettings.java,64938483/64938483_2_recent.java
+764,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/java/awt/im/6396526/IMLookAndFeel.java,6702420/6702420_2_89518975.java
+765,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement2.java,58993471/58993471_2_recent.java
+766,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/com/sun/crypto/provider/KeyAgreement/DHKeyAgreement3.java,58993471/58993471_2_recent.java
+767,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/com/sun/crypto/provider/Cipher/Blowfish/BlowfishTestVector.java,58993471/58993471_2_recent.java
+768,jackkolokasis,jackkolokasis/teraheap,No,No,Agree No,,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/com/sun/crypto/provider/TLS/TestLeadingZeroes.java,58993471/58993471_2_recent.java
+769,jackkolokasis,jackkolokasis/teraheap,No,Yes,Disagree,Disagree → Agree No,Agree No,,jackkolokasis/teraheap/jdk8u345/jdk/test/javax/imageio/plugins/bmp/BMPSubsamplingTest.java,58617321/58617321_2_recent.java
+770,thealgorithms,thealgorithms/java,No,No,Agree No,,Agree No,,thealgorithms/java/src/main/java/com/thealgorithms/sorts/BitonicSort.java,64124615/64124615_2_recent.java
+771,thealgorithms,thealgorithms/java,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,thealgorithms/java/src/main/java/com/thealgorithms/others/LowestBasePalindrome.java,57713309/57713309_2_recent.java
+772,miyabayt,miyabayt/spring-boot-doma2-sample,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,miyabayt/spring-boot-doma2-sample/sample-web-base/src/main/java/com/bigtreetc/sample/web/base/filter/ClearMDCFilter.java,13956092/13956092_2_recent.java
+773,kubabar1,kubabar1/carrental,No,No,Agree No,,Agree No,,kubabar1/carrental/CarRental/src/main/java/com/carrental/config/SecurityConfiguration.java,30868562/30868562_6_92947534.java
+774,controlsystemstudio,controlsystemstudio/phoebus,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,controlsystemstudio/phoebus/app/logbook/olog/ui/src/main/java/org/phoebus/logbook/olog/ui/write/LogPropertiesEditorController.java,32164598/32164598_8_recent.java
+775,encryptedsystems,encryptedsystems/clusion,No,Yes,Disagree,Disagree → Agree No,Agree No,,encryptedsystems/clusion/src/main/java/org/crypto/sse/TextProc.java,14676464/14676464_2_recent.java
+776,qiurunze123,qiurunze123/threadandjuc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,qiurunze123/threadandjuc/src/main/java/com/geekagain/jmm/FieldVisibility.java,55986044/55986044_2_recent.java
+777,qiurunze123,qiurunze123/threadandjuc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,qiurunze123/threadandjuc/thread-interview/src/main/java/com/apollo/threadinterview/threadjmm/ThreadJmm3.java,55986044/55986044_2_recent.java
+778,qiurunze123,qiurunze123/threadandjuc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,qiurunze123/threadandjuc/thread-interview/src/main/java/com/apollo/threadinterview/threadjmm/FieldVisibilityMind.java,55986044/55986044_2_recent.java
+779,qiurunze123,qiurunze123/threadandjuc,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,qiurunze123/threadandjuc/thread-interview/src/main/java/com/apollo/threadinterview/threadjmm/ThreadJmm4.java,55986044/55986044_2_recent.java
+780,stanford-futuredata,stanford-futuredata/macrobase,No,No,Agree No,,Agree No,,stanford-futuredata/macrobase/legacy/src/test/java/macrobase/pipeline/BasePipelineTest.java,453067/453067_2_recent.java
+781,ukwa,ukwa/webarchive-discovery,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,ukwa/webarchive-discovery/digipres-tika/src/main/java/uk/bl/wa/tika/CallableTest.java,2275596/2275596_2_recent.java
+782,leapcode,leapcode/bitmask_android,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,leapcode/bitmask_android/app/src/main/java/de/blinkt/openvpn/views/SeekBarTicks.java,7649183/7649183_2_57377731.java
+783,flyve-mdm,flyve-mdm/android-mdm-agent,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,flyve-mdm/android-mdm-agent/app/src/main/java/org/flyve/mdm/agent/utils/StorageFolder.java,52144662/52144662_2_181397043.java
+784,openclinica,openclinica/openclinica,Yes,Yes,Agress Yes,,Agress Yes,Bug Fixing,openclinica/openclinica/core/src/main/java/org/akaza/openclinica/logic/expressionTree/ArithmeticOpNode.java,359634/359634_2_recent.java
+785,hak5,hak5/usbrubberducky-payloads,No,No,Agree No,,Agree No,,hak5/usbrubberducky-payloads/payloads/library/remote_access/duckNet/Encoder/src/Encoder_GUI.java,6702420/6702420_2_89518975.java
+786,dougkeen,dougkeen/bartrunnerandroid,No,No,Agree No,,Agree No,,dougkeen/bartrunnerandroid/app/src/main/java/com/dougkeen/util/WakeLocker.java,27287511/27287511_2_79053914.java
+787,1024-lab,1024-lab/smart-admin,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,1024-lab/smart-admin/smart-admin-api/sa-common/src/main/java/net/lab1024/sa/common/config/CorsFilterConfig.java,58370217/58370217_2_recent.java
+788,vmware,vmware/singleton,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,vmware/singleton/g11n-ws/modules/md-data-initdb/src/main/java/com/vmware/vip/initdb/utils/BundleProductUtils.java,20680556/20680556_2_recent.java
+789,vmware,vmware/singleton,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,vmware/singleton/g11n-ws/modules/md-data-initdb/src/main/java/com/vmware/vip/initdb/utils/BundleProductUtils.java,20680556/20680556_2_recent.java
+790,vmware,vmware/singleton,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,vmware/singleton/g11n-ws/modules/md-data-initdb/src/main/java/com/vmware/vip/initdb/utils/BundleProductUtils.java,20680556/20680556_2_recent.java
+791,nationalsecurityagency,nationalsecurityagency/ghidra,Yes,Yes,Agress Yes,,Agress Yes,Improving Code,nationalsecurityagency/ghidra/Ghidra/Framework/Docking/src/main/java/docking/widgets/filechooser/DirectoryList.java,62722315/62722315_2_recent.java
+792,jorensix,jorensix/tarsosdsp,No,No,Agree No,,Agree No,,jorensix/tarsosdsp/jvm/src/main/java/be/tarsos/dsp/ui/layers/TooltipLayer.java,19689932/19689932_6_147013208.java
+793,atilika,atilika/kuromoji,No,No,Agree No,,Agree No,,atilika/kuromoji/kuromoji-benchmark/src/main/java/com/atilika/kuromoji/benchmark/UserDictionaryConverter.java,35057638/35057638_2_109493925.java
