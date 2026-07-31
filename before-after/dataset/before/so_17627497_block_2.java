@@ -1,1 +1,0 @@
-    table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);

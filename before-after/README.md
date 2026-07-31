@@ -44,6 +44,17 @@ The prepared mapping currently contains 391 `Agress Yes` study rows. Of these,
 snippet pairs. The four excluded rows must remain in the exclusion report and
 must not enter the quality calculations.
 
+For convenience, the 125 deduplicated pairs are copied without source
+modification into:
+
+- `dataset/before_agress_yes/`
+- `dataset/after_agress_yes/`
+
+Their audit manifest is `dataset/agress_yes_pairs.csv`. Rebuild these scoped
+folders only from the original source corpus if regeneration is required. The
+broader generated `dataset/before/` and `dataset/after/` folders have been
+removed because they are outside the final analysis scope.
+
 The recommended implementation order is:
 
 1. JavaParser normalization and metric extraction.

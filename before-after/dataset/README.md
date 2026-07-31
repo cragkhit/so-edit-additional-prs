@@ -2,11 +2,14 @@
 
 ## Contents
 
-- `before/`: Original Stack Overflow code-block snapshots.
-- `after/`: Recent snapshots, or the latest snapshot selected by the original
-  study when no `_recent.java` file is available.
-- `snippet_pairs.csv`: One row per unique Stack Overflow question/code-block
-  history.
+- `before_agress_yes/`: Original snapshots for the 125 unique, eligible
+  histories associated with at least one `Agress Yes` study row.
+- `after_agress_yes/`: Corresponding recent/latest snapshots.
+- `agress_yes_pairs.csv`: The active 125-pair PMD analysis manifest, including
+  hashes and paths to the scoped files.
+- `snippet_pairs.csv`: Provenance manifest for all unique Stack Overflow
+  histories. Its former broad generated source folders are intentionally not
+  retained.
 - `study_pair_mapping.csv`: Maps all 793 GitHub–Stack Overflow study rows to
   the unique snippet histories.
 
@@ -49,8 +52,9 @@ For each unique question/code-block history:
    latest available after version.
 4. A history is excluded if either side is unavailable.
 
-Every copied file has a SHA-256 hash, source path, line count, and byte count
-in `snippet_pairs.csv`.
+Every active scoped file has a SHA-256 hash and path in
+`agress_yes_pairs.csv`. The broader provenance metadata remains in
+`snippet_pairs.csv`.
 
 ## Exclusions
 

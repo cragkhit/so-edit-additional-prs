@@ -98,7 +98,7 @@ cells = [
         """
         ROOT = Path.cwd().resolve()
         DATASET = ROOT / "dataset"
-        MANIFEST_PATH = DATASET / "snippet_pairs.csv"
+        MANIFEST_PATH = DATASET / "agress_yes_pairs.csv"
         MAPPING_PATH = DATASET / "study_pair_mapping.csv"
         RULESET_PATH = ROOT / "pmd-ruleset.xml"
         WORK_ROOT = ROOT / "work" / "pmd"
@@ -185,30 +185,19 @@ cells = [
             accepted_rows["Dataset Status"] != "ELIGIBLE"
         ].copy()
 
-        def recommendation_group(values):
-            normalized = {
-                value.strip().lower().replace("bug fixing", "Bug Fixing")
-                .replace("improving code", "Improving Code")
-                for value in values
-                if value.strip()
-            }
-            return next(iter(normalized)) if len(normalized) == 1 else "MULTIPLE_TYPES"
-
-        scope_metadata = (
-            accepted_eligible_rows.groupby("Snippet ID", as_index=False)
-            .agg(
-                accepted_study_rows=("No", "size"),
-                recommendation_group=("Recommendation Type", recommendation_group),
-            )
-        )
         eligible = (
-            manifest.loc[manifest["Status"] == "ELIGIBLE"]
-            .merge(scope_metadata, on="Snippet ID", how="inner", validate="one_to_one")
+            manifest.rename(
+                columns={
+                    "Accepted Study Row Count": "accepted_study_rows",
+                    "Recommendation Group": "recommendation_group",
+                }
+            )
             .copy()
         )
 
         assert len(accepted_rows) == 391
         assert len(accepted_eligible_rows) == 387
+        assert eligible["Snippet ID"].is_unique
         assert len(eligible) == 125
 
         print("All study rows:", len(mapping))
@@ -832,7 +821,7 @@ cells = [
         run_summary = {
             "pmd_version": PMD_VERSION,
             "java_language_version": JAVA_LANGUAGE_VERSION,
-            "manifest_histories": int(len(manifest)),
+            "scoped_manifest_pairs": int(len(manifest)),
             "manual_validation_filter": "Agress Yes",
             "agress_yes_study_rows": int(len(accepted_rows)),
             "eligible_agress_yes_study_rows": int(len(accepted_eligible_rows)),
