@@ -1,0 +1,1 @@
+    chmod u+x /home/admin/ec2-api-tools-*/bin/*

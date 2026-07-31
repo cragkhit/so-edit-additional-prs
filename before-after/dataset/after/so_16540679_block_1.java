@@ -1,0 +1,26 @@
+    public static Document loadXMLFromString(String xml) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        InputSource is = new InputSource(new StringReader(xml));
+        return builder.parse(is);
+    }
+    
+    @Test
+    public void test() throws Exception {
+        Document doc = loadXMLFromString("<test>\n" +
+                "  <elem>b</elem>\n" +
+                "  <elem>a</elem>\n" +
+                "</test>");
+        XPathFactory xPathfactory = XPathFactory.newInstance();
+        XPath xpath = xPathfactory.newXPath();
+        XPathExpression expr = xpath.compile("//test//elem");
+        NodeList all = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+        Set<String> values = new HashSet<>();
+        if (all != null && all.getLength() > 0) {
+            for (int i = 0; i < all.getLength(); i++) {
+                values.add(all.item(i).getTextContent());
+            }
+        }
+        Set<String> expected = new HashSet<>(Arrays.asList("a", "b"));
+        assertEquals(expected, values);
+    }
