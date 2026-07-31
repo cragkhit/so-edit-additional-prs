@@ -1,0 +1,17 @@
+{
+  "pmd_version": "7.25.0",
+  "java_language_version": "java-17",
+  "scoped_manifest_pairs": 125,
+  "manual_validation_filter": "Agress Yes",
+  "agress_yes_study_rows": 391,
+  "eligible_agress_yes_study_rows": 387,
+  "excluded_agress_yes_study_rows": 4,
+  "unique_eligible_agress_yes_pairs": 125,
+  "analyzed_pairs": 77,
+  "parse_excluded_pairs": 48,
+  "identical_pairs": 9,
+  "retained_violations": 81,
+  "bug_risk_violations": 72,
+  "performance_violations": 9,
+  "ruleset_sha256": "4d6ac1296e2ad79d41f10613604b65ff51e496e57d204d2e69c10df2e24f05af"
+}

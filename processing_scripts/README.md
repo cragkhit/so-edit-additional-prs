@@ -243,6 +243,17 @@ revision was identical, formatting-only, unrelated to the matched method,
 contract-changing or invalid for the target type, or (for Sealnote) the
 otherwise useful cleanup targeted an archived repository.
 
+Record the five relaxed-constraint PRs selected from the first ten skipped
+records with:
+
+```bash
+ruby processing_scripts/record_relaxed_top_10_prs.rb
+```
+
+The script changes six CSV records to `SUBMITTED` because the single FRESCO PR
+covers both duplicated cleanup helpers. The other four PRs each map to one
+record.
+
 ## Validate
 
 ```bash

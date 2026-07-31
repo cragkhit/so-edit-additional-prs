@@ -1,0 +1,11 @@
+rule,analysis_dimension,removed_histories,introduced_histories,preserved_histories,absent_histories,net_removed
+AssignmentInOperand,bug_risk,3,1,7,66,2
+IdenticalCatchBranches,bug_risk,1,1,1,74,0
+UseStringBufferForStringAppends,performance,1,1,1,74,0
+CloseResource,bug_risk,0,0,2,75,0
+ConsecutiveAppendsShouldReuse,performance,0,0,1,76,0
+PreserveStackTrace,bug_risk,0,0,1,76,0
+UseTryWithResources,bug_risk,0,0,3,74,0
+AppendCharacterWithChar,performance,0,1,1,75,-1
+CompareObjectsWithEquals,bug_risk,0,1,0,76,-1
+EmptyCatchBlock,bug_risk,0,1,7,69,-1

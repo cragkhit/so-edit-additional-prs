@@ -1,0 +1,10 @@
+{
+  "javaparser_version": "3.28.1",
+  "manual_validation_filter": "Agress Yes",
+  "scoped_pairs": 125,
+  "analyzed_pairs": 80,
+  "parse_excluded_pairs": 45,
+  "identical_pairs": 9,
+  "extractor_sha256": "02c05e48e42c72583d1a27b781d70ab0d28d4c863e86ad461010bf00cba1e105",
+  "jar_sha256": "113742383cca4a46931008a961fbea54b2aa3a49ce8f0c54110930eac65f1876"
+}

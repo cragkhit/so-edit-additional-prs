@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruleset name="Stack Overflow Reduced Bug and Performance Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/schema/ruleset_2_0_0.xsd">
+  <description>
+    Reduced PMD rules for independently measuring potential bug-risk and
+    source-level performance indicators in Stack Overflow snippet revisions.
+  </description>
+
+  <!-- Potential bug-reduction indicators -->
+  <rule ref="category/java/bestpractices.xml/PreserveStackTrace"/>
+  <rule ref="category/java/bestpractices.xml/UseTryWithResources"/>
+  <rule ref="category/java/codestyle.xml/IdenticalCatchBranches"/>
+  <rule ref="category/java/errorprone.xml/AssignmentInOperand"/>
+  <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
+  <rule ref="category/java/errorprone.xml/BrokenNullCheck"/>
+  <rule ref="category/java/errorprone.xml/CheckSkipResult"/>
+  <rule ref="category/java/errorprone.xml/CloseResource"/>
+  <rule ref="category/java/errorprone.xml/CompareObjectsWithEquals"/>
+  <rule ref="category/java/errorprone.xml/ComparisonWithNaN"/>
+  <rule ref="category/java/errorprone.xml/EmptyCatchBlock"/>
+  <rule ref="category/java/errorprone.xml/UseEqualsToCompareStrings"/>
+
+  <!-- Source-level performance indicators -->
+  <rule ref="category/java/performance.xml/AppendCharacterWithChar"/>
+  <rule ref="category/java/performance.xml/AvoidArrayLoops"/>
+  <rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse"/>
+  <rule ref="category/java/performance.xml/InefficientEmptyStringCheck"/>
+  <rule ref="category/java/performance.xml/StringInstantiation"/>
+  <rule ref="category/java/performance.xml/UseIndexOfChar"/>
+  <rule ref="category/java/performance.xml/UseStringBufferForStringAppends"/>
+</ruleset>

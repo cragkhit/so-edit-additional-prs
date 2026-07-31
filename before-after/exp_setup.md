@@ -125,31 +125,66 @@ Documentation:
 - <https://pmd.github.io/pmd/pmd_userdocs_cli_reference.html>
 - <https://pmd.github.io/pmd/pmd_userdocs_installation.html>
 
-Use a fixed custom ruleset selected before examining the results. Candidate
-categories and rules include:
+### Reduced PMD ruleset
 
-- `category/java/errorprone.xml`
-- `category/java/bestpractices.xml`
-- Selected `design` rules
-- Selected `performance` rules
-- `CognitiveComplexity`
-- `CyclomaticComplexity`
-- `NPathComplexity`
-- `AvoidDeeplyNestedIfStmts`
-- `ExcessiveMethodLength`
-- `EmptyCatchBlock`
+The planned focused PMD analysis uses two independently reported rule
+subsets. Bug risk and performance must not be combined into a single weighted
+quality score because they represent different outcomes.
+
+#### Potential bug-reduction rules
+
+- `BrokenNullCheck`
+- `ComparisonWithNaN`
+- `UseEqualsToCompareStrings`
+- `CompareObjectsWithEquals`
+- `AvoidDecimalLiteralsInBigDecimalConstructor`
 - `CloseResource`
+- `UseTryWithResources`
+- `CheckSkipResult`
+- `AssignmentInOperand`
+- `EmptyCatchBlock`
 - `PreserveStackTrace`
-- `AvoidCatchingGenericException`
-- `SimplifyBooleanReturns`
-- `CollapsibleIfStatements`
-- `UselessOperationOnImmutable`
-- `AvoidDuplicateLiterals`, when meaningful for the snippet size
+- `IdenticalCatchBranches`
+
+These rules identify constructs associated with incorrect comparisons, null
+handling, numeric precision, lost exceptions, ignored failures, or unsafe
+resource handling. Findings are potential defect indicators; they do not
+prove that a runtime defect exists.
+
+#### Performance rules
+
+- `AppendCharacterWithChar`
+- `AvoidArrayLoops`
+- `ConsecutiveAppendsShouldReuse`
+- `InefficientEmptyStringCheck`
+- `StringInstantiation`
+- `UseIndexOfChar`
+- `UseStringBufferForStringAppends`
+
+These rules identify source-level performance opportunities, primarily
+unnecessary allocation, string processing, and avoidable array-copy work.
+They are static heuristics rather than direct runtime measurements.
+
+The focused analysis excludes style and general maintainability rules such as
+`ControlStatementBraces`, `SystemPrintln`, `UnnecessarySemicolon`,
+`VariableCanBeInlined`, `AvoidDeeplyNestedIfStmts`, `CognitiveComplexity`,
+`CyclomaticComplexity`, `NPathComplexity`, `ExcessiveParameterList`,
+`SimplifyBooleanExpressions`, `SimplifyBooleanReturns`,
+`CollapsibleIfStatements`, `AvoidReassigningParameters`, and
+`UnusedLocalVariable`. These may be reported in a separate maintainability
+analysis, but they must not be described as direct evidence of fewer bugs or
+better runtime performance.
+
+Because this reduced subset was defined after the initial broad PMD results
+were inspected, label it as a theoretically motivated secondary or
+exploratory analysis unless an earlier study protocol independently documents
+the same selection criteria. Preserve the original broad ruleset and results
+for transparency.
 
 Do not enable every available PMD rule. Naming, documentation, framework, and
 project-architecture rules may be inappropriate for isolated snippets.
 
-For each version, record:
+For each version and for each reduced subset separately, record:
 
 - Total violations
 - Violations by rule
@@ -514,16 +549,101 @@ data-loading stage must enforce the scope above. The scoped PMD run:
    body;
 3. retains only pairs for which both versions share a successful parse mode;
 4. removes wrapper-only findings and restores source-relative line numbers;
-5. compares PMD violations per 100 non-comment code lines;
+5. compares bug-risk and performance violations separately, including counts
+   per 100 non-comment code lines;
 6. reports paired Wilcoxon tests, effect sizes, rule-level transitions, and
    Bug Fixing/Improving Code subgroup results; and
 7. writes raw reports, exclusions, tables, plots, and a reproducibility
-   summary under `results/pmd/`.
+   summary under `results/pmd_reduced/`.
 
 The fixed analyzer configuration is
-[`pmd-ruleset.xml`](pmd-ruleset.xml). Rebuild the notebook after editing its
-generator with:
+[`pmd-ruleset-reduced.xml`](pmd-ruleset-reduced.xml). Rebuild the notebook
+after editing its generator with:
 
 ```bash
 python3 build_pmd_notebook.py
+```
+
+The existing `pmd-ruleset.xml` and `results/pmd/` directory preserve the
+initial broad PMD analysis. The reduced notebook uses separate configuration,
+working, and output paths, so rerunning it does not overwrite the broad
+results.
+
+## Checkstyle analysis notebook
+
+[`Checkstyle_Before_After_Analysis.ipynb`](Checkstyle_Before_After_Analysis.ipynb)
+measures a separate style/readability dimension using Checkstyle 13.9.0. Run
+it from this directory with:
+
+```bash
+python3 -m jupyter lab Checkstyle_Before_After_Analysis.ipynb
+```
+
+The fixed configuration is
+[`checkstyle-reduced.xml`](checkstyle-reduced.xml). It includes:
+
+- `FileTabCharacter`
+- `LineLength` with a 120-character threshold
+- `NeedBraces`
+- `EmptyBlock`
+- `OneStatementPerLine`
+- `MultipleVariableDeclarations`
+- `AvoidNestedBlocks`
+- `VariableDeclarationUsageDistance` with an allowed distance of three
+
+The notebook uses the same 125-pair `Agress Yes` scope and symmetric raw,
+class-member, and method-body wrapper policy as the PMD analysis. It runs each
+source independently so a malformed snippet cannot abort the remaining
+dataset, filters wrapper-only findings, and reports raw and per-100-line
+finding counts, rule transitions, Wilcoxon tests, recommendation-type
+subgroups, parsing coverage, and exclusions. Results are written under
+`results/checkstyle/`; raw reports and logs are retained under
+`work/checkstyle/`.
+
+Checkstyle findings must be described as style/readability indicators, not as
+observed defects or runtime-performance measurements. Rebuild the notebook
+after editing its generator with:
+
+```bash
+python3 build_checkstyle_notebook.py
+```
+
+## JavaParser analysis notebook
+
+[`JavaParser_Before_After_Analysis.ipynb`](JavaParser_Before_After_Analysis.ipynb)
+extracts intrinsic AST-based structural measures with JavaParser Core 3.28.1.
+Run it from this directory with:
+
+```bash
+python3 -m jupyter lab JavaParser_Before_After_Analysis.ipynb
+```
+
+The notebook applies the same 125-pair `Agress Yes` scope and symmetric raw,
+class-member, and method-body parsing policy. It reports:
+
+- physical non-comment code lines;
+- method, parameter, and local-variable counts;
+- `if`, loop, switch, and catch counts;
+- a documented cyclomatic-complexity proxy;
+- maximum control-flow nesting;
+- return, break, continue, and throw exits;
+- try blocks and try-with-resources;
+- throws, empty catches, and empty blocks;
+- null-comparison checks; and
+- aggregate exception-handling constructs.
+
+Each measure is retained separately. The notebook performs paired Wilcoxon
+tests and applies Holm correction across metric-level tests, exports parsing
+coverage and exclusions, and writes tables and plots under
+`results/javaparser/`. It preserves every parse attempt and the wrapper mode
+selected for each pair.
+
+Do not automatically interpret every increase as deterioration. Added null
+checks, exception handling, branches, or resource handling may represent a
+beneficial bug fix. The reported cyclomatic value is explicitly a study proxy,
+not a claim of equivalence to another tool's complexity implementation.
+Rebuild the notebook after editing its generator with:
+
+```bash
+python3 build_javaparser_notebook.py
 ```

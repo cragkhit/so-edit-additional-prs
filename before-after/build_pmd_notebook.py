@@ -25,9 +25,9 @@ def code(source):
 cells = [
     markdown(
         """
-        # PMD Before–After Analysis of Stack Overflow Snippets
+        # Reduced PMD Before–After Analysis of Stack Overflow Snippets
 
-        This notebook compares PMD findings for the subset of original and
+        This notebook compares reduced PMD bug-risk and performance findings for the subset of original and
         recent/latest Stack Overflow snippet pairs whose manual-validation
         value is exactly `Agress Yes`.
 
@@ -38,8 +38,9 @@ cells = [
         - Repeated `Agress Yes` study rows are deduplicated by `Snippet ID`.
         - Original and after versions must use the same parse wrapper.
         - Wrapper-only findings are removed.
+        - Bug-risk and performance indicators are reported independently.
         - Raw violation counts and violations per 100 non-comment lines are
-          reported separately.
+          reported separately for each dimension.
         - Identical revisions remain valid zero-change observations.
         - PMD findings are static indicators, not a complete measure of
           software quality.
@@ -100,13 +101,29 @@ cells = [
         DATASET = ROOT / "dataset"
         MANIFEST_PATH = DATASET / "agress_yes_pairs.csv"
         MAPPING_PATH = DATASET / "study_pair_mapping.csv"
-        RULESET_PATH = ROOT / "pmd-ruleset.xml"
-        WORK_ROOT = ROOT / "work" / "pmd"
-        RESULTS_ROOT = ROOT / "results" / "pmd"
+        RULESET_PATH = ROOT / "pmd-ruleset-reduced.xml"
+        WORK_ROOT = ROOT / "work" / "pmd_reduced"
+        RESULTS_ROOT = ROOT / "results" / "pmd_reduced"
         TOOLS_ROOT = ROOT / "tools"
 
         PMD_VERSION = "7.25.0"
         JAVA_LANGUAGE_VERSION = "java-17"
+        BUG_RISK_RULES = {
+            "BrokenNullCheck", "ComparisonWithNaN", "UseEqualsToCompareStrings",
+            "CompareObjectsWithEquals", "AvoidDecimalLiteralsInBigDecimalConstructor",
+            "CloseResource", "UseTryWithResources", "CheckSkipResult",
+            "AssignmentInOperand", "EmptyCatchBlock", "PreserveStackTrace",
+            "IdenticalCatchBranches",
+        }
+        PERFORMANCE_RULES = {
+            "AppendCharacterWithChar", "AvoidArrayLoops",
+            "ConsecutiveAppendsShouldReuse", "InefficientEmptyStringCheck",
+            "StringInstantiation", "UseIndexOfChar", "UseStringBufferForStringAppends",
+        }
+        RULE_DIMENSION = {
+            **{rule: "bug_risk" for rule in BUG_RISK_RULES},
+            **{rule: "performance" for rule in PERFORMANCE_RULES},
+        }
         PMD_URL = (
             "https://github.com/pmd/pmd/releases/download/"
             f"pmd_releases%2F{PMD_VERSION}/pmd-dist-{PMD_VERSION}-bin.zip"
@@ -457,9 +474,14 @@ cells = [
                 violations["end_line_wrapped"] - violations["prefix_lines"]
             ).clip(lower=1)
 
+        violations["analysis_dimension"] = violations["rule"].map(RULE_DIMENSION)
+        if violations["analysis_dimension"].isna().any():
+            unknown = sorted(violations.loc[violations["analysis_dimension"].isna(), "rule"].unique())
+            raise RuntimeError(f"Rules missing dimension assignment: {unknown}")
+
         violation_columns = [
             "snippet_id", "version", "mode", "rule", "ruleset", "priority",
-            "begin_line", "end_line", "message", "external_info_url"
+            "analysis_dimension", "begin_line", "end_line", "message", "external_info_url"
         ]
         violations = violations.reindex(columns=violation_columns)
         violations.to_csv(RESULTS_ROOT / "pmd_violations_long.csv", index=False)
@@ -543,6 +565,12 @@ cells = [
             if not violations.empty
             else pd.Series(dtype=int, name="violations")
         )
+        dimension_counts = (
+            violations.groupby(["snippet_id", "version", "analysis_dimension"])
+            .size().rename("violations")
+            if not violations.empty
+            else pd.Series(dtype=int, name="violations")
+        )
 
         for row in eligible.to_dict("records"):
             snippet_id = row["Snippet ID"]
@@ -570,6 +598,14 @@ cells = [
                 metric[f"{version}_violations_per_100_lines"] = (
                     100 * count / loc if loc else math.nan
                 )
+                for dimension in ("bug_risk", "performance"):
+                    dimension_count = int(
+                        dimension_counts.get((snippet_id, version, dimension), 0)
+                    )
+                    metric[f"{version}_{dimension}_violations"] = dimension_count
+                    metric[f"{version}_{dimension}_violations_per_100_lines"] = (
+                        100 * dimension_count / loc if loc else math.nan
+                    )
             metric["delta_violations"] = (
                 metric["after_violations"] - metric["before_violations"]
             )
@@ -577,6 +613,21 @@ cells = [
                 metric["after_violations_per_100_lines"]
                 - metric["before_violations_per_100_lines"]
             )
+            for dimension in ("bug_risk", "performance"):
+                metric[f"delta_{dimension}_violations"] = (
+                    metric[f"after_{dimension}_violations"]
+                    - metric[f"before_{dimension}_violations"]
+                )
+                metric[f"delta_{dimension}_violations_per_100_lines"] = (
+                    metric[f"after_{dimension}_violations_per_100_lines"]
+                    - metric[f"before_{dimension}_violations_per_100_lines"]
+                )
+                dimension_delta = metric[f"delta_{dimension}_violations"]
+                metric[f"{dimension}_outcome"] = (
+                    "IMPROVED" if dimension_delta < 0
+                    else "WORSENED" if dimension_delta > 0
+                    else "UNCHANGED"
+                )
             metric["outcome"] = (
                 "IMPROVED" if metric["delta_violations"] < 0
                 else "WORSENED" if metric["delta_violations"] > 0
@@ -626,6 +677,7 @@ cells = [
             transitions.append(
                 {
                     "rule": rule,
+                    "analysis_dimension": RULE_DIMENSION[rule],
                     "removed_histories": removed,
                     "introduced_histories": introduced,
                     "preserved_histories": preserved,
@@ -686,13 +738,14 @@ cells = [
             }
 
 
-        statistical_summary = pd.DataFrame(
-            [
+        statistical_rows = [
                 {
+                    "analysis_dimension": "combined_reduced",
                     "metric": "Raw PMD violations",
                     **paired_summary(analyzed, "before_violations", "after_violations"),
                 },
                 {
+                    "analysis_dimension": "combined_reduced",
                     "metric": "PMD violations per 100 code lines",
                     **paired_summary(
                         analyzed,
@@ -700,8 +753,31 @@ cells = [
                         "after_violations_per_100_lines",
                     ),
                 },
-            ]
-        )
+        ]
+        for dimension in ("bug_risk", "performance"):
+            statistical_rows.extend(
+                [
+                    {
+                        "analysis_dimension": dimension,
+                        "metric": "Raw PMD violations",
+                        **paired_summary(
+                            analyzed,
+                            f"before_{dimension}_violations",
+                            f"after_{dimension}_violations",
+                        ),
+                    },
+                    {
+                        "analysis_dimension": dimension,
+                        "metric": "PMD violations per 100 code lines",
+                        **paired_summary(
+                            analyzed,
+                            f"before_{dimension}_violations_per_100_lines",
+                            f"after_{dimension}_violations_per_100_lines",
+                        ),
+                    },
+                ]
+            )
+        statistical_summary = pd.DataFrame(statistical_rows)
         statistical_summary.to_csv(RESULTS_ROOT / "pmd_statistical_summary.csv", index=False)
         display(statistical_summary)
         """
@@ -735,14 +811,18 @@ cells = [
         )
         subgroup_tests = []
         for group_name, group_data in subgroup.groupby("recommendation_group"):
-            subgroup_tests.append(
-                {
-                    "recommendation_group": group_name,
-                    **paired_summary(
-                        group_data, "before_violations", "after_violations"
-                    ),
-                }
-            )
+            for dimension in ("bug_risk", "performance"):
+                subgroup_tests.append(
+                    {
+                        "recommendation_group": group_name,
+                        "analysis_dimension": dimension,
+                        **paired_summary(
+                            group_data,
+                            f"before_{dimension}_violations",
+                            f"after_{dimension}_violations",
+                        ),
+                    }
+                )
         subgroup_statistical_summary = pd.DataFrame(subgroup_tests)
         subgroup_summary.to_csv(
             RESULTS_ROOT / "pmd_recommendation_subgroup_summary.csv", index=False
@@ -765,37 +845,27 @@ cells = [
     ),
     code(
         """
-        figure, axes = plt.subplots(1, 2, figsize=(12, 4.5))
-
-        outcome_counts = analyzed["outcome"].value_counts().reindex(
-            ["IMPROVED", "UNCHANGED", "WORSENED"], fill_value=0
-        )
-        outcome_counts.plot(
-            kind="bar",
-            ax=axes[0],
-            color=["#146c5a", "#9a9588", "#a64343"],
-            title="PMD outcome by unique snippet history",
-        )
-        axes[0].set_xlabel("")
-        axes[0].set_ylabel("Histories")
-        axes[0].tick_params(axis="x", rotation=0)
-
-        axes[1].hist(
-            analyzed["delta_violations"],
-            bins=range(
-                int(analyzed["delta_violations"].min()) - 1,
-                int(analyzed["delta_violations"].max()) + 2,
-            ),
-            color="#315d7d",
-            edgecolor="white",
-        )
-        axes[1].axvline(0, color="#14211f", linewidth=1)
-        axes[1].set_title("After − before PMD violation count")
-        axes[1].set_xlabel("Delta (negative indicates fewer findings)")
-        axes[1].set_ylabel("Histories")
+        figure, axes = plt.subplots(1, 2, figsize=(12, 4.5), sharey=True)
+        for axis, dimension, title in zip(
+            axes,
+            ("bug_risk", "performance"),
+            ("Potential bug-risk indicators", "Performance indicators"),
+        ):
+            outcome_counts = analyzed[f"{dimension}_outcome"].value_counts().reindex(
+                ["IMPROVED", "UNCHANGED", "WORSENED"], fill_value=0
+            )
+            outcome_counts.plot(
+                kind="bar",
+                ax=axis,
+                color=["#146c5a", "#9a9588", "#a64343"],
+                title=title,
+            )
+            axis.set_xlabel("")
+            axis.set_ylabel("Histories")
+            axis.tick_params(axis="x", rotation=0)
 
         figure.tight_layout()
-        figure.savefig(RESULTS_ROOT / "pmd_outcomes.png", dpi=180, bbox_inches="tight")
+        figure.savefig(RESULTS_ROOT / "pmd_reduced_outcomes.png", dpi=180, bbox_inches="tight")
         plt.show()
         """
     ),
@@ -831,6 +901,8 @@ cells = [
             "parse_excluded_pairs": int((pair_metrics["status"] == "PARSE_EXCLUDED").sum()),
             "identical_pairs": int((eligible["Identical Before After"] == "YES").sum()),
             "retained_violations": int(len(violations)),
+            "bug_risk_violations": int((violations["analysis_dimension"] == "bug_risk").sum()),
+            "performance_violations": int((violations["analysis_dimension"] == "performance").sum()),
             "ruleset_sha256": hashlib.sha256(RULESET_PATH.read_bytes()).hexdigest(),
         }
         (RESULTS_ROOT / "pmd_run_summary.json").write_text(

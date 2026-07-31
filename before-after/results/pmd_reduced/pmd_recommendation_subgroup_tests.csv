@@ -1,0 +1,5 @@
+recommendation_group,analysis_dimension,n,before_median,before_iqr,after_median,after_iqr,delta_median,improved_n,unchanged_n,worsened_n,wilcoxon_statistic,wilcoxon_p,rank_biserial_after_minus_before
+Bug Fixing,bug_risk,11,0.0,0.0,0.0,0.0,0.0,0,10,1,0.0,1.0,1.0
+Bug Fixing,performance,11,0.0,0.0,0.0,0.0,0.0,0,11,0,,,0.0
+Improving Code,bug_risk,63,0.0,1.0,0.0,1.0,0.0,5,55,3,16.0,0.84375,-0.1111111111111111
+Improving Code,performance,63,0.0,0.0,0.0,0.0,0.0,0,62,1,0.0,1.0,1.0

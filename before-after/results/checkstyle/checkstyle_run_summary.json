@@ -1,0 +1,10 @@
+{
+  "checkstyle_version": "13.9.0",
+  "manual_validation_filter": "Agress Yes",
+  "scoped_pairs": 125,
+  "analyzed_pairs": 81,
+  "parse_excluded_pairs": 44,
+  "identical_pairs": 9,
+  "retained_findings": 844,
+  "configuration_sha256": "42ec996a69ea40b6ad3ad5305d1061e613d840cb79d2127d67fdb9be81c95f60"
+}
