@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Generate the PMD before-after analysis notebook without third-party packages."""
+"""Generate the full-scope PMD before-after analysis notebook.
+
+Unlike build_pmd_notebook.py (scoped to the 125 `Agress Yes` pairs), this
+covers all 205 eligible, deduplicated Stack Overflow histories derived
+from the complete 793-row Matcha manual-validation study, using
+dataset/snippet_pairs.csv instead of dataset/agress_yes_pairs.csv.
+"""
 
 import json
 from pathlib import Path
@@ -25,17 +31,20 @@ def code(source):
 cells = [
     markdown(
         """
-        # Reduced PMD Before–After Analysis of Stack Overflow Snippets
+        # Reduced PMD Before–After Analysis of Stack Overflow Snippets (Full Scope)
 
-        This notebook compares reduced PMD bug-risk and performance findings for the subset of original and
-        recent/latest Stack Overflow snippet pairs whose manual-validation
-        value is exactly `Agress Yes`.
+        This notebook compares reduced PMD bug-risk and performance findings
+        for all **205 unique, eligible** Stack Overflow before/after
+        histories derived from the complete 793-row Matcha manual-validation
+        study (`matcha_results_2024-05-07_manual_validation_FINAL.csv`) --
+        not just the subset whose `Final Manual Validation` is `Agress Yes`
+        analyzed in
+        [`PMD_Before_After_Analysis.ipynb`](PMD_Before_After_Analysis.ipynb).
 
         Design principles:
 
         - The unique SO question/code-block history is the independent unit.
-        - `Agree No` rows are outside the analysis scope.
-        - Repeated `Agress Yes` study rows are deduplicated by `Snippet ID`.
+        - Repeated study rows are deduplicated by `Snippet ID`.
         - Original and after versions must use the same parse wrapper.
         - Wrapper-only findings are removed.
         - Bug-risk and performance indicators are reported independently.
@@ -44,6 +53,10 @@ cells = [
         - Identical revisions remain valid zero-change observations.
         - PMD findings are static indicators, not a complete measure of
           software quality.
+        - Each history carries a `validation_group` label (`ALL_ACCEPTED`,
+          `ALL_REJECTED`, `MIXED`) reflecting whether it was judged useful
+          across its GitHub matches, so results can be checked separately
+          for accepted vs. rejected recommendations.
 
         Run this notebook from the `before-after/` directory.
         """
@@ -103,11 +116,11 @@ cells = [
         """
         ROOT = Path.cwd().resolve()
         DATASET = ROOT / "dataset"
-        MANIFEST_PATH = DATASET / "agress_yes_pairs.csv"
+        MANIFEST_PATH = DATASET / "snippet_pairs.csv"
         MAPPING_PATH = DATASET / "study_pair_mapping.csv"
         RULESET_PATH = ROOT / "pmd-ruleset-reduced.xml"
-        WORK_ROOT = ROOT / "work" / "pmd_reduced"
-        RESULTS_ROOT = ROOT / "results" / "pmd_reduced"
+        WORK_ROOT = ROOT / "work" / "pmd_reduced_full"
+        RESULTS_ROOT = ROOT / "results" / "pmd_reduced_full"
         TOOLS_ROOT = ROOT / "tools"
 
         PMD_VERSION = "7.25.0"
@@ -178,56 +191,48 @@ cells = [
     ),
     markdown(
         """
-        ## 3. Apply the `Agress Yes` scope and deduplicate
+        ## 3. Load the full scope and deduplicate
 
-        The spelling `Agress Yes` is intentional because it is the exact value
-        in the source data. The filter is applied to the study-row mapping
-        before deduplication. Dataset-excluded rows are retained for the audit
-        output but are not passed to PMD.
-
-        Several GitHub study rows may point to the same Stack Overflow snippet
-        history. Those rows are collapsed to one independent observation per
-        `Snippet ID`. If an accepted history appears under both recommendation
-        types, its subgroup is recorded as `MULTIPLE_TYPES`.
+        `snippet_pairs.csv` covers every unique Stack Overflow question/code-block
+        history reachable from all 793 study rows, filtered here to
+        `Status == ELIGIBLE`. `Recommendation Types` (semicolon-joined,
+        possibly empty) collapses to a single `recommendation_group`: a
+        single type is kept as-is, more than one becomes `MULTIPLE_TYPES`,
+        and no type becomes `NO_TYPE`.
         """
     ),
     code(
         """
+        def classify_recommendation_group(value):
+            types = [item for item in value.split(";") if item]
+            if len(types) > 1:
+                return "MULTIPLE_TYPES"
+            if len(types) == 1:
+                return types[0]
+            return "NO_TYPE"
+
+
         manifest = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False)
         mapping = pd.read_csv(MAPPING_PATH, dtype=str, keep_default_na=False)
+        dataset_exclusions = mapping.loc[mapping["Dataset Status"] != "ELIGIBLE"].copy()
 
-        accepted_rows = mapping.loc[
-            mapping["Final Manual Validation"] == "Agress Yes"
-        ].copy()
-        accepted_eligible_rows = accepted_rows.loc[
-            accepted_rows["Dataset Status"] == "ELIGIBLE"
-        ].copy()
-        accepted_excluded_rows = accepted_rows.loc[
-            accepted_rows["Dataset Status"] != "ELIGIBLE"
-        ].copy()
+        eligible = manifest.loc[manifest["Status"] == "ELIGIBLE"].copy()
+        eligible = eligible.rename(columns={
+            "Accepted Pair Count": "accepted_study_rows",
+            "Validation Group": "validation_group",
+        })
+        eligible["recommendation_group"] = eligible["Recommendation Types"].map(classify_recommendation_group)
 
-        eligible = (
-            manifest.rename(
-                columns={
-                    "Accepted Study Row Count": "accepted_study_rows",
-                    "Recommendation Group": "recommendation_group",
-                }
-            )
-            .copy()
-        )
-
-        assert len(accepted_rows) == 391
-        assert len(accepted_eligible_rows) == 387
         assert eligible["Snippet ID"].is_unique
-        assert len(eligible) == 125
+        assert len(eligible) == 205
+        assert len(mapping) == 793 and len(dataset_exclusions) == 6
 
         print("All study rows:", len(mapping))
-        print("Agress Yes study rows:", len(accepted_rows))
-        print("Eligible Agress Yes study rows:", len(accepted_eligible_rows))
-        print("Excluded Agress Yes study rows:", len(accepted_excluded_rows))
-        print("Unique eligible Agress Yes snippet pairs:", len(eligible))
+        print("Dataset-level exclusions:", len(dataset_exclusions))
+        print("Unique eligible snippet pairs:", len(eligible))
         print("Identical pairs:", (eligible["Identical Before After"] == "YES").sum())
         display(eligible["recommendation_group"].value_counts().rename("histories"))
+        display(eligible["validation_group"].value_counts().rename("histories"))
         """
     ),
     markdown(
@@ -299,7 +304,7 @@ cells = [
         ## 5. Run PMD
 
         PMD runs once for each wrapper/version combination. XML reports and
-        logs are preserved under `work/pmd/reports/`.
+        logs are preserved under `work/pmd_reduced_full/reports/`.
         """
     ),
     code(
@@ -587,6 +592,7 @@ cells = [
                 "parse_mode": selected_mode,
                 "accepted_study_rows": int(row["accepted_study_rows"]),
                 "recommendation_group": row["recommendation_group"],
+                "validation_group": row["validation_group"],
                 "identical_before_after": row["Identical Before After"],
             }
             for version, column in (
@@ -709,14 +715,13 @@ cells = [
 
         The six rows tested here (raw counts and per-100-line density, for
         the combined ruleset and each of the bug-risk and performance
-        dimensions) are a family of related tests on the same 77 pairs, so
+        dimensions) are a family of related tests on the same pairs, so
         Holm's step-down procedure is applied across all six `wilcoxon_p`
-        values to control the family-wise error rate, matching the
-        JavaParser notebook's approach and the study's stated methodology.
-        Holm's guarantee holds under arbitrary dependence between tests, so
-        it remains valid even though `combined_reduced` is not independent
-        of the `bug_risk`/`performance` rows (raw combined violations equal
-        their sum).
+        values to control the family-wise error rate. Holm's guarantee holds
+        under arbitrary dependence between tests, so it remains valid even
+        though `combined_reduced` is not independent of the
+        `bug_risk`/`performance` rows (raw combined violations equal their
+        sum).
         """
     ),
     code(
@@ -751,6 +756,16 @@ cells = [
                 "wilcoxon_p": wilcoxon.pvalue if wilcoxon else math.nan,
                 "rank_biserial_after_minus_before": rank_biserial,
             }
+
+
+        def holm_correct(frame):
+            adjusted = pd.Series(index=frame.index, dtype=float)
+            valid = frame["wilcoxon_p"].dropna().sort_values()
+            running, total = 0.0, len(valid)
+            for rank, (index, pvalue) in enumerate(valid.items()):
+                running = max(running, min(1.0, (total - rank) * pvalue))
+                adjusted.loc[index] = running
+            return adjusted
 
 
         statistical_rows = [
@@ -793,19 +808,7 @@ cells = [
                 ]
             )
         statistical_summary = pd.DataFrame(statistical_rows)
-
-        valid_p = statistical_summary["wilcoxon_p"].notna()
-        statistical_summary["holm_p"] = math.nan
-        if valid_p.any():
-            ordered = statistical_summary.loc[valid_p, "wilcoxon_p"].sort_values()
-            adjusted = pd.Series(index=ordered.index, dtype=float)
-            running = 0.0
-            total = len(ordered)
-            for rank, (index, pvalue) in enumerate(ordered.items()):
-                running = max(running, min(1.0, (total - rank) * pvalue))
-                adjusted.loc[index] = running
-            statistical_summary.loc[adjusted.index, "holm_p"] = adjusted
-
+        statistical_summary["holm_p"] = holm_correct(statistical_summary)
         statistical_summary.to_csv(RESULTS_ROOT / "pmd_statistical_summary.csv", index=False)
         display(statistical_summary)
         """
@@ -814,10 +817,10 @@ cells = [
         """
         ## 11. Recommendation-type subgroup analysis
 
-        Every history in the primary analysis has at least one `Agress Yes`
-        study row. Bug Fixing and Improving Code histories are summarized
-        separately. Histories assigned both labels are reported as
-        `MULTIPLE_TYPES` and excluded from the single-type subgroup tests.
+        Bug Fixing and Improving Code histories are summarized separately.
+        Histories assigned both labels are reported as `MULTIPLE_TYPES` and
+        histories with no accepted study row to classify by are `NO_TYPE`;
+        both are excluded from the single-type subgroup tests.
         """
     ),
     code(
@@ -861,14 +864,63 @@ cells = [
         display(subgroup_summary)
         display(subgroup_statistical_summary)
         print(
-            "MULTIPLE_TYPES histories excluded from subgroup tests:",
-            (analyzed["recommendation_group"] == "MULTIPLE_TYPES").sum(),
+            "MULTIPLE_TYPES/NO_TYPE histories excluded from subgroup tests:",
+            (~analyzed["recommendation_group"].isin(["Bug Fixing", "Improving Code"])).sum(),
         )
         """
     ),
     markdown(
         """
-        ## 12. Visual summaries
+        ## 12. Validation-outcome subgroup analysis
+
+        This dimension is unique to the full-scope analysis: does PMD
+        violation change look different for recommendations judged useful
+        across all their GitHub matches (`ALL_ACCEPTED`) versus useful in
+        none of them (`ALL_REJECTED`) versus mixed?
+        """
+    ),
+    code(
+        """
+        validation_summary = (
+            analyzed.groupby("validation_group")
+            .agg(
+                histories=("snippet_id", "size"),
+                median_delta=("delta_violations", "median"),
+                mean_delta=("delta_violations", "mean"),
+                improved=("outcome", lambda s: (s == "IMPROVED").sum()),
+                unchanged=("outcome", lambda s: (s == "UNCHANGED").sum()),
+                worsened=("outcome", lambda s: (s == "WORSENED").sum()),
+            )
+            .reset_index()
+        )
+        validation_tests = []
+        for group_name, group_data in analyzed.groupby("validation_group"):
+            for dimension in ("bug_risk", "performance"):
+                validation_tests.append(
+                    {
+                        "validation_group": group_name,
+                        "analysis_dimension": dimension,
+                        **paired_summary(
+                            group_data,
+                            f"before_{dimension}_violations",
+                            f"after_{dimension}_violations",
+                        ),
+                    }
+                )
+        validation_statistical_summary = pd.DataFrame(validation_tests)
+        validation_summary.to_csv(
+            RESULTS_ROOT / "pmd_validation_group_subgroup_summary.csv", index=False
+        )
+        validation_statistical_summary.to_csv(
+            RESULTS_ROOT / "pmd_validation_group_subgroup_tests.csv", index=False
+        )
+        display(validation_summary)
+        display(validation_statistical_summary)
+        """
+    ),
+    markdown(
+        """
+        ## 13. Visual summaries
         """
     ),
     code(
@@ -899,7 +951,7 @@ cells = [
     ),
     markdown(
         """
-        ## 13. Export audit and coverage summaries
+        ## 14. Export audit and coverage summaries
         """
     ),
     code(
@@ -912,19 +964,18 @@ cells = [
         )
         parse_coverage.to_csv(RESULTS_ROOT / "pmd_parse_coverage.csv", index=False)
         processing_errors.to_csv(RESULTS_ROOT / "pmd_processing_errors.csv", index=False)
-        accepted_excluded_rows.to_csv(
-            RESULTS_ROOT / "pmd_agress_yes_dataset_exclusions.csv", index=False
+        dataset_exclusions.to_csv(
+            RESULTS_ROOT / "pmd_dataset_exclusions.csv", index=False
         )
 
         run_summary = {
             "pmd_version": PMD_VERSION,
             "java_language_version": JAVA_LANGUAGE_VERSION,
+            "manual_validation_filter": "None (full 793-recommendation scope)",
             "scoped_manifest_pairs": int(len(manifest)),
-            "manual_validation_filter": "Agress Yes",
-            "agress_yes_study_rows": int(len(accepted_rows)),
-            "eligible_agress_yes_study_rows": int(len(accepted_eligible_rows)),
-            "excluded_agress_yes_study_rows": int(len(accepted_excluded_rows)),
-            "unique_eligible_agress_yes_pairs": int(len(eligible)),
+            "study_row_mappings": int(len(mapping)),
+            "dataset_level_exclusions": int(len(dataset_exclusions)),
+            "unique_eligible_pairs": int(len(eligible)),
             "analyzed_pairs": int((pair_metrics["status"] == "ANALYZED").sum()),
             "parse_excluded_pairs": int((pair_metrics["status"] == "PARSE_EXCLUDED").sum()),
             "identical_pairs": int((eligible["Identical Before After"] == "YES").sum()),
@@ -955,6 +1006,9 @@ cells = [
         - The six aggregate tests above are Holm-corrected (`holm_p`); apply
           a separate correction if individual PMD rules are additionally
           tested one by one.
+        - This full scope mixes accepted, rejected, and mixed-validation
+          recommendations; always check `validation_group` before
+          generalizing a finding to "useful recommendations."
         - Do not interpret a PMD warning as a confirmed defect.
         - Describe PMD results as static quality indicators.
         - Preserve the PMD version, Java language version, ruleset hash, raw
@@ -973,6 +1027,6 @@ notebook = {
     "nbformat_minor": 5,
 }
 
-target = ROOT / "PMD_Before_After_Analysis.ipynb"
+target = ROOT / "PMD_Before_After_Analysis_Full.ipynb"
 target.write_text(json.dumps(notebook, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 print(f"Wrote {target}")

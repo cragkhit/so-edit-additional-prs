@@ -69,12 +69,36 @@ zero deltas everywhere, and they do, consistently.
 branch and loop counts, a cyclomatic-complexity proxy, max nesting,
 abrupt exits, try/resource handling, null checks, exception handling) plus
 non-comment code-line count, each independently via a paired Wilcoxon
-signed-rank test with Holm correction across all 19 tests.
+signed-rank test with Holm correction across all 19 tests. Each test is
+also paired with a matched-pairs rank-biserial correlation (signed after
+minus before) as an effect-size estimate.
 
 **Headline: no metric is significant after Holm correction.** The two
-smallest raw p-values were `code_lines` (p=0.0152) and `abrupt_exit_count`
-(p=0.0474); both rise to Holm-adjusted p≈0.27–0.81 once corrected for
-testing 19 metrics simultaneously.
+smallest raw p-values are `code_lines` (p=0.015) and `abrupt_exit_count`
+(p=0.061); both rise to Holm-adjusted p≥0.27 once corrected for testing 19
+metrics simultaneously.
+
+| Metric | Δ median | Dec. | Unc. | Inc. | Wilcoxon p | Rank-biserial | Holm p |
+|---|---|---|---|---|---|---|---|
+| Code lines | +1 | 19 | 19 | 42 | 0.015 | 0.357 | 0.273 |
+| Method count | 0 | 7 | 58 | 15 | 0.321 | 0.253 | 1.000 |
+| Parameter count | 0 | 8 | 62 | 10 | 0.442 | 0.216 | 1.000 |
+| Max. parameters | 0 | 5 | 71 | 4 | 1.000 | 0.000 | 1.000 |
+| Local-variable count | 0 | 8 | 54 | 18 | 0.116 | 0.356 | 1.000 |
+| `if` count | 0 | 9 | 62 | 9 | 0.766 | −0.088 | 1.000 |
+| Loop count | 0 | 0 | 78 | 2 | 0.500 | 1.000 | 1.000 |
+| Switch count | 0 | 0 | 80 | 0 | — | — | — |
+| Catch count | 0 | 3 | 71 | 6 | 0.426 | 0.333 | 1.000 |
+| Cyclomatic-complexity proxy | 0 | 10 | 53 | 17 | 0.336 | 0.220 | 1.000 |
+| Max. control nesting | 0 | 7 | 66 | 7 | 0.542 | 0.200 | 1.000 |
+| Abrupt-exit count | 0 | 7 | 57 | 16 | 0.061 | 0.449 | 1.000 |
+| Try count | 0 | 2 | 71 | 7 | 0.129 | 0.600 | 1.000 |
+| Try-with-resources count | 0 | 0 | 79 | 1 | 1.000 | 1.000 | 1.000 |
+| Throw count | 0 | 1 | 74 | 5 | 0.438 | 0.429 | 1.000 |
+| Empty-catch count | 0 | 1 | 76 | 3 | 0.625 | 0.500 | 1.000 |
+| Empty-block count | 0 | 2 | 75 | 3 | 0.813 | 0.200 | 1.000 |
+| Null-check count | 0 | 5 | 73 | 2 | 0.375 | −0.393 | 1.000 |
+| Exception-handling count | 0 | 4 | 66 | 10 | 0.153 | 0.457 | 1.000 |
 
 For nearly every metric, `unchanged_n` is the largest bucket — e.g.
 `method_count` 58/80 unchanged, `if_count` 62/80, `cyclomatic_proxy` 53/80,
@@ -87,12 +111,21 @@ consistent with the paper's own framing that bug fixes can legitimately
 add validation/boundary checks — but the effect is small in magnitude and
 not significant once corrected.
 
+A caution on the rank-biserial column: several of the largest-looking
+effect sizes (`loop_count` 1.00, `try_with_resources_count` 1.00,
+`try_count` 0.60, `empty_catch_count` 0.50) come from metrics with only
+1–9 nonzero-delta pairs out of 80. A rank-biserial correlation computed
+from 1–2 nonzero pairs is not a meaningful estimate of effect size — it is
+a symptom of being severely underpowered, not evidence of a large real
+effect. Treat these large values as noise, not as a competing signal to
+`code_lines`.
+
 ### JavaParser by recommendation type (uncorrected — exploratory only)
 
 | Group | n | code_lines p (raw) | Pattern |
 |---|---|---|---|
-| Bug Fixing | 12 | 0.043 | 7/12 increased lines; every other metric ≥10/12 unchanged |
-| Improving Code | 65 | 0.097 | 33/65 increased lines; other metrics mostly unchanged |
+| Bug Fixing | 12 | 0.039 | 7/12 increased lines; every other metric ≥10/12 unchanged |
+| Improving Code | 65 | 0.099 | 33/65 increased lines; other metrics mostly unchanged |
 
 Both subgroups are far too small, and too dominated by zero-deltas, to
 support an inferential claim on their own; `code_lines` is the only metric
@@ -107,14 +140,19 @@ on this snippet-level corpus: **only 81 total retained violations across
 both before and after versions of all 77 pairs combined** (72 bug-risk, 9
 performance).
 
-| Dimension | Metric | Improved | Unchanged | Worsened | Wilcoxon p | Rank-biserial |
-|---|---|---|---|---|---|---|
-| Combined | Raw violations | 5 | 66 | 6 | 0.520 | 0.24 |
-| Combined | Violations / 100 lines | 16 | 52 | 9 | 0.578 | −0.13 |
-| Bug-risk | Raw violations | 5 | 67 | 5 | 0.695 | 0.18 |
-| Bug-risk | Violations / 100 lines | 14 | 55 | 8 | 0.588 | −0.14 |
-| Performance | Raw violations | 0 | 76 | 1 | 1.000 | 1.00 |
-| Performance | Violations / 100 lines | 3 | 73 | 1 | 0.875 | −0.20 |
+| Dimension | Metric | Improved | Unchanged | Worsened | Wilcoxon p | Rank-biserial | Holm p |
+|---|---|---|---|---|---|---|---|
+| Combined | Raw violations | 5 | 66 | 6 | 0.520 | 0.24 | 1.000 |
+| Combined | Violations / 100 lines | 16 | 52 | 9 | 0.578 | −0.13 | 1.000 |
+| Bug-risk | Raw violations | 5 | 67 | 5 | 0.695 | 0.18 | 1.000 |
+| Bug-risk | Violations / 100 lines | 14 | 55 | 8 | 0.588 | −0.14 | 1.000 |
+| Performance | Raw violations | 0 | 76 | 1 | 1.000 | 1.00 | 1.000 |
+| Performance | Violations / 100 lines | 3 | 73 | 1 | 0.875 | −0.20 | 1.000 |
+
+Holm correction is applied across these six related tests; since the
+smallest raw p-value (0.520) already exceeds 0.05, every corrected value
+is 1.000 and the correction does not change the conclusion — it simply
+confirms it more rigorously.
 
 **No PMD metric is anywhere close to significant** (all p ≥ 0.52). Density
 (violations per 100 lines) leans mildly positive (more "improved" than
@@ -174,10 +212,13 @@ lens cannot be used to substantiate the Bug Fixing improvement claim.
 `VariableDeclarationUsageDistance` (distance 3). 844 findings were retained
 in total.
 
-| Metric | Improved | Unchanged | Worsened | Wilcoxon p | Rank-biserial |
-|---|---|---|---|---|---|
-| Raw findings | 14 | 55 | 12 | 0.452 | −0.17 |
-| Findings / 100 lines | 23 | 44 | 14 | 0.362 | −0.17 |
+| Metric | Improved | Unchanged | Worsened | Wilcoxon p | Rank-biserial | Holm p |
+|---|---|---|---|---|---|---|
+| Raw findings | 14 | 55 | 12 | 0.452 | −0.17 | 0.723 |
+| Findings / 100 lines | 23 | 44 | 14 | 0.362 | −0.17 | 0.723 |
+
+Holm correction across these two related tests leaves both at p=0.723 —
+unsurprising given the raw p-values were already far from 0.05.
 
 Not significant, but this is the **largest directional lean of the three
 tools**: 23 improved vs. 14 worsened pairs by density (rank-biserial
@@ -230,7 +271,11 @@ top-line finding:
 
 Where a directional lean exists, it is:
 
-- **Small.** Rank-biserial effect sizes are all under ~0.25 in magnitude.
+- **Small where it's estimable.** PMD and Checkstyle rank-biserial effect
+  sizes are consistently under ~0.25 in magnitude. JavaParser's are more
+  variable (up to ±0.6, occasionally 1.00) precisely for the metrics with
+  the fewest nonzero-delta pairs (as few as 1–2 out of 80) — an artifact
+  of a tiny effective sample, not evidence of a real large effect.
 - **Inconsistent between raw counts and per-100-line density**, and the
   density measure is the one more prone to the denominator artifact the
   study's own README warns against (adding lines mechanically lowers
@@ -312,10 +357,27 @@ handling rather than shrinking the snippet.
 - Figures above are read directly from the CSV/JSON outputs already
   produced by the three notebooks; no new statistical test was run to
   produce this report.
-- The JavaParser notebook does not compute a rank-biserial (or other)
-  effect size alongside its Wilcoxon test, unlike the PMD and Checkstyle
-  notebooks — an inconsistency across the three notebooks worth fixing if
-  effect sizes are to be compared side by side in the manuscript.
+- As of this revision, all three notebooks report both a Holm-corrected
+  p-value and a matched-pairs rank-biserial effect size for every primary
+  test, so the three tools are now directly comparable on both dimensions.
+  (Earlier drafts of this report only had Holm correction for JavaParser
+  and only had rank-biserial effect sizes for PMD/Checkstyle.)
+- `pandas`, `scipy`, and `matplotlib` are now pinned to exact versions
+  (2.3.3, 1.13.1, 3.9.4) in all four notebooks. This matters: an earlier,
+  unpinned run of the JavaParser notebook produced a different
+  `abrupt_exit_count` p-value (0.047, Holm-adjusted 0.806) than the
+  pinned, currently-reported figure (0.061, Holm-adjusted 1.000), for the
+  *identical* underlying data and the *identical* Wilcoxon test statistic
+  (W=76.0) — `scipy.stats.wilcoxon(..., method="auto")` silently chose a
+  different p-value approximation across environments. Most JavaParser
+  p-values in Section 3 shifted similarly by small amounts between
+  unpinned runs; PMD's and Checkstyle's did not, likely because their
+  much sparser violation counts keep them in a p-value-computation regime
+  that happens to be stable across the scipy versions observed. No
+  qualitative conclusion in this report changed as a result — every
+  affected p-value remained non-significant before and after — but the
+  specific numbers now reflect the pinned, reproducible configuration and
+  should be the ones cited going forward.
 - Subgroup (Bug Fixing / Improving Code) tests are reported **without**
   Holm correction in all three notebooks — treat every subgroup p-value
   here as exploratory, not confirmatory.

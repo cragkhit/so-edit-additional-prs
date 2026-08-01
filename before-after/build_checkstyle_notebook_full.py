@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Generate the Checkstyle before-after analysis notebook without nbformat."""
+"""Generate the full-scope Checkstyle before-after analysis notebook.
+
+Unlike build_checkstyle_notebook.py (scoped to the 125 `Agress Yes`
+pairs), this covers all 205 eligible, deduplicated Stack Overflow
+histories derived from the complete 793-row Matcha manual-validation
+study, using dataset/snippet_pairs.csv instead of
+dataset/agress_yes_pairs.csv.
+"""
 
 import json
 from pathlib import Path
@@ -7,7 +14,7 @@ from textwrap import dedent
 
 
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "Checkstyle_Before_After_Analysis.ipynb"
+OUTPUT = ROOT / "Checkstyle_Before_After_Analysis_Full.ipynb"
 
 
 def markdown(source):
@@ -23,16 +30,23 @@ def code(source):
 
 cells = [
     markdown("""
-    # Checkstyle Before–After Analysis of Accepted Stack Overflow Snippets
+    # Checkstyle Before–After Analysis of Stack Overflow Snippets (Full Scope)
 
-    This notebook measures a focused **style/readability** dimension for the
-    125 unique, dataset-eligible Stack Overflow histories associated with at
-    least one `Agress Yes` study row. It does not treat Checkstyle findings as
-    runtime bugs or performance measurements.
+    This notebook measures a focused **style/readability** dimension for all
+    **205 unique, eligible** Stack Overflow before/after histories derived
+    from the complete 793-row Matcha manual-validation study
+    (`matcha_results_2024-05-07_manual_validation_FINAL.csv`) -- not just the
+    subset whose `Final Manual Validation` is `Agress Yes` analyzed in
+    [`Checkstyle_Before_After_Analysis.ipynb`](Checkstyle_Before_After_Analysis.ipynb).
+    It does not treat Checkstyle findings as runtime bugs or performance
+    measurements.
 
     The same wrapper mode must parse on both sides of each pair. Wrapper-only
     findings are removed, identical revisions remain valid zero-change
-    observations, and the unique `Snippet ID` is the independent unit.
+    observations, and the unique `Snippet ID` is the independent unit. Each
+    history also carries a `validation_group` label (`ALL_ACCEPTED`,
+    `ALL_REJECTED`, `MIXED`) so results can be checked separately for
+    accepted vs. rejected recommendations.
     """),
     markdown("""
     ## 1. Dependencies and pinned configuration
@@ -67,11 +81,11 @@ cells = [
     code("""
     ROOT = Path.cwd().resolve()
     DATASET = ROOT / "dataset"
-    MANIFEST_PATH = DATASET / "agress_yes_pairs.csv"
+    MANIFEST_PATH = DATASET / "snippet_pairs.csv"
     MAPPING_PATH = DATASET / "study_pair_mapping.csv"
     CONFIG_PATH = ROOT / "checkstyle-reduced.xml"
-    WORK_ROOT = ROOT / "work" / "checkstyle"
-    RESULTS_ROOT = ROOT / "results" / "checkstyle"
+    WORK_ROOT = ROOT / "work" / "checkstyle_full"
+    RESULTS_ROOT = ROOT / "results" / "checkstyle_full"
     TOOLS_ROOT = ROOT / "tools"
 
     CHECKSTYLE_VERSION = "13.9.0"
@@ -97,28 +111,42 @@ cells = [
     print(version.stdout or version.stderr)
     """),
     markdown("""
-    ## 2. Load and verify the scoped dataset
+    ## 2. Load and verify the full-scope dataset
 
-    The active manifest already contains the deduplicated 125-pair `Agress
-    Yes` subset. The full mapping is loaded only to preserve the four
+    `snippet_pairs.csv` covers every unique Stack Overflow question/code-block
+    history reachable from all 793 study rows, filtered here to
+    `Status == ELIGIBLE`. `Recommendation Types` (semicolon-joined, possibly
+    empty) collapses to a single `recommendation_group`: a single type is
+    kept as-is, more than one becomes `MULTIPLE_TYPES`, and no type becomes
+    `NO_TYPE`. The full study-row mapping is loaded only to preserve the
     dataset-level exclusions in the audit output.
     """),
     code("""
-    pairs = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False).rename(
-        columns={
-            "Accepted Study Row Count": "accepted_study_rows",
-            "Recommendation Group": "recommendation_group",
-        }
-    )
-    mapping = pd.read_csv(MAPPING_PATH, dtype=str, keep_default_na=False)
-    accepted_rows = mapping.loc[mapping["Final Manual Validation"] == "Agress Yes"].copy()
-    accepted_exclusions = accepted_rows.loc[accepted_rows["Dataset Status"] != "ELIGIBLE"].copy()
+    def classify_recommendation_group(value):
+        types = [item for item in value.split(";") if item]
+        if len(types) > 1:
+            return "MULTIPLE_TYPES"
+        if len(types) == 1:
+            return types[0]
+        return "NO_TYPE"
 
-    assert len(pairs) == 125 and pairs["Snippet ID"].is_unique
-    assert len(accepted_rows) == 391 and len(accepted_exclusions) == 4
+    pairs = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False)
+    pairs = pairs.loc[pairs["Status"] == "ELIGIBLE"].copy()
+    pairs = pairs.rename(columns={
+        "Accepted Pair Count": "accepted_study_rows",
+        "Validation Group": "validation_group",
+    })
+    pairs["recommendation_group"] = pairs["Recommendation Types"].map(classify_recommendation_group)
+
+    mapping = pd.read_csv(MAPPING_PATH, dtype=str, keep_default_na=False)
+    dataset_exclusions = mapping.loc[mapping["Dataset Status"] != "ELIGIBLE"].copy()
+
+    assert len(pairs) == 205 and pairs["Snippet ID"].is_unique
+    assert len(mapping) == 793 and len(dataset_exclusions) == 6
     print("Scoped unique pairs:", len(pairs))
-    print("Dataset exclusions:", len(accepted_exclusions))
+    print("Dataset exclusions:", len(dataset_exclusions))
     display(pairs["recommendation_group"].value_counts().rename("histories"))
+    display(pairs["validation_group"].value_counts().rename("histories"))
     """),
     markdown("""
     ## 3. Create symmetric source variants
@@ -284,6 +312,7 @@ cells = [
         metric = {
             "snippet_id": snippet_id, "status": "ANALYZED" if mode else "PARSE_EXCLUDED",
             "parse_mode": mode, "recommendation_group": row["recommendation_group"],
+            "validation_group": row["validation_group"],
             "accepted_study_rows": int(row["accepted_study_rows"]),
             "identical_before_after": row["Identical Before After"],
         }
@@ -334,16 +363,18 @@ cells = [
     display(rule_transitions)
     '''),
     markdown("""
-    ## 7. Paired statistics and recommendation-type sensitivity analysis
+    ## 7. Paired statistics and subgroup sensitivity analyses
 
     The Wilcoxon test is paired by unique snippet history. Bug Fixing and
-    Improving Code are secondary subgroups; `MULTIPLE_TYPES` histories are
-    reported but excluded from the single-type tests.
+    Improving Code are secondary subgroups; `MULTIPLE_TYPES` and `NO_TYPE`
+    histories are reported but excluded from the single-type tests.
+    `validation_group` (`ALL_ACCEPTED`/`ALL_REJECTED`/`MIXED`) is a second,
+    full-scope-only subgroup dimension.
 
     The two primary rows (raw findings and findings per 100 code lines)
     are a family of related tests on the same pairs, so Holm's step-down
     procedure is applied across their `wilcoxon_p` values to control the
-    family-wise error rate, matching the JavaParser notebook's approach.
+    family-wise error rate.
     """),
     code("""
     def paired_summary(frame, before_column, after_column):
@@ -369,6 +400,15 @@ cells = [
             "rank_biserial_after_minus_before": effect,
         }
 
+    def holm_correct(frame):
+        adjusted = pd.Series(index=frame.index, dtype=float)
+        valid = frame["wilcoxon_p"].dropna().sort_values()
+        running, total = 0.0, len(valid)
+        for rank, (index, pvalue) in enumerate(valid.items()):
+            running = max(running, min(1.0, (total - rank) * pvalue))
+            adjusted.loc[index] = running
+        return adjusted
+
     statistical_summary = pd.DataFrame([
         {"metric": "Raw Checkstyle findings",
          **paired_summary(analyzed, "before_findings", "after_findings")},
@@ -376,17 +416,7 @@ cells = [
          **paired_summary(analyzed, "before_findings_per_100_lines",
                           "after_findings_per_100_lines")},
     ])
-    valid_p = statistical_summary["wilcoxon_p"].notna()
-    statistical_summary["holm_p"] = math.nan
-    if valid_p.any():
-        ordered = statistical_summary.loc[valid_p, "wilcoxon_p"].sort_values()
-        adjusted = pd.Series(index=ordered.index, dtype=float)
-        running = 0.0
-        total = len(ordered)
-        for rank, (index, pvalue) in enumerate(ordered.items()):
-            running = max(running, min(1.0, (total - rank) * pvalue))
-            adjusted.loc[index] = running
-        statistical_summary.loc[adjusted.index, "holm_p"] = adjusted
+    statistical_summary["holm_p"] = holm_correct(statistical_summary)
     statistical_summary.to_csv(RESULTS_ROOT / "checkstyle_statistical_summary.csv", index=False)
 
     subgroup_rows = []
@@ -397,8 +427,17 @@ cells = [
                               **paired_summary(frame, "before_findings", "after_findings")})
     subgroup_summary = pd.DataFrame(subgroup_rows)
     subgroup_summary.to_csv(RESULTS_ROOT / "checkstyle_recommendation_subgroups.csv", index=False)
+
+    validation_rows = []
+    for group, frame in analyzed.groupby("validation_group"):
+        validation_rows.append({"validation_group": group,
+                                **paired_summary(frame, "before_findings", "after_findings")})
+    validation_summary = pd.DataFrame(validation_rows)
+    validation_summary.to_csv(RESULTS_ROOT / "checkstyle_validation_group_subgroups.csv", index=False)
+
     display(statistical_summary)
     display(subgroup_summary)
+    display(validation_summary)
     """),
     markdown("""
     ## 8. Plot and export reproducibility summary
@@ -421,15 +460,18 @@ cells = [
         "histories"
     ).reset_index()
     coverage.to_csv(RESULTS_ROOT / "checkstyle_parse_coverage.csv", index=False)
-    accepted_exclusions.to_csv(
-        RESULTS_ROOT / "checkstyle_agress_yes_dataset_exclusions.csv", index=False
+    dataset_exclusions.to_csv(
+        RESULTS_ROOT / "checkstyle_dataset_exclusions.csv", index=False
     )
     summary = {
         "checkstyle_version": CHECKSTYLE_VERSION,
-        "manual_validation_filter": "Agress Yes", "scoped_pairs": int(len(pairs)),
+        "manual_validation_filter": "None (full 793-recommendation scope)",
+        "scoped_pairs": int(len(pairs)),
         "analyzed_pairs": int(len(analyzed)),
         "parse_excluded_pairs": int((pair_metrics["status"] == "PARSE_EXCLUDED").sum()),
         "identical_pairs": int((pairs["Identical Before After"] == "YES").sum()),
+        "study_row_mappings": int(len(mapping)),
+        "dataset_level_exclusions": int(len(dataset_exclusions)),
         "retained_findings": int(len(findings)),
         "configuration_sha256": hashlib.sha256(CONFIG_PATH.read_bytes()).hexdigest(),
     }
@@ -447,6 +489,9 @@ cells = [
     - Report parsing coverage and all exclusions.
     - Interpret p-values with effect sizes and improved/unchanged/worsened counts;
       the two primary rows are Holm-corrected (`holm_p`).
+    - This full scope mixes accepted, rejected, and mixed-validation
+      recommendations; always check `validation_group` before generalizing
+      a finding to "useful recommendations."
     - Inspect rule-level transitions; a total can hide opposing rule changes.
     - Manually audit a sample of findings, especially wrapper-sensitive checks.
     - Preserve the pinned JAR version, configuration hash, raw reports, and logs.

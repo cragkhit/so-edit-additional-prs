@@ -1,0 +1,401 @@
+% original-recent-nopmd.tex
+%
+% Draft section reporting the quantitative original--recent static-analysis
+% results for all 205 unique eligible original/recent histories derivable
+% from the complete 793-row Matcha manual-validation study, produced under
+% before-after/results/{javaparser_full,checkstyle_full}/.
+%
+% This version is self-contained: it reports only this analysis, with no
+% comparison against the narrower 125-pair "Agress Yes" scope reported in
+% before-after.tex, and no PMD results (PMD is excluded by author
+% decision, so this is a two-tool comparison -- JavaParser for structure,
+% Checkstyle for readability).
+%
+% Because this file no longer cross-references before-after.tex, it can
+% be merged on its own. Its \label keys use an "original-recent"/"or-"
+% scheme and no longer collide with before-after-full.tex, but that file
+% covers the same data with PMD included, so the two are alternatives
+% rather than companions -- \input{} only one.
+%
+% Prose in this file uses semantic line breaks (one sentence per line) to
+% keep version-control diffs readable; LaTeX collapses the newlines to
+% spaces, so rendering is unaffected.
+%
+% Required packages (add to the main preamble if not already present):
+%   \usepackage{amsmath}
+%   \usepackage{booktabs}
+%   \usepackage{graphicx}
+%   \usepackage{url}        % only if the .bib entries below are used as-is
+% Figure paths below are relative to this file's location (before-after/);
+% adjust \graphicspath or the paths themselves if this file is merged into
+% a manuscript tree with a different layout.
+%
+% All figures reported here are read directly from the CSV/JSON outputs of
+% JavaParser_Before_After_Analysis_Full.ipynb and
+% Checkstyle_Before_After_Analysis_Full.ipynb; no additional computation
+% was performed to produce this section.
+%
+% Reproducibility note: pandas/scipy/matplotlib are pinned to exact
+% versions (2.3.3/1.13.1/3.9.4) in both notebooks. Tool versions are
+% JavaParser 3.28.1 and Checkstyle 13.9.0; the Checkstyle configuration is
+% recorded by SHA-256 in the respective run\_summary.json files.
+%
+% Citations: this file cites the two tools as \cite{javaparser},
+% \cite{javaparser-visited}, and \cite{checkstyle}. Neither tool has a
+% canonical peer-reviewed paper, so these are software/website citations
+% plus the JavaParser reference book -- the conventional practice in the
+% SE literature. BibTeX entries are provided at the end of this file;
+% paste them into the manuscript's .bib and check the version numbers and
+% access dates against the actual run before submission.
+
+\section{Quantitative Original--Recent Static-Analysis Comparison}
+\label{sec:original-recent}
+
+To address the concern that the manuscript presents descriptive observations rather than empirical evidence that the proposed method improves software quality, we conducted a paired static-analysis comparison of every original Stack Overflow snippet against its most recent revision.
+The analysis covers \textbf{all 205 unique, dataset-eligible original--recent histories} derivable from the complete 793-row Matcha manual-validation study, irrespective of the validation outcome.
+
+Two independent tools were used, each targeting a distinct quality dimension: JavaParser~\cite{javaparser,javaparser-visited} (version 3.28.1) for intrinsic AST-based structural measures, and a reduced Checkstyle~\cite{checkstyle} (version 13.9.0) configuration for readability.
+Because Stack Overflow snippets are frequently incomplete code fragments rather than compilable units, each pair was tried under three symmetric wrapper strategies --- raw source, class-member, and method-body --- and was analyzed only when the original and the recent snippet shared a common successful parse mode.
+Requiring a \emph{common} mode ensures that any measured difference reflects the revision itself rather than a difference in how the two versions were wrapped.
+Each metric was tested with a paired Wilcoxon signed-rank test, and Holm's step-down procedure was applied within each tool to control the family-wise error rate across that tool's tests.
+Alongside each test we report a matched-pairs rank-biserial correlation as a signed effect size, computed as recent $-$ original.
+
+Because the analysis admits recommendations judged useful, judged not useful, and judged inconsistently across different GitHub matches, every history carries a \emph{validation group} label: \texttt{ALL\_ACCEPTED} (judged useful in every GitHub match in which it appeared), \texttt{ALL\_REJECTED} (judged not useful in every match), and \texttt{MIXED} (judged useful in some matches and not in others).
+This label supports a validity check on the manual validation itself: \emph{if the manual validation is measuring something real, the static-analysis change should differ between accepted and rejected recommendations.}
+The \texttt{ALL\_REJECTED} group functions as a built-in negative control.
+
+\subsection{Parsing coverage}
+\label{sec:or-coverage}
+
+Table~\ref{tab:or-coverage} summarizes how many of the 205 pairs each tool analyzed.
+Both tools independently exclude just over a third of the sample because the original and the recent snippet never shared a common successful parse mode.
+That two independently implemented extractors arrive at near-identical exclusion rates (37.1\% and 37.6\%) suggests this reflects a genuine property of the snippets --- fragments that parse under only one specific wrapper on one side of the pair --- rather than a defect in either tool.
+The two tools also independently confirm 12 identical pairs, in which the revision left the snippet text unchanged, and 6 dataset-level exclusions across the 793 study-row mapping.
+
+\begin{table}[htbp]
+\centering
+\caption{Parsing coverage of the 205 pairs, by tool.}
+\label{tab:or-coverage}
+\begin{tabular}{lrrrr}
+\toprule
+Tool & Total pairs & Analyzed & Excluded & Exclusion rate \\
+\midrule
+JavaParser & 205 & 128 & 77 & 37.6\% \\
+Checkstyle & 205 & 129 & 76 & 37.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Wrapper mode under which analyzed pairs achieved a common successful parse.}
+\label{tab:or-parse-mode}
+\begin{tabular}{lrrr}
+\toprule
+Tool & \textsc{raw} & \textsc{class\_member} & \textsc{method\_body} \\
+\midrule
+JavaParser & 113 & 6 & 9 \\
+Checkstyle & 118 & 2 & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Both tools succeed predominantly under the raw-source mode (113/128 and 118/129 respectively), the method-body wrapper accounts for an identical 9 pairs in each tool, and the class-member wrapper is needed only for a handful.
+
+\subsection{Structural metrics (JavaParser)}
+\label{sec:or-javaparser}
+
+Eighteen structural metrics --- method, parameter, and local-variable counts; branch, loop, and switch counts; a documented cyclomatic-complexity proxy; maximum control-flow nesting; abrupt exits; try and resource-handling counts; null-comparison counts; and an aggregate exception-handling count --- plus non-comment code-line count were each tested independently, with Holm's procedure applied across all 19 tests.
+Table~\ref{tab:or-javaparser} reports the results for the $n=128$ analyzed pairs.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired JavaParser structural-metric comparison ($n=128$).
+\emph{Dec.}/\emph{Unc.}/\emph{Inc.} denote the number of pairs whose metric decreased, was unchanged, or increased from the original to the recent version.
+$p$ is the raw two-sided Wilcoxon signed-rank $p$-value; $r_{\text{rb}}$ is the matched-pairs rank-biserial correlation (recent $-$ original); $p_{\text{Holm}}$ is Holm-corrected across all 19 metrics.
+No metric is significant at $\alpha=0.05$ after correction; code-line count is the closest ($p_{\text{Holm}}=0.070$).}
+\label{tab:or-javaparser}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Metric & $\Delta$ median & Dec. & Unc. & Inc. & $p$ & $r_{\text{rb}}$ & $p_{\text{Holm}}$ \\
+\midrule
+Code lines                   & $0$ & 34 & 31  & 63 & 0.004 & $+0.337$ & 0.070 \\
+Method count                 & $0$ & 10 & 92  & 26 & 0.026 & $+0.423$ & 0.406 \\
+Parameter count              & $0$ & 9  & 102 & 17 & 0.025 & $+0.499$ & 0.406 \\
+Max.\ parameters             & $0$ & 6  & 115 & 7  & 0.497 & $+0.242$ & 1.000 \\
+Local-variable count         & $0$ & 10 & 91  & 27 & 0.011 & $+0.478$ & 0.180 \\
+\texttt{if} count            & $0$ & 11 & 103 & 14 & 0.508 & $+0.160$ & 1.000 \\
+Loop count                   & $0$ & 1  & 121 & 6  & 0.078 & $+0.821$ & 0.781 \\
+Switch count                 & $0$ & 0  & 128 & 0  & --    & --       & --    \\
+Catch count                  & $0$ & 3  & 117 & 8  & 0.123 & $+0.545$ & 1.000 \\
+Cyclomatic-complexity proxy  & $0$ & 13 & 88  & 27 & 0.028 & $+0.398$ & 0.406 \\
+Max.\ control nesting        & $0$ & 10 & 106 & 12 & 0.262 & $+0.285$ & 1.000 \\
+Abrupt-exit count            & $0$ & 12 & 90  & 26 & 0.049 & $+0.367$ & 0.628 \\
+Try count                    & $0$ & 3  & 116 & 9  & 0.064 & $+0.615$ & 0.704 \\
+Try-with-resources count     & $0$ & 0  & 126 & 2  & 0.500 & $+1.000$ & 1.000 \\
+Throw count                  & $0$ & 1  & 120 & 7  & 0.195 & $+0.556$ & 1.000 \\
+Empty-catch count            & $0$ & 1  & 124 & 3  & 0.625 & $+0.500$ & 1.000 \\
+Empty-block count            & $0$ & 2  & 121 & 5  & 0.297 & $+0.500$ & 1.000 \\
+Null-check count             & $0$ & 6  & 118 & 4  & 0.922 & $+0.055$ & 1.000 \\
+Exception-handling count     & $0$ & 5  & 110 & 13 & 0.048 & $+0.538$ & 0.628 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For every metric the majority of pairs are unchanged (e.g.\ switch count: 128/128; \texttt{if} count: 103/128; method count: 92/128), indicating that most revisions do not alter the snippet's structural shape.
+No metric is statistically significant after Holm correction.
+Code-line count is the closest to significance: it increases in 63 of 128 pairs against 34 decreases, giving a raw $p=0.004$ that corrects to $p_{\text{Holm}}=0.070$ --- a near-miss rather than a clear null.
+Six further metrics --- method count, parameter count, local-variable count, the cyclomatic-complexity proxy, abrupt-exit count, and exception-handling count --- cross the \emph{uncorrected} $p<0.05$ threshold, but none survives correction (all $p_{\text{Holm}}\geq0.18$).
+
+The most consistent feature of the table is one of sign rather than significance: every rank-biserial correlation is non-negative.
+Revisions skew toward \emph{increasing} every structural count and toward decreasing none.
+Together with the code-line result, this is consistent with a real but modestly-sized ``revisions add code'' effect --- for instance, the addition of validation or defensive checks --- that this sample is underpowered to resolve, rather than with the absence of any effect.
+
+That said, individual rows warrant caution.
+Several of the largest rank-biserial values (loop count $+0.82$, try-with-resources $+1.00$, try count $+0.62$) rest on as few as 2--12 nonzero-delta pairs out of 128.
+An effect size computed from a handful of nonzero pairs is not a meaningful estimate; it is a symptom of a tiny effective sample for that metric, not evidence of a large competing effect.
+
+\subsubsection*{By recommendation type (uncorrected, exploratory)}
+
+Within the Bug Fixing subgroup ($n=12$), code-line count shows a raw $p=0.039$ (7/12 pairs increased, median $\Delta=+1$, $r_{\text{rb}}=+0.778$); within Improving Code ($n=65$), $p=0.099$ (33/65 increased, median $\Delta=+1$, $r_{\text{rb}}=+0.272$).
+The large Bug Fixing effect size should be read with the same caution applied to the sparse rows of Table~\ref{tab:or-javaparser}: it is computed from the 9 pairs (of 12) with a nonzero delta, so its confidence interval is correspondingly wide, and the far more modest Improving Code estimate rests on $5.4\times$ as many pairs.
+Every other structural metric in both subgroups is dominated by unchanged pairs and shows no separation from the null.
+
+\subsubsection*{By validation outcome (uncorrected, exploratory)}
+
+Table~\ref{tab:or-jp-validation} reports code-line count separately for the three validation groups.
+
+\begin{table}[htbp]
+\centering
+\caption{JavaParser code-line count by validation group ($n=128$ split into three groups).
+These tests are \emph{not} Holm-corrected, either within the three-group comparison or across the two tools that each ran it; they are exploratory.}
+\label{tab:or-jp-validation}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Validation group & $n$ & $\Delta$ median & Dec. & Unc. & Inc. & $p$ & $r_{\text{rb}}$ \\
+\midrule
+\texttt{ALL\_ACCEPTED} & 59 & $+1$ & 14 & 12 & 33 & 0.008 & $+0.439$ \\
+\texttt{ALL\_REJECTED} & 48 & $0$  & 15 & 12 & 21 & 0.135 & $+0.288$ \\
+\texttt{MIXED}         & 21 & $0$  & 5  & 7  & 9  & 0.626 & $+0.162$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The code-line signal is concentrated in recommendations judged useful in every GitHub match ($p=0.008$, median $\Delta=+1$, $r_{\text{rb}}=+0.439$), is weaker in the \texttt{ALL\_REJECTED} negative control ($p=0.135$, median $\Delta=0$, $r_{\text{rb}}=+0.288$), and is absent in \texttt{MIXED} ($p=0.626$, $r_{\text{rb}}=+0.162$).
+This ordering is exactly what one would predict if the manual-validation judgment tracks a real underlying difference in how the snippet was revised.
+It is nonetheless a single uncorrected exploratory subgroup test, and we report it as a promising lead rather than a confirmed effect.
+
+\subsection{Readability (Checkstyle)}
+\label{sec:or-checkstyle}
+
+Eight readability and style checks were applied to the $n=129$ analyzed pairs, yielding 2{,}564 retained findings in total across both versions.
+Table~\ref{tab:or-checkstyle} reports the paired comparison for raw finding counts and for findings per 100 non-comment lines.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired Checkstyle finding comparison ($n=129$).
+$r_{\text{rb}}$ is the matched-pairs rank-biserial correlation, signed recent $-$ original, so a \emph{negative} value indicates fewer findings after the revision (i.e.\ improvement).
+$p_{\text{Holm}}$ is Holm-corrected across both rows.
+Neither result is significant at $\alpha=0.05$.}
+\label{tab:or-checkstyle}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Metric & Imp. & Unc. & Wors. & $p$ & $r_{\text{rb}}$ & $p_{\text{Holm}}$ \\
+\midrule
+Raw findings         & 25 & 84 & 20 & 0.414 & $-0.141$ & 0.414 \\
+Findings / 100 lines & 39 & 68 & 22 & 0.122 & $-0.228$ & 0.243 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Neither measure reaches significance, and both lean mildly toward improvement.
+The density measure leans further (39 improved vs.\ 22 worsened, $r_{\text{rb}}=-0.228$) than the raw count (25 vs.\ 20, $r_{\text{rb}}=-0.141$).
+That gap is itself informative: density can fall simply because a revision adds lines, without any finding being fixed, and the JavaParser results indicate that these revisions do add lines.
+We therefore regard the raw-count result as the more conservative and more informative of the two.
+
+\begin{table}[htbp]
+\centering
+\caption{Checkstyle rule-level transitions, for checks with nonzero original/recent activity.
+Net removed = removed $-$ introduced; positive values indicate net improvement.}
+\label{tab:or-checkstyle-rules}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Check & Removed & Introduced & Preserved & Net removed \\
+\midrule
+\texttt{FileTabCharacter}                  & 6 & 3 & 32 & $+3$ \\
+\texttt{AvoidNestedBlocks}                 & 1 & 0 & 1  & $+1$ \\
+\texttt{EmptyBlock}                        & 0 & 1 & 2  & $-1$ \\
+\texttt{MultipleVariableDeclarations}      & 0 & 1 & 8  & $-1$ \\
+\texttt{LineLength}                        & 1 & 3 & 15 & $-2$ \\
+\texttt{OneStatementPerLine}               & 1 & 3 & 1  & $-2$ \\
+\texttt{VariableDeclarationUsageDistance}  & 0 & 2 & 4  & $-2$ \\
+\texttt{NeedBraces}                        & 0 & 4 & 23 & $-4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The rule-level picture is mixed and uniformly small in magnitude.
+\texttt{FileTabCharacter} is the clearest net-positive check ($+3$), and \texttt{AvoidNestedBlocks} the only other one.
+\texttt{NeedBraces} is the clearest net-negative: four revisions introduce a brace-omission violation and none remove one, while a further 23 pairs preserve the violation unchanged from the original.
+That preserved count is the largest in the table, indicating that most brace-omission issues present in an original snippet are simply carried over rather than addressed.
+\texttt{LineLength}, \texttt{OneStatementPerLine}, and \texttt{VariableDeclarationUsageDistance} likewise each introduce more violations than they remove.
+No single transition in this table is large enough to support a confident conclusion on its own, but the aggregate direction at the rule level is less favorable than the pair-level density measure suggests.
+
+\subsubsection*{Checkstyle subgroups (uncorrected, exploratory)}
+
+By recommendation type, Bug Fixing ($n=12$) shows 2 improved and 2 worsened pairs ($p=0.875$, $r_{\text{rb}}=+0.200$) and Improving Code ($n=66$) shows 10 and 10 ($p=0.430$, $r_{\text{rb}}=-0.205$) --- exactly balanced in counts.
+The effect sizes show that this count-level balance conceals a small difference in magnitude: in Improving Code the worsening pairs are outranked by the improving ones (hence the negative, improvement-leaning $r_{\text{rb}}$), while in Bug Fixing the sign reverses.
+Neither estimate is distinguishable from zero at these sample sizes.
+
+By validation outcome, raw findings give \texttt{ALL\_ACCEPTED} ($n=59$) a rank-biserial of $-0.347$ ($p=0.196$), \texttt{ALL\_REJECTED} ($n=48$) $-0.111$ ($p=0.679$), and \texttt{MIXED} ($n=22$) $+0.250$ ($p=0.688$, the only worsening lean of the three).
+None is significant, but the ordering places \texttt{ALL\_ACCEPTED} ahead of \texttt{ALL\_REJECTED}, matching the gradient JavaParser shows.
+
+\subsection{Evidence favoring the recent revisions}
+\label{sec:or-positive}
+
+The preceding tables are dominated, as expected for snippet-level analysis, by unchanged pairs and non-significant tests.
+It is therefore worth stating explicitly what the analysis \emph{does} support in favor of the recent revisions, since these findings are easily lost among the null results.
+Four points stand out; we state each with the evidentiary weight it can actually carry.
+
+\paragraph{The validation judgment tracks a measurable difference.}
+This is the strongest positive finding.
+If the manual validation of Matcha's recommendations were capturing nothing real, there would be no reason for static-analysis behavior to differ between recommendations judged useful and recommendations judged not useful.
+It differs, in the predicted direction, in both tools.
+JavaParser code-line count separates the groups clearly (\texttt{ALL\_ACCEPTED} $p=0.008$, $r_{\text{rb}}=+0.439$, median $\Delta=+1$; \texttt{ALL\_REJECTED} $p=0.135$, median $\Delta=0$), and Checkstyle orders them the same way on raw findings ($r_{\text{rb}}=-0.347$ versus $-0.111$, both improvement-leaning).
+The \texttt{ALL\_REJECTED} group was not constructed to serve this purpose --- it is simply what the validation produced --- which is what makes it usable as a negative control.
+Because these are uncorrected subgroup tests, we present this as convergent evidence for the \emph{validity of the validation instrument}, not as an independent significant effect.
+
+\paragraph{Readability does not degrade, and leans toward improvement.}
+Both Checkstyle measures point the same way: more pairs improve than worsen on raw findings (25 versus 20) and on findings per 100 lines (39 versus 22), and both rank-biserial correlations are improvement-signed ($-0.141$ and $-0.228$).
+Neither reaches significance, so this is a directional result rather than a demonstrated effect.
+Its value in answering a reviewer's doubt is nonetheless real: the concern that revised Stack Overflow snippets might be \emph{less} readable than the originals is not supported by either measure.
+
+\paragraph{No measure shows significant degradation.}
+Across 19 structural metrics and two readability measures, no test indicates that the recent version is significantly worse than the original --- before or after correction.
+At the rule level, the two checks with net-positive movement (\texttt{FileTabCharacter} $+3$, \texttt{AvoidNestedBlocks} $+1$) are matched by several with net-negative movement, but all are single-digit.
+This should be read as \emph{absence of evidence of harm} rather than evidence of absence of harm: with a majority of pairs unchanged on nearly every metric, the analysis has limited power to detect degradation as well as improvement.
+It nevertheless constrains the strongest version of the skeptical position, which would predict visible regression.
+
+\paragraph{Revisions consistently add rather than remove code.}
+Code-line count is the metric closest to significance ($p_{\text{Holm}}=0.070$; raw $p=0.004$; 63 of 128 pairs increase against 34 that decrease), and all 19 structural rank-biserial correlations are non-negative --- an unusually consistent pattern for a set of independent metrics.
+The growth is concentrated in the \texttt{ALL\_ACCEPTED} group and in the Bug Fixing subgroup ($n=12$, $p=0.039$, median $\Delta=+1$), which is consistent with revisions supplying material the original omitted, such as validation, defensive checks, or exception handling.
+We note that code growth is an indicator of \emph{elaboration} rather than of quality directly: added lines could equally reflect verbosity.
+The interpretation is supported here by the direction of the aggregate exception-handling and try counts and by the concentration in accepted recommendations, but code-line count alone would not establish it.
+
+\subsection{Cross-tool synthesis}
+\label{sec:or-synthesis}
+
+Two statements have to be held together to characterize this analysis accurately.
+
+The first is the headline null: across both independently implemented dimensions --- structural (JavaParser) and readability (Checkstyle) --- \textbf{no metric reaches statistical significance after appropriate correction}, in either the full analyzed sample or any subgroup.
+With $n=128$--$129$ analyzed pairs, frequently single-digit improved/worsened counts, and a majority of unchanged pairs on nearly every metric, these tests are underpowered for anything short of a large effect.
+The absence of significance is consistent with limited statistical power as much as with the absence of a true effect, and we report it as such rather than as proof of no improvement.
+
+The second is that \textbf{every directional lean the analysis produces points the same way}, as set out in Section~\ref{sec:or-positive}.
+All 19 JavaParser rank-biserial correlations are non-negative; both Checkstyle measures are improvement-signed; no measure shows significant degradation; and both tools order \texttt{ALL\_ACCEPTED} ahead of \texttt{ALL\_REJECTED}.
+Sign consistency of this kind across two independently implemented tools is not equivalent to significance, and we do not treat it as such --- but it is also not what a set of pure noise would be expected to produce, and it is the basis on which we argue the null results reflect power rather than absence of effect.
+
+One tension should be acknowledged rather than smoothed over.
+Aggregate leans and rule-level detail do not fully agree: Checkstyle's density measure leans toward improvement while specific checks trend worse (\texttt{NeedBraces}, \texttt{LineLength}, \texttt{OneStatementPerLine}, \texttt{VariableDeclarationUsageDistance}), and part of the density lean is attributable to a denominator effect from the very code growth JavaParser measures.
+The raw-count measure, which is immune to that denominator effect, still leans toward improvement (25 versus 20), which is why we regard the readability result as directionally favorable but weak rather than as an artifact.
+
+\subsection{Implications}
+\label{sec:or-implications}
+
+The concern this analysis was designed to address is whether the code recommended by our approach --- recent Stack Overflow revisions --- can be trusted to be of adequate quality.
+Three of the findings in Section~\ref{sec:or-positive} bear on that question directly, and they are more informative than the headline null.
+
+The \texttt{ALL\_ACCEPTED} versus \texttt{ALL\_REJECTED} gradient is the most useful evidence the analysis produces, because it answers a validity question directly: if the manual validation measures something real, quality metrics should differ between accepted and rejected recommendations.
+They do, in the expected direction, in both tools, for the one metric with an estimable effect size.
+This matters for the quality question because it means the manual judgments underlying the manuscript's primary evidence are not arbitrary --- they track a difference an independent, automated measurement can also see.
+We report it with the caveat that only the JavaParser result is individually notable ($p=0.008$, uncorrected) and that none of the validation-group comparisons is Holm-corrected.
+
+The second and third are negative in form but relevant in substance: across 19 structural metrics and two readability measures, no test shows the recent version to be significantly worse than the original, and both readability measures lean toward improvement.
+A reviewer doubting the quality of Stack Overflow revisions would predict visible degradation, particularly in readability, where snippet-level edits are most likely to introduce inconsistency.
+We do not observe it.
+Given the power available, this constrains the skeptical position rather than refuting it, and we claim no more than that.
+
+Code-line count at $p_{\text{Holm}}=0.070$ should be flagged as a near-miss: neither rounded up to ``significant'' nor dismissed as ``not significant'' without qualification.
+Had code-line count been pre-registered as \emph{the} primary outcome, it would face a far less severe correction and could plausibly cross $\alpha=0.05$ at this sample size.
+
+One limit should be stated plainly rather than worked around.
+While $n=128$--$129$ analyzed pairs is a reasonable sample by the standards of snippet-level static analysis, it is still modest, particularly once split into three validation groups of 21--59 pairs each.
+
+This quantitative analysis, taken alone, therefore does not provide strong statistically significant evidence that recent Stack Overflow revisions consistently improve static-analysis indicators of software quality.
+It is best read as a robustness check that tempers, rather than substitutes for, the manuscript's primary evidence for the improvement claim: the manual classification of applicable recommendations and the practical validation via pull-request acceptance into real open-source projects.
+We revise our claim accordingly: compared with their original versions, recent Stack Overflow revisions show small, non-significant, and rule-dependent changes in static-analysis indicators of structural maintainability and readability; the clearest measurable tendency is toward \emph{adding} code, which is concentrated among recommendations independently judged useful; and the strongest evidence for improvement continues to come from manual classification and pull-request acceptance rather than from paired static-analysis metrics alone.
+
+\subsection{Threats and limitations}
+\label{sec:or-limitations}
+
+All figures above are read directly from the CSV/JSON outputs of the two notebooks; no new statistical test was run to produce this section.
+
+Just over a third of the 205 pairs could not be analyzed because the two versions never shared a common parse mode.
+If snippets that fail to parse differ systematically from those that do --- for example, if they are longer or more fragmentary --- the analyzed subset is not a random sample of the whole, and the results generalize to parseable snippet pairs rather than to all revisions.
+
+The recommendation-type subgroup tests exclude two \texttt{recommendation\_group} categories: \texttt{NO\_TYPE} (histories with no accepted study row to classify under a Baltes category --- 48 of the 128 JavaParser-analyzed histories) and \texttt{MULTIPLE\_TYPES} (3 analyzed histories, excluded because a single history cannot be attributed to one type).
+The size of the \texttt{NO\_TYPE} group means the Bug Fixing and Improving Code subgroups together cover only about 60\% of analyzed histories.
+
+Every \texttt{validation\_group} $p$-value reported here is uncorrected, both within a tool's three-group comparison and across the two tools that each ran it; all should be read as exploratory.
+
+JavaParser and Checkstyle analyze slightly different pair sets (128 and 129 respectively) because each tool selects its own common parse mode independently.
+This is an ordinary consequence of the analysis design, not a data inconsistency.
+
+Finally, this section covers the structural and readability dimensions only.
+It does not include a bug-risk or performance dimension, and it does not include a SpotBugs sensitivity analysis or a manual audit of analyzer findings.
+
+% Optional supporting figures (uncomment and adjust paths/packages as needed):
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{results/javaparser_full/javaparser_metric_deltas.png}
+%   \caption{Distribution of after$-$before deltas for all 19 JavaParser
+%   structural metrics ($n=128$ analyzed pairs).}
+%   \label{fig:or-javaparser-deltas}
+% \end{figure}
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{results/checkstyle_full/checkstyle_outcomes.png}
+%   \caption{Checkstyle original--recent outcomes ($n=129$ analyzed pairs).}
+%   \label{fig:or-checkstyle-outcomes}
+% \end{figure}
+
+% ---------------------------------------------------------------------
+% BibTeX entries for the tool citations used above. Paste into the
+% manuscript's .bib file (do not leave them here -- LaTeX will not read
+% them from a .tex source). Verify version numbers against the actual
+% analysis run and update the urldate fields to the date of last access
+% before submission.
+%
+% @misc{javaparser,
+%   author       = {{The JavaParser Team}},
+%   title        = {{JavaParser}: Analyse, Transform and Generate Your
+%                   {Java} Code Base},
+%   howpublished = {\url{https://javaparser.org/}},
+%   note         = {Version 3.28.1},
+%   year         = {2025},
+%   urldate      = {2025-11-01}
+% }
+%
+% @book{javaparser-visited,
+%   author    = {Smith, Nicholas and van Bruggen, Danny and
+%                Tomassetti, Federico},
+%   title     = {{JavaParser}: Visited},
+%   publisher = {Leanpub},
+%   year      = {2021},
+%   note      = {Reference guide to the {JavaParser} library}
+% }
+%
+% @misc{checkstyle,
+%   author       = {{Checkstyle Development Team}},
+%   title        = {{Checkstyle}: A Development Tool to Help Programmers
+%                   Write {Java} Code That Adheres to a Coding Standard},
+%   howpublished = {\url{https://checkstyle.org/}},
+%   note         = {Version 13.9.0},
+%   year         = {2025},
+%   urldate      = {2025-11-01}
+% }
+% ---------------------------------------------------------------------

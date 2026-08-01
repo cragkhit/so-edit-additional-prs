@@ -1,0 +1,384 @@
+% before-after-full.tex
+%
+% Draft section reporting the quantitative before--after static-analysis
+% results at FULL SCOPE (all 205 unique eligible before/after histories
+% derivable from the complete 793-row Matcha manual-validation study),
+% produced under before-after/results/{javaparser_full,pmd_reduced_full,
+% checkstyle_full}/.
+%
+% Companion to before-after.tex, which reports the narrower 125-pair
+% "Agress Yes"-only scope. The two are intended to co-exist: this file
+% cross-references \ref{sec:before-after-robustness} and its subsection
+% labels. If only one of the two is merged into the manuscript, replace
+% those cross-references with prose.
+%
+% Prose in this file uses semantic line breaks (one sentence per line) to
+% keep version-control diffs readable; LaTeX collapses the newlines to
+% spaces, so rendering is unaffected.
+%
+% Required packages (add to the main preamble if not already present):
+%   \usepackage{amsmath}
+%   \usepackage{booktabs}
+%   \usepackage{graphicx}
+% Figure paths below are relative to this file's location (before-after/);
+% adjust \graphicspath or the paths themselves if this file is merged into
+% a manuscript tree with a different layout.
+%
+% All figures reported here are read directly from the CSV/JSON outputs of
+% JavaParser_Before_After_Analysis_Full.ipynb,
+% PMD_Before_After_Analysis_Full.ipynb, and
+% Checkstyle_Before_After_Analysis_Full.ipynb; no additional computation
+% was performed to produce this section.
+%
+% Reproducibility note: pandas/scipy/matplotlib are pinned to exact
+% versions (2.3.3/1.13.1/3.9.4) in all three full-scope notebooks, matching
+% the pins used in the scoped notebooks. Tool versions are JavaParser
+% 3.28.1, PMD 7.25.0 (java-17 language level), and Checkstyle 13.9.0; the
+% PMD ruleset and Checkstyle configuration are recorded by SHA-256 in the
+% respective run\_summary.json files.
+
+\section{Full-Scope Before--After Robustness Check}
+\label{sec:before-after-full}
+
+Section~\ref{sec:before-after-robustness} reported a paired static-analysis comparison restricted to the 125 unique before--after histories whose \emph{Final Manual Validation} value is \texttt{Agress Yes}.
+That scope answers the question \emph{among recommendations judged useful, how do quality metrics change?}
+It cannot, by construction, ask whether the measured change differs between recommendations that were judged useful and those that were not, because every history it contains was judged useful.
+
+This section reports the same three-tool analysis extended to \textbf{all 205 unique, dataset-eligible before--after histories} derivable from the complete 793-row Matcha manual-validation study, irrespective of the validation outcome.
+The extraction pipeline, wrapper strategies (raw source, class-member, method-body), common-parse-mode requirement, statistical tests, and multiple-comparison correction are identical to those described in Section~\ref{sec:before-after-robustness}; only the inclusion filter differs.
+
+Because the full scope admits recommendations judged useful, judged not useful, and judged inconsistently across different GitHub matches, every history carries an additional \emph{validation group} label: \texttt{ALL\_ACCEPTED} (judged useful in every GitHub match in which it appeared), \texttt{ALL\_REJECTED} (judged not useful in every match), and \texttt{MIXED} (judged useful in some matches and not in others).
+This label supports a validity check the scoped analysis structurally could not perform: \emph{if the manual validation is measuring something real, the static-analysis change should differ between accepted and rejected recommendations.}
+The \texttt{ALL\_REJECTED} group functions as a built-in negative control.
+
+\subsection{Parsing coverage}
+\label{sec:ba-full-coverage}
+
+Table~\ref{tab:ba-full-coverage} summarizes how many of the 205 full-scope pairs each tool analyzed.
+Exclusion rates (37.1--39.5\%) are within one to three percentage points of those observed at the 125-pair scope (35.2--38.4\%), which indicates that parse coverage is a property of the snippets and the wrapper strategy rather than of the manual-validation filter.
+All three tools independently confirm 12 identical pairs and 6 dataset-level exclusions across the 793 study-row mapping.
+
+\begin{table}[htbp]
+\centering
+\caption{Parsing coverage of the 205 full-scope pairs, by tool.
+Scoped-analysis exclusion rates (Table~\ref{tab:ba-coverage}) are given for comparison.}
+\label{tab:ba-full-coverage}
+\begin{tabular}{lrrrrr}
+\toprule
+Tool & Scoped pairs & Analyzed & Excluded & Exclusion rate & (125-pair rate) \\
+\midrule
+JavaParser            & 205 & 128 & 77 & 37.6\% & 36.0\% \\
+PMD (reduced ruleset) & 205 & 124 & 81 & 39.5\% & 38.4\% \\
+Checkstyle            & 205 & 129 & 76 & 37.1\% & 35.2\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Wrapper mode under which full-scope analyzed pairs achieved a common successful parse.}
+\label{tab:ba-full-parse-mode}
+\begin{tabular}{lrrr}
+\toprule
+Tool & \textsc{raw} & \textsc{class\_member} & \textsc{method\_body} \\
+\midrule
+JavaParser & 113 & 6  & 9 \\
+PMD        & 41  & 74 & 9 \\
+Checkstyle & 118 & 2  & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The parse-mode distribution reproduces the scoped pattern exactly in shape: JavaParser and Checkstyle succeed predominantly under raw source, whereas PMD requires the class-member wrapper for the majority of its analyzed pairs (74/124), consistent with PMD's parser being less tolerant of bare top-level fragments.
+
+\subsection{Structural metrics (JavaParser)}
+\label{sec:ba-full-javaparser}
+
+The same 18 structural metrics plus non-comment code-line count were each tested via a paired Wilcoxon signed-rank test, with Holm's step-down procedure applied across all 19 tests.
+Table~\ref{tab:ba-full-javaparser} reports the results for the $n=128$ analyzed pairs.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired JavaParser structural-metric comparison at full scope ($n=128$).
+$p$ is the raw two-sided Wilcoxon signed-rank $p$-value; $r_{\text{rb}}$ is the matched-pairs rank-biserial correlation (after $-$ before); $p_{\text{Holm}}$ is Holm-corrected across all 19 metrics.
+No metric is significant at $\alpha=0.05$ after correction; code-line count is the closest ($p_{\text{Holm}}=0.070$).}
+\label{tab:ba-full-javaparser}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Metric & $\Delta$ median & Dec. & Unc. & Inc. & $p$ & $r_{\text{rb}}$ & $p_{\text{Holm}}$ \\
+\midrule
+Code lines                   & $0$ & 34 & 31  & 63 & 0.004 & $+0.337$ & 0.070 \\
+Method count                 & $0$ & 10 & 92  & 26 & 0.026 & $+0.423$ & 0.406 \\
+Parameter count              & $0$ & 9  & 102 & 17 & 0.025 & $+0.499$ & 0.406 \\
+Max.\ parameters             & $0$ & 6  & 115 & 7  & 0.497 & $+0.242$ & 1.000 \\
+Local-variable count         & $0$ & 10 & 91  & 27 & 0.011 & $+0.478$ & 0.180 \\
+\texttt{if} count            & $0$ & 11 & 103 & 14 & 0.508 & $+0.160$ & 1.000 \\
+Loop count                   & $0$ & 1  & 121 & 6  & 0.078 & $+0.821$ & 0.781 \\
+Switch count                 & $0$ & 0  & 128 & 0  & --    & --       & --    \\
+Catch count                  & $0$ & 3  & 117 & 8  & 0.123 & $+0.545$ & 1.000 \\
+Cyclomatic-complexity proxy  & $0$ & 13 & 88  & 27 & 0.028 & $+0.398$ & 0.406 \\
+Max.\ control nesting        & $0$ & 10 & 106 & 12 & 0.262 & $+0.285$ & 1.000 \\
+Abrupt-exit count            & $0$ & 12 & 90  & 26 & 0.049 & $+0.367$ & 0.628 \\
+Try count                    & $0$ & 3  & 116 & 9  & 0.064 & $+0.615$ & 0.704 \\
+Try-with-resources count     & $0$ & 0  & 126 & 2  & 0.500 & $+1.000$ & 1.000 \\
+Throw count                  & $0$ & 1  & 120 & 7  & 0.195 & $+0.556$ & 1.000 \\
+Empty-catch count            & $0$ & 1  & 124 & 3  & 0.625 & $+0.500$ & 1.000 \\
+Empty-block count            & $0$ & 2  & 121 & 5  & 0.297 & $+0.500$ & 1.000 \\
+Null-check count             & $0$ & 6  & 118 & 4  & 0.922 & $+0.055$ & 1.000 \\
+Exception-handling count     & $0$ & 5  & 110 & 13 & 0.048 & $+0.538$ & 0.628 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two features distinguish this table from its scoped counterpart (Table~\ref{tab:ba-javaparser}).
+First, code-line count moves from $p_{\text{Holm}}=0.273$ at $n=80$ to $p_{\text{Holm}}=0.070$ at $n=128$ (raw $p=0.004$), a near-miss rather than a clear null.
+Six additional metrics -- method count, parameter count, local-variable count, the cyclomatic-complexity proxy, abrupt-exit count, and exception-handling count -- now cross the \emph{uncorrected} $p<0.05$ threshold, versus two at the scoped size; none survives Holm correction (all $p_{\text{Holm}}\geq0.18$).
+Second, every rank-biserial correlation in the table is non-negative: at full scope, revisions skew toward \emph{increasing} every structural count and toward decreasing none, in contrast to the mixed positive/negative pattern at $n=80$.
+Taken together, these are consistent with a real but modestly-sized ``revisions add code'' effect that the smaller sample was underpowered to resolve, rather than with the absence of an effect.
+
+The caveat raised for the scoped analysis still applies to individual rows: several of the largest rank-biserial values (loop count $+0.82$, try-with-resources $+1.00$, try count $+0.62$) rest on 2--12 nonzero-delta pairs out of 128, and are symptoms of a tiny effective sample for those metrics rather than evidence of large competing effects.
+
+\subsubsection*{By recommendation type (uncorrected, exploratory)}
+
+Within the Bug Fixing subgroup ($n=12$), code-line count shows a raw $p=0.039$ (7/12 pairs increased, median $\Delta=+1$); within Improving Code ($n=65$), $p=0.099$ (33/65 increased, median $\Delta=+1$).
+Both figures are essentially unchanged from the scoped analysis, because the same \texttt{Agress Yes} histories dominate these two subgroups at either scope.
+As at the scoped size, every other structural metric in both subgroups is dominated by unchanged pairs.
+
+\subsubsection*{By validation outcome (new at full scope, uncorrected)}
+
+Table~\ref{tab:ba-full-jp-validation} reports code-line count separately for the three validation groups.
+
+\begin{table}[htbp]
+\centering
+\caption{JavaParser code-line count by validation group ($n=128$ split into three groups).
+These tests are \emph{not} Holm-corrected, either within the three-group comparison or across the three tools that each ran it; they are exploratory.}
+\label{tab:ba-full-jp-validation}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Validation group & $n$ & $\Delta$ median & Dec. & Unc. & Inc. & $p$ & $r_{\text{rb}}$ \\
+\midrule
+\texttt{ALL\_ACCEPTED} & 59 & $+1$ & 14 & 12 & 33 & 0.008 & $+0.439$ \\
+\texttt{ALL\_REJECTED} & 48 & $0$  & 15 & 12 & 21 & 0.135 & $+0.288$ \\
+\texttt{MIXED}         & 21 & $0$  & 5  & 7  & 9  & 0.626 & $+0.162$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The code-line signal is concentrated in recommendations judged useful in every GitHub match ($p=0.008$, median $\Delta=+1$), is weaker in the \texttt{ALL\_REJECTED} negative control ($p=0.135$, median $\Delta=0$), and is absent in \texttt{MIXED} ($p=0.626$).
+This ordering is exactly what one would predict if the manual-validation judgment tracks a real underlying difference in how the snippet was revised.
+It is nonetheless a single uncorrected exploratory subgroup test, and we report it as a promising lead rather than a confirmed effect.
+
+\subsection{Bug-risk and performance violations (PMD)}
+\label{sec:ba-full-pmd}
+
+The reduced PMD ruleset (12 bug-risk rules, 7 performance rules) is sparser at full scope than at the scoped size: 118 violations retained in total across \emph{both} versions of 124 pairs (99 bug-risk, 19 performance), against 81 violations across 77 pairs previously.
+Very little statistical power is available here.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired PMD violation comparison at full scope ($n=124$).
+Rank-biserial correlation is signed after $-$ before; a negative value indicates fewer violations after.
+$p_{\text{Holm}}$ is Holm-corrected across all six rows.
+No result approaches significance --- the smallest raw $p$ (0.337) already exceeds $\alpha=0.05$ before correction.}
+\label{tab:ba-full-pmd}
+\small
+\begin{tabular}{llrrrrrr}
+\toprule
+Dimension & Metric & Imp. & Unc. & Wors. & $p$ & Rank-biserial & $p_{\text{Holm}}$ \\
+\midrule
+Combined     & Raw violations         & 8  & 108 & 8 & 0.744 & $+0.10$ & 1.000 \\
+Combined     & Violations / 100 lines & 20 & 93  & 11 & 0.337 & $-0.20$ & 1.000 \\
+Bug-risk     & Raw violations         & 7  & 110 & 7 & 0.542 & $+0.20$ & 1.000 \\
+Bug-risk     & Violations / 100 lines & 17 & 97  & 10 & 0.515 & $-0.15$ & 1.000 \\
+Performance  & Raw violations         & 1  & 122 & 1 & 1.000 & $-0.33$ & 1.000 \\
+Performance  & Violations / 100 lines & 4  & 119 & 1 & 0.438 & $-0.47$ & 1.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+As at the scoped size, the per-100-line density measures lean mildly toward improvement in the combined and bug-risk dimensions while the corresponding raw counts are an exact wash (8 improved vs.\ 8 worsened combined; 7 vs.\ 7 bug-risk).
+Because density can fall simply because a revision adds lines --- and at full scope the JavaParser results indicate that revisions do add lines --- we again regard the raw-count result as the more conservative and more informative of the two.
+
+\begin{table}[htbp]
+\centering
+\caption{PMD rule-level transitions at full scope, for rules with any before/after activity.
+Net removed = removed $-$ introduced; positive values indicate net improvement.
+\texttt{CloseResource} (2 preserved), \texttt{UseTryWithResources} (3 preserved), and \texttt{PreserveStackTrace} (1 preserved) are omitted: every occurrence was present in both versions, with none removed and none introduced.}
+\label{tab:ba-full-pmd-rules}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Rule & Dimension & Removed & Introduced & Preserved & Net removed \\
+\midrule
+\texttt{AssignmentInOperand}             & Bug-risk    & 3 & 2 & 9 & $+1$ \\
+\texttt{BrokenNullCheck}                 & Bug-risk    & 1 & 0 & 0 & $+1$ \\
+\texttt{ConsecutiveAppendsShouldReuse}   & Performance & 1 & 0 & 2 & $+1$ \\
+\texttt{AppendCharacterWithChar}         & Performance & 1 & 1 & 1 & $0$ \\
+\texttt{EmptyCatchBlock}                 & Bug-risk    & 1 & 1 & 8 & $0$ \\
+\texttt{IdenticalCatchBranches}          & Bug-risk    & 1 & 1 & 3 & $0$ \\
+\texttt{UseStringBufferForStringAppends} & Performance & 1 & 1 & 1 & $0$ \\
+\texttt{CompareObjectsWithEquals}        & Bug-risk    & 0 & 1 & 1 & $-1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The rule-level picture is mixed and uniformly single-digit.
+Notably, the two resource-leak rules most central to the Fixing Bug narrative, \texttt{CloseResource} and \texttt{UseTryWithResources}, again show zero removed and zero introduced instances across the entire full scope: every occurrence present was already present in both versions.
+\texttt{EmptyCatchBlock} improves from $-1$ at the scoped size to a net $0$ here, while \texttt{CompareObjectsWithEquals} remains at $-1$.
+No rule transition in this table is large enough to support a confident conclusion.
+
+\subsubsection*{PMD subgroups}
+
+Both subgroup dimensions are non-significant throughout ($p\geq0.47$), with most pairs recording zero violations on both sides.
+By recommendation type, the bug-risk dimension gives 0 improved / 10 unchanged / 1 worsened for Bug Fixing ($n=11$, $p=1.000$) and 5 / 55 / 3 for Improving Code ($n=63$, $p=0.844$).
+By validation outcome, \texttt{ALL\_ACCEPTED} ($n=57$) shows a mild positive rank-biserial lean on bug-risk ($+0.36$; 3 improved / 50 unchanged / 4 worsened) against \texttt{ALL\_REJECTED} ($n=47$, $+0.20$) --- directionally consistent with the JavaParser gradient, but resting on three to four nonzero pairs per subgroup and therefore not evidence on its own.
+
+\subsection{Readability (Checkstyle)}
+\label{sec:ba-full-checkstyle}
+
+The eight readability/style checks yielded 2{,}564 retained findings across the $n=129$ analyzed pairs, up from 844 across 81 pairs at the scoped size --- roughly proportional to the $1.6\times$ increase in pairs.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired Checkstyle finding comparison at full scope ($n=129$).
+$p_{\text{Holm}}$ is Holm-corrected across both rows.
+Neither result is significant at $\alpha=0.05$.}
+\label{tab:ba-full-checkstyle}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Metric & Imp. & Unc. & Wors. & $p$ & Rank-biserial & $p_{\text{Holm}}$ \\
+\midrule
+Raw findings         & 25 & 84 & 20 & 0.414 & $-0.141$ & 0.414 \\
+Findings / 100 lines & 39 & 68 & 22 & 0.122 & $-0.228$ & 0.243 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The qualitative pattern matches the scoped analysis: the density measure leans further toward improvement (39 improved vs.\ 22 worsened) than the raw count (25 vs.\ 20), and neither reaches significance.
+
+\begin{table}[htbp]
+\centering
+\caption{Checkstyle rule-level transitions at full scope, for checks with nonzero before/after activity.}
+\label{tab:ba-full-checkstyle-rules}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Check & Removed & Introduced & Preserved & Net removed \\
+\midrule
+\texttt{FileTabCharacter}                  & 6 & 3 & 32 & $+3$ \\
+\texttt{AvoidNestedBlocks}                 & 1 & 0 & 1  & $+1$ \\
+\texttt{EmptyBlock}                        & 0 & 1 & 2  & $-1$ \\
+\texttt{MultipleVariableDeclarations}      & 0 & 1 & 8  & $-1$ \\
+\texttt{LineLength}                        & 1 & 3 & 15 & $-2$ \\
+\texttt{OneStatementPerLine}               & 1 & 3 & 1  & $-2$ \\
+\texttt{VariableDeclarationUsageDistance}  & 0 & 2 & 4  & $-2$ \\
+\texttt{NeedBraces}                        & 0 & 4 & 23 & $-4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\texttt{FileTabCharacter} remains the clearest net-positive check ($+3$, up from $+1$).
+\texttt{NeedBraces} is now the clearest net-negative: four revisions introduce a brace-omission violation and none remove one, while a further 23 pairs preserve the violation unchanged from the original.
+That this check moved from $-2$ at $n=81$ to $-4$ at $n=129$, in the same direction and with the same zero-removal pattern, suggests the regression is not purely a small-sample artifact.
+
+\subsubsection*{Checkstyle subgroups}
+
+By recommendation type, Bug Fixing ($n=12$) shows 2 improved and 2 worsened pairs ($p=0.875$) and Improving Code ($n=66$) shows 10 and 10 ($p=0.430$) --- exactly balanced, as at the scoped size.
+By validation outcome, raw findings give \texttt{ALL\_ACCEPTED} ($n=59$) a rank-biserial of $-0.347$ ($p=0.196$), \texttt{ALL\_REJECTED} ($n=48$) $-0.111$ ($p=0.679$), and \texttt{MIXED} ($n=22$) $+0.250$ ($p=0.688$, the only worsening lean of the three).
+None is significant, but the ordering is the same gradient JavaParser and PMD show.
+
+\subsection{Cross-tool synthesis}
+\label{sec:ba-full-synthesis}
+
+Two findings distinguish the full scope from the 125-pair scope.
+
+First, \textbf{the additional power reveals a clearer and more internally consistent JavaParser signal}.
+Code-line count moves from $p_{\text{Holm}}=0.273$ ($n=80$) to $p_{\text{Holm}}=0.070$ ($n=128$), and all 19 structural metrics now show a non-negative rank-biserial correlation, against a mixed-sign pattern at the smaller scope.
+This supports the ``underpowered, not necessarily null'' reading that Section~\ref{sec:before-after-synthesis} already flagged, while still falling short of $\alpha=0.05$ after correction.
+
+Second, \textbf{all three tools independently show the same validation-outcome gradient}: \texttt{ALL\_ACCEPTED} histories carry a stronger improvement or growth signal than \texttt{ALL\_REJECTED}, with \texttt{MIXED} weakest or noisiest.
+JavaParser shows this most clearly and produces the only individually notable result in the study (code-line count, \texttt{ALL\_ACCEPTED}, uncorrected $p=0.008$); PMD and Checkstyle reproduce the direction with far less power.
+Convergence of three independently implemented tools on one direction is a modestly encouraging signal, but it is not the same evidentiary bar as three tools independently reaching significance, and we describe it accordingly.
+
+Neither finding overturns the conclusion of Section~\ref{sec:before-after-robustness}: \textbf{no metric survives Holm correction in the primary full-sample test, in any tool, at either scope}.
+What the larger sample adds is a clearer picture of \emph{where} the available signal is concentrated --- in code growth, and specifically among accepted recommendations --- and \emph{why} the smaller scope's null results are more consistent with limited power than with a genuine absence of effect.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of the two analysis scopes.}
+\label{tab:ba-full-scope-comparison}
+\small
+\begin{tabular}{lll}
+\toprule
+& 125-pair \texttt{Agress Yes} scope & 205-pair full scope \\
+\midrule
+JavaParser analyzed & 80 & 128 \\
+PMD analyzed        & 77 & 124 \\
+Checkstyle analyzed & 81 & 129 \\
+PMD violations retained    & 81  & 118 \\
+Checkstyle findings retained & 844 & 2{,}564 \\
+JavaParser code-line $p_{\text{Holm}}$ & 0.273 & 0.070 \\
+Smallest $p_{\text{Holm}}$, any tool   & 0.273 & 0.070 \\
+Negative control group & none (pre-filtered) & \texttt{ALL\_REJECTED} ($n=48$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Implications}
+\label{sec:ba-full-implications}
+
+The \texttt{ALL\_ACCEPTED} versus \texttt{ALL\_REJECTED} gradient is the most useful new evidence this expanded scope produces, because it answers a validity question a reviewer could plausibly ask directly: if the manual validation measures something real, quality metrics should differ between accepted and rejected recommendations.
+They do, in the expected direction, across all three tools, for the one metric with an estimable effect size.
+This is worth reporting explicitly, with the caveat that only the JavaParser result is individually notable ($p=0.008$, uncorrected) and that none of the validation-group comparisons is Holm-corrected.
+
+The full-scope numbers should not be presented as replacing the 125-pair analysis.
+The two scopes answer different questions --- ``among recommendations judged useful, how do quality metrics change?'' versus ``across everything Matcha recommended, does the measured change track the validation judgment?'' --- and both belong in the manuscript, doing different jobs.
+Likewise, code-line count at $p_{\text{Holm}}=0.070$ should be flagged as a near-miss: neither rounded up to ``significant'' nor dismissed as ``not significant'' without qualification.
+Had code-line count been pre-registered as \emph{the} primary outcome, it would face a far less severe correction and could plausibly cross $\alpha=0.05$ at this scope.
+
+Two limits should be stated plainly rather than worked around.
+PMD remains too sparse to support strong claims at either scope: 118 violations across 124 pairs leaves no subgroup analysis informative, and single-digit rule transitions should not be over-interpreted.
+And while $n=124$--$129$ improves on $n=77$--$81$, it is still modest, particularly once split into three validation groups.
+
+Accordingly, we revise the claim in the same direction as Section~\ref{sec:before-after-implications}, with one addition: compared with their original versions, recent Stack Overflow revisions show small, non-significant, and rule-dependent changes in static-analysis indicators of maintainability, bug-risk, and readability; the clearest measurable tendency is toward \emph{adding} code, which is concentrated among recommendations independently judged useful; and the strongest evidence for improvement continues to come from manual classification and pull-request acceptance rather than from paired static-analysis metrics alone.
+
+\subsection{Threats and limitations specific to this scope}
+\label{sec:ba-full-limitations}
+
+All figures above are read directly from the CSV/JSON outputs of the three full-scope notebooks; no new statistical test was run to produce this section.
+
+At full scope, \texttt{recommendation\_group} includes two categories excluded from the recommendation-type subgroup tests: \texttt{NO\_TYPE} (histories with no accepted study row to classify under a Baltes category --- 48 of 128 JavaParser-analyzed histories) and the pre-existing \texttt{MULTIPLE\_TYPES} (3 analyzed histories).
+The latter was excluded in the scoped analysis on the same grounds.
+
+Every \texttt{validation\_group} $p$-value reported here is uncorrected, both within a tool's three-group comparison and across the three tools that each ran it; all should be read as exploratory.
+
+PMD's recommendation-type subgroups contain 11 Bug Fixing histories where JavaParser and Checkstyle each contain 12, because PMD's parse-mode coverage excludes one additional Bug Fixing history.
+This is an ordinary consequence of each tool selecting its own common parse mode independently, not a data inconsistency.
+
+Finally, this section does not include the SpotBugs sensitivity analysis or the manual audit of analyzer findings; neither is yet present under \texttt{results/}.
+
+% Optional supporting figures (uncomment and adjust paths/packages as needed):
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{results/javaparser_full/javaparser_metric_deltas.png}
+%   \caption{Distribution of after$-$before deltas for all 19 JavaParser
+%   structural metrics at full scope ($n=128$ analyzed pairs).}
+%   \label{fig:ba-full-javaparser-deltas}
+% \end{figure}
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{results/pmd_reduced_full/pmd_reduced_outcomes.png}
+%   \caption{PMD reduced-ruleset before--after outcomes at full scope
+%   ($n=124$ analyzed pairs).}
+%   \label{fig:ba-full-pmd-outcomes}
+% \end{figure}
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.95\linewidth]{results/checkstyle_full/checkstyle_outcomes.png}
+%   \caption{Checkstyle before--after outcomes at full scope ($n=129$
+%   analyzed pairs).}
+%   \label{fig:ba-full-checkstyle-outcomes}
+% \end{figure}

@@ -1,7 +1,7 @@
-analysis_dimension,metric,n,before_median,before_iqr,after_median,after_iqr,delta_median,improved_n,unchanged_n,worsened_n,wilcoxon_statistic,wilcoxon_p,rank_biserial_after_minus_before
-combined_reduced,Raw PMD violations,77,0.0,1.0,0.0,1.0,0.0,5,66,6,25.0,0.51953125,0.24242424242424243
-combined_reduced,PMD violations per 100 code lines,77,0.0,2.9411764705882355,0.0,2.7027027027027026,0.0,16,52,9,141.0,0.5782062411308289,-0.13230769230769232
-bug_risk,Raw PMD violations,77,0.0,1.0,0.0,1.0,0.0,5,67,5,22.5,0.6953125,0.18181818181818182
-bug_risk,PMD violations per 100 code lines,77,0.0,2.2222222222222223,0.0,1.1363636363636365,0.0,14,55,8,109.0,0.5879268646240234,-0.1383399209486166
-performance,Raw PMD violations,77,0.0,0.0,0.0,0.0,0.0,0,76,1,0.0,1.0,1.0
-performance,PMD violations per 100 code lines,77,0.0,0.0,0.0,0.0,0.0,3,73,1,4.0,0.875,-0.2
+analysis_dimension,metric,n,before_median,before_iqr,after_median,after_iqr,delta_median,improved_n,unchanged_n,worsened_n,wilcoxon_statistic,wilcoxon_p,rank_biserial_after_minus_before,holm_p
+combined_reduced,Raw PMD violations,77,0.0,1.0,0.0,1.0,0.0,5,66,6,25.0,0.51953125,0.24242424242424243,1.0
+combined_reduced,PMD violations per 100 code lines,77,0.0,2.9411764705882355,0.0,2.7027027027027026,0.0,16,52,9,141.0,0.5782062411308289,-0.13230769230769232,1.0
+bug_risk,Raw PMD violations,77,0.0,1.0,0.0,1.0,0.0,5,67,5,22.5,0.6953125,0.18181818181818182,1.0
+bug_risk,PMD violations per 100 code lines,77,0.0,2.2222222222222223,0.0,1.1363636363636365,0.0,14,55,8,109.0,0.5879268646240234,-0.1383399209486166,1.0
+performance,Raw PMD violations,77,0.0,0.0,0.0,0.0,0.0,0,76,1,0.0,1.0,1.0,1.0
+performance,PMD violations per 100 code lines,77,0.0,0.0,0.0,0.0,0.0,3,73,1,4.0,0.875,-0.2,1.0

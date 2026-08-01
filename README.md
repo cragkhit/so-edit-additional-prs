@@ -149,3 +149,66 @@ For a submitted candidate, also confirm that the local commit matches the pushed
 - [ ] Record a created PR in `matcha_recommendation_github_files.csv` and this README. For a skipped candidate, set the CSV `pr_url` value to `SKIPPED`, put the complete rationale in `notes`, and add it to the README's skipped-candidates table.
 - [ ] Confirm the clone has no uncommitted work and that submitted commits are present on the pushed branch.
 - [ ] Delete the exact local clone directory after the PR is verified or the candidate is conclusively skipped.
+
+
+## Relaxed batch opened 2026-08-01
+
+Candidate-selection criteria were relaxed at the user's direction; all other procedural steps remained applicable.
+
+| Final CSV No. | Repository | Pull request | Change |
+| ---: | --- | --- | --- |
+| 555 | AdoptOpenJDK/IcedTea-Web | [PR](https://github.com/AdoptOpenJDK/IcedTea-Web/pull/1001) | Copied the list before sorting to avoid mutating caller-owned state. |
+| 688 | aliyun/aliyun-odps-java-sdk | [PR](https://github.com/aliyun/aliyun-odps-java-sdk/pull/80) | Made shared number formatting thread-safe with per-thread DecimalFormat state. |
+| 225 | Anuken/Arc | [PR](https://github.com/Anuken/Arc/pull/207) | Handled Long.MIN_VALUE without overflow while formatting durations. |
+| 712 | artisynth/artisynth_core | [PR](https://github.com/artisynth/artisynth_core/pull/20) | Closed the movie metadata reader with try-with-resources. |
+| 793 | atilika/kuromoji | [PR](https://github.com/atilika/kuromoji/pull/143) | Escaped CSV fields and closed converter streams reliably. |
+| 39 | aws/amazon-redshift-jdbc-driver | [PR](https://github.com/aws/amazon-redshift-jdbc-driver/pull/160) | Prevented accidental construction and subclassing of a utility class. |
+| 430 | bookdash/bookdash-android-app | [PR](https://github.com/bookdash/bookdash-android-app/pull/69) | Rejected ZIP entries outside the extraction directory and closed resources. |
+| 115 | camunda-community-hub/camunda-8-lowcode-ui-template | [PR](https://github.com/camunda-community-hub/camunda-8-lowcode-ui-template/pull/118) | Applied the existing bearer scheme as a global OpenAPI security requirement. |
+| 682 | carlspring/s3fs-nio | [PR](https://github.com/carlspring/s3fs-nio/pull/973) | Compared mock base paths by value before cleanup. |
+| 93 | chatty/chatty | [PR](https://github.com/chatty/chatty/pull/562) | Rejected grouped calculator expressions with a missing closing parenthesis. |
+| 504 | controlsfx/controlsfx | [PR](https://github.com/controlsfx/controlsfx/pull/1622) | Detached sample rows from the enclosing memory-test application. |
+| 87 | ConvertAPI/convertapi-library-java | [PR](https://github.com/ConvertAPI/convertapi-library-java/pull/47) | Closed the Okio request source with try-with-resources. |
+| 328 | CruxFramework/crux | [PR](https://github.com/CruxFramework/crux/pull/1013) | Kept shared DocumentBuilder parsing inside a reliably released lock. |
+| 694 | dromara/hodor | [PR](https://github.com/dromara/hodor/pull/68) | Rejected odd-length and invalid hexadecimal input. |
+| 722 | dockstore/dockstore | [PR](https://github.com/dockstore/dockstore/pull/6330) | Normalized absent RSS text values before XML generation. |
+| 674 | ambiverse-nlu/ambiverse-nlu | [PR](https://github.com/ambiverse-nlu/ambiverse-nlu/pull/55) | Preserved directory structure and propagated traversal failures while copying. |
+| 266 | Devil-Chen/DVMediaSelector | [PR](https://github.com/Devil-Chen/DVMediaSelector/pull/14) | Respected the requested image directory and closed the output stream. |
+| 786 | dougkeen/BartRunnerAndroid | [PR](https://github.com/dougkeen/BartRunnerAndroid/pull/33) | Checked wake-lock state before releasing it. |
+| 19 | datastax/dsbulk | [PR](https://github.com/datastax/dsbulk/pull/533) | Propagated file-tree cleanup failures instead of swallowing them. |
+| 231 | ballerina-platform/ballerina-lang | [PR](https://github.com/ballerina-platform/ballerina-lang/pull/44681) | Propagated file-visit failures and deleted visited directories directly. |
+
+
+## Relaxed batch of 27 opened 2026-08-02
+
+Candidate-selection criteria were relaxed at the user's direction; procedural validation, unique-URL checks, PR verification, and clone cleanup remained required.
+
+| Final CSV No. | Repository | Pull request | Change |
+| ---: | --- | --- | --- |
+| 787 | 1024-lab/smart-admin | [PR](https://github.com/1024-lab/smart-admin/pull/133) | Cached successful CORS preflight responses for one hour. |
+| 650 | airlift/airlift | [PR](https://github.com/airlift/airlift/pull/2086) | Clarified malformed-JSON exception behavior in JaxRsJsonMapper documentation. |
+| 434 | alibaba/spring-cloud-alibaba | [PR](https://github.com/alibaba/spring-cloud-alibaba/pull/4376) | Cached gateway CORS preflight responses for one hour. |
+| 514 | apache/netbeans | [PR](https://github.com/apache/netbeans/pull/9536) | Handled matching descriptor property names at index zero. |
+| 522 | apache/hugegraph-toolchain | [PR](https://github.com/apache/hugegraph-toolchain/pull/750) | Cached Hubble CORS preflight responses for one hour. |
+| 523 | apache/rocketmq | [PR](https://github.com/apache/rocketmq/pull/10746) | Closed both HTTP/2 proxy channels on backend failures. |
+| 525 | apache/iotdb | [PR](https://github.com/apache/iotdb/pull/18379) | Stopped snapshot traversal after post-visit directory failures. |
+| 526 | apache/pulsar | [PR](https://github.com/apache/pulsar/pull/26261) | Released reference-counted messages that could not be forwarded. |
+| 655 | arduino/Arduino | [PR](https://github.com/arduino/Arduino/pull/12126) | Corrected delimiter spelling in split method documentation. |
+| 85 | liquibase/liquibase | [PR](https://github.com/liquibase/liquibase/pull/7870) | Propagated post-visit directory traversal failures. |
+| 528 | prometheus/client_java | [PR](https://github.com/prometheus/client_java/pull/2362) | Preserved nested temporary-volume deletion failures. |
+| 164 | netty/netty | [PR](https://github.com/netty/netty/pull/17186) | Closed the inbound proxy peer after backend exceptions. |
+| 581 | robolectric/robolectric | [PR](https://github.com/robolectric/robolectric/pull/11391) | Bound handler-thread teardown waits and asserted completion. |
+| 597 | spring-projects/spring-tools | [PR](https://github.com/spring-projects/spring-tools/pull/1957) | Used locale-aware java.time formatting in the validation fixture. |
+| 680 | OpenLiberty/open-liberty | [PR](https://github.com/OpenLiberty/open-liberty/pull/35407) | Handled JUnit descriptions that do not expose a test class. |
+| 721 | opensearch-project/OpenSearch | [PR](https://github.com/opensearch-project/OpenSearch/pull/22627) | Bound OpenSearch task-executor test latch waits. |
+| 242 | elastic/elasticsearch | [PR](https://github.com/elastic/elasticsearch/pull/155679) | Bound Elasticsearch task-executor test latch waits. |
+| 621 | eugenp/tutorials | [PR](https://github.com/eugenp/tutorials/pull/19287) | Used UTF-8 and decoded only received echo bytes. |
+| 633 | thingsboard/thingsboard | [PR](https://github.com/thingsboard/thingsboard/pull/15999) | Removed PEM certificate contents from TLS failure logs. |
+| 218 | RPTools/maptool | [PR](https://github.com/RPTools/maptool/pull/6021) | Closed the PDF extraction marker stream with try-with-resources. |
+| 723 | jcodec/jcodec | [PR](https://github.com/jcodec/jcodec/pull/520) | Prevented IOUtils construction and subclassing. |
+| 86 | mucommander/mucommander | [PR](https://github.com/mucommander/mucommander/pull/1500) | Tracked the drag origin during incremental image panning. |
+| 350 | sofastack/sofa-jraft | [PR](https://github.com/sofastack/sofa-jraft/pull/1273) | Rejected odd-length and invalid hexadecimal input. |
+| 282 | eclipse-platform/eclipse.platform.swt | [PR](https://github.com/eclipse-platform/eclipse.platform.swt/pull/3480) | Disposed the SWT Display through try/finally. |
+| 240 | gitlab4j/gitlab4j-api | [PR](https://github.com/gitlab4j/gitlab4j-api/pull/1330) | Removed an unused shared mutable date formatter. |
+| 96 | polypheny/Polypheny-DB | [PR](https://github.com/polypheny/Polypheny-DB/pull/573) | Made the varchar metadata comparison null-safe. |
+| 770 | TheAlgorithms/Java | [PR](https://github.com/TheAlgorithms/Java/pull/7550) | Rejected null BitonicSort arrays with a descriptive validation. |

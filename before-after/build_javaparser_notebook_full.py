@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
-"""Generate the JavaParser before-after analysis notebook without nbformat."""
+"""Generate the full-scope JavaParser before-after analysis notebook.
+
+Unlike build_javaparser_notebook.py (scoped to the 125 `Agress Yes`
+pairs), this covers all 205 eligible, deduplicated Stack Overflow
+histories derived from the complete 793-row Matcha manual-validation
+study, using dataset/snippet_pairs.csv instead of
+dataset/agress_yes_pairs.csv. Separate work/ and results/ folders keep
+its output from overwriting the scoped analysis.
+"""
 
 import json
 from pathlib import Path
 from textwrap import dedent
 
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "JavaParser_Before_After_Analysis.ipynb"
+OUTPUT = ROOT / "JavaParser_Before_After_Analysis_Full.ipynb"
 
 
 def markdown(source):
@@ -20,16 +28,28 @@ def code(source):
 
 cells = [
     markdown("""
-    # JavaParser Before–After Structural Analysis
+    # JavaParser Before–After Structural Analysis (Full Scope)
 
-    This notebook extracts intrinsic AST-based measures from the 125 unique,
-    dataset-eligible Stack Overflow histories associated with `Agress Yes`.
-    It uses the same wrapper on both sides of each pair and selects the first
-    common successful parse mode.
+    This notebook extracts intrinsic AST-based measures from all **205
+    unique, eligible** Stack Overflow before/after histories derived from
+    the complete 793-row Matcha manual-validation study
+    (`matcha_results_2024-05-07_manual_validation_FINAL.csv`) — not just
+    the subset whose `Final Manual Validation` is `Agress Yes` analyzed in
+    [`JavaParser_Before_After_Analysis.ipynb`](JavaParser_Before_After_Analysis.ipynb).
+    It uses the same wrapper strategy and metric extractor as that
+    notebook, so results are directly comparable across scopes.
+
+    Because this scope includes recommendations judged useful, judged not
+    useful, and judged inconsistently across different GitHub matches,
+    each history carries a `validation_group` label (`ALL_ACCEPTED`,
+    `ALL_REJECTED`, `MIXED`) in addition to the existing Bug Fixing /
+    Improving Code `recommendation_group` label. This lets the analysis
+    check whether structural changes differ between recommendations that
+    were actually judged useful and ones that were not.
 
     The measures are structural indicators, not a composite quality score.
-    Lower is not universally better: bug fixes can legitimately add branches,
-    null checks, exception handling, or resource management.
+    Lower is not universally better: bug fixes can legitimately add
+    branches, null checks, exception handling, or resource management.
     """),
     markdown("""
     ## 1. Dependencies and configuration
@@ -64,10 +84,10 @@ cells = [
     code("""
     ROOT = Path.cwd().resolve()
     DATASET = ROOT / "dataset"
-    MANIFEST_PATH = DATASET / "agress_yes_pairs.csv"
+    MANIFEST_PATH = DATASET / "snippet_pairs.csv"
     MAPPING_PATH = DATASET / "study_pair_mapping.csv"
-    WORK_ROOT = ROOT / "work" / "javaparser"
-    RESULTS_ROOT = ROOT / "results" / "javaparser"
+    WORK_ROOT = ROOT / "work" / "javaparser_full"
+    RESULTS_ROOT = ROOT / "results" / "javaparser_full"
     TOOLS_ROOT = ROOT / "tools"
 
     JAVAPARSER_VERSION = "3.28.1"
@@ -87,20 +107,44 @@ cells = [
     print("JavaParser JAR:", JAVAPARSER_JAR)
     """),
     markdown("""
-    ## 2. Load the scoped dataset
+    ## 2. Load the full-scope dataset
+
+    `snippet_pairs.csv` covers every unique Stack Overflow question/code-block
+    history reachable from the 793 study rows, deduplicated the same way as
+    the scoped analysis (one independent observation per `Snippet ID`). It is
+    filtered here to `Status == ELIGIBLE` (both before and after snapshots
+    exist), and `Recommendation Types` (semicolon-joined, possibly empty) is
+    collapsed to a single `recommendation_group` label the same way the
+    scoped notebook does: a single type is kept as-is, more than one becomes
+    `MULTIPLE_TYPES`, and no type (a history with no accepted study row to
+    classify by) becomes `NO_TYPE`.
     """),
     code("""
-    pairs = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False).rename(
-        columns={"Accepted Study Row Count": "accepted_study_rows",
-                 "Recommendation Group": "recommendation_group"}
-    )
+    def classify_recommendation_group(value):
+        types = [item for item in value.split(";") if item]
+        if len(types) > 1:
+            return "MULTIPLE_TYPES"
+        if len(types) == 1:
+            return types[0]
+        return "NO_TYPE"
+
+    pairs = pd.read_csv(MANIFEST_PATH, dtype=str, keep_default_na=False)
+    pairs = pairs.loc[pairs["Status"] == "ELIGIBLE"].copy()
+    pairs = pairs.rename(columns={
+        "Accepted Pair Count": "accepted_study_rows",
+        "Validation Group": "validation_group",
+    })
+    pairs["recommendation_group"] = pairs["Recommendation Types"].map(classify_recommendation_group)
+
     mapping = pd.read_csv(MAPPING_PATH, dtype=str, keep_default_na=False)
-    accepted = mapping.loc[mapping["Final Manual Validation"] == "Agress Yes"].copy()
-    accepted_exclusions = accepted.loc[accepted["Dataset Status"] != "ELIGIBLE"].copy()
-    assert len(pairs) == 125 and pairs["Snippet ID"].is_unique
-    assert len(accepted) == 391 and len(accepted_exclusions) == 4
+    dataset_exclusions = mapping.loc[mapping["Dataset Status"] != "ELIGIBLE"].copy()
+
+    assert len(pairs) == 205 and pairs["Snippet ID"].is_unique
+    assert len(mapping) == 793 and len(dataset_exclusions) == 6
     print("Scoped pairs:", len(pairs))
+    print("Study-row mappings:", len(mapping), "| dataset-level exclusions:", len(dataset_exclusions))
     display(pairs["recommendation_group"].value_counts().rename("histories"))
+    display(pairs["validation_group"].value_counts().rename("histories"))
     """),
     markdown("""
     ## 3. Create symmetric parse variants
@@ -334,6 +378,7 @@ cells = [
         row = {
             "snippet_id": snippet_id, "status": "ANALYZED" if mode else "PARSE_EXCLUDED",
             "parse_mode": mode, "recommendation_group": pair["recommendation_group"],
+            "validation_group": pair["validation_group"],
             "accepted_study_rows": int(pair["accepted_study_rows"]),
             "identical_before_after": pair["Identical Before After"],
         }
@@ -396,18 +441,17 @@ cells = [
             "rank_biserial_after_minus_before": rank_biserial,
         }
 
-    summaries = pd.DataFrame([paired_summary(analyzed, m) for m in ["code_lines"] + METRICS])
-    valid_p = summaries["wilcoxon_p"].notna()
-    summaries["holm_p"] = math.nan
-    if valid_p.any():
-        ordered = summaries.loc[valid_p, "wilcoxon_p"].sort_values()
-        adjusted = pd.Series(index=ordered.index, dtype=float)
-        running = 0.0
-        total = len(ordered)
-        for rank, (index, pvalue) in enumerate(ordered.items()):
-            running = max(running, min(1.0, (total-rank)*pvalue))
+    def holm_correct(frame):
+        adjusted = pd.Series(index=frame.index, dtype=float)
+        valid = frame["wilcoxon_p"].dropna().sort_values()
+        running, total = 0.0, len(valid)
+        for rank, (index, pvalue) in enumerate(valid.items()):
+            running = max(running, min(1.0, (total - rank) * pvalue))
             adjusted.loc[index] = running
-        summaries.loc[adjusted.index, "holm_p"] = adjusted
+        return adjusted
+
+    summaries = pd.DataFrame([paired_summary(analyzed, m) for m in ["code_lines"] + METRICS])
+    summaries["holm_p"] = holm_correct(summaries)
     summaries.to_csv(RESULTS_ROOT / "javaparser_statistical_summary.csv", index=False)
     display(summaries)
 
@@ -424,19 +468,43 @@ cells = [
         RESULTS_ROOT / "javaparser_recommendation_subgroups.csv", index=False
     )
     print("Single-type subgroup rows:", len(single_type))
-    print("MULTIPLE_TYPES histories excluded:",
-          (analyzed["recommendation_group"] == "MULTIPLE_TYPES").sum())
+    print("MULTIPLE_TYPES/NO_TYPE histories excluded:",
+          (~analyzed["recommendation_group"].isin(["Bug Fixing", "Improving Code"])).sum())
     """),
     markdown("""
-    ## 8. Export coverage, plots, and reproducibility metadata
+    ## 8. Validation-outcome subgroup analysis
+
+    This dimension is unique to the full-scope analysis: `validation_group`
+    reflects whether the recommendation was judged useful across *all* of
+    its GitHub matches (`ALL_ACCEPTED`), useful in *none* of them
+    (`ALL_REJECTED`), or useful in some but not others (`MIXED`). If
+    structural changes are genuinely tied to recommendation quality, a
+    plausible (though not guaranteed) expectation is that `ALL_ACCEPTED`
+    histories show more/different change than `ALL_REJECTED` ones -- this
+    section checks that without assuming it.
+    """),
+    code("""
+    validation_rows = []
+    for group, frame in analyzed.groupby("validation_group"):
+        for metric in ["code_lines"] + METRICS:
+            validation_rows.append({"validation_group": group, **paired_summary(frame, metric)})
+    validation_summaries = pd.DataFrame(validation_rows)
+    validation_summaries.to_csv(
+        RESULTS_ROOT / "javaparser_validation_group_subgroups.csv", index=False
+    )
+    display(analyzed["validation_group"].value_counts().rename("histories"))
+    display(validation_summaries.loc[validation_summaries["metric"] == "code_lines"])
+    """),
+    markdown("""
+    ## 9. Export coverage, plots, and reproducibility metadata
     """),
     code("""
     coverage = pair_metrics.groupby(["status","parse_mode"], dropna=False).size().rename(
         "histories"
     ).reset_index()
     coverage.to_csv(RESULTS_ROOT / "javaparser_parse_coverage.csv", index=False)
-    accepted_exclusions.to_csv(
-        RESULTS_ROOT / "javaparser_agress_yes_dataset_exclusions.csv", index=False
+    dataset_exclusions.to_csv(
+        RESULTS_ROOT / "javaparser_dataset_exclusions.csv", index=False
     )
 
     plot_metrics = ["code_lines"] + METRICS
@@ -458,10 +526,13 @@ cells = [
 
     summary = {
         "javaparser_version": JAVAPARSER_VERSION,
-        "manual_validation_filter": "Agress Yes", "scoped_pairs": int(len(pairs)),
+        "manual_validation_filter": "None (full 793-recommendation scope)",
+        "scoped_pairs": int(len(pairs)),
         "analyzed_pairs": int(len(analyzed)),
         "parse_excluded_pairs": int((pair_metrics["status"] == "PARSE_EXCLUDED").sum()),
         "identical_pairs": int((pairs["Identical Before After"] == "YES").sum()),
+        "study_row_mappings": int(len(mapping)),
+        "dataset_level_exclusions": int(len(dataset_exclusions)),
         "extractor_sha256": hashlib.sha256(EXTRACTOR_SOURCE.encode()).hexdigest(),
         "jar_sha256": hashlib.sha256(JAVAPARSER_JAR.read_bytes()).hexdigest(),
     }
@@ -479,6 +550,9 @@ cells = [
     - Report parsing coverage and the wrapper mode used for each pair.
     - Apply Holm correction across metric-level significance tests (`holm_p`),
       and read the paired rank-biserial effect size alongside each p-value.
+    - This full scope mixes accepted, rejected, and mixed-validation
+      recommendations; always check `validation_group` before generalizing
+      a finding to "useful recommendations."
     - Interpret increases in null checks, catches, throws, and resource handling
       as potentially beneficial when they implement defensive behavior.
     - Manually inspect influential outliers and a random sample of parsed pairs.

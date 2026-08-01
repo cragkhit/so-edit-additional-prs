@@ -15,8 +15,18 @@ after_dir = File.join(output_root, "after")
 FileUtils.mkdir_p(before_dir)
 FileUtils.mkdir_p(after_dir)
 
-source_rows = CSV.read(source_csv, headers: true, encoding: "bom|utf-8")
-validation_rows = CSV.read(validation_csv, headers: true, encoding: "bom|utf-8")
+def read_csv_normalized(path)
+  # Ruby's CSV parser can misparse this project's source CSVs, which mix
+  # CRLF record separators with bare-LF newlines embedded inside quoted
+  # multi-line cells (e.g. the header row itself). Normalizing all line
+  # endings to LF before parsing avoids "Unquoted fields do not allow new
+  # line" errors that Python's csv module does not raise on the same file.
+  content = File.read(path, encoding: "bom|utf-8").gsub(/\r\n?/, "\n")
+  CSV.parse(content, headers: true)
+end
+
+source_rows = read_csv_normalized(source_csv)
+validation_rows = read_csv_normalized(validation_csv)
 validation_by_no = validation_rows.to_h { |row| [row["No"].to_s, row] }
 
 def parse_block_key(relative_path)

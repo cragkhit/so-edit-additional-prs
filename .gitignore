@@ -3,3 +3,5 @@ pr_work*
 .venv314
 before-after/work
 before-after/tools
+before-after/dataset/**/*
+before-after/results/**/*

@@ -61,10 +61,18 @@ cells = [
 
     Only pandas/SciPy for tables and paired statistics, matplotlib for the
     delta plots, and standard library modules for running the Java tools
-    and hashing files for the reproducibility record.
+    and hashing files for the reproducibility record. pandas, SciPy, and
+    matplotlib are pinned to exact versions: an unpinned install can
+    silently change `scipy.stats.wilcoxon`'s internal choice between its
+    exact and normal-approximation p-value methods across environments,
+    shifting a borderline p-value even though the underlying data and test
+    statistic are unchanged. This bit us once already: `abrupt_exit_count`'s
+    p-value moved from 0.047 to 0.061 between two runs of this notebook on
+    different unpinned SciPy versions, with the same Wilcoxon statistic
+    both times.
     """),
     code("""
-    %pip install -q pandas scipy matplotlib
+    %pip install -q pandas==2.3.3 scipy==1.13.1 matplotlib==3.9.4
 
     import hashlib
     import json
@@ -563,19 +571,31 @@ cells = [
     step-down procedure corrects the p-values for multiple testing; the
     correction is written as its own function so its logic doesn't have to
     be re-read inline in the middle of a results cell.
+
+    Each test is also paired with a matched-pairs rank-biserial
+    correlation: a signed effect size (after minus before) where positive
+    means the after distribution is stochastically larger and negative
+    means it is stochastically smaller. A p-value alone says nothing about
+    how large a shift is; the effect size is what makes "not significant"
+    and "no meaningful shift either way" distinguishable from "not
+    significant, but only because the sample is small."
     """),
     code("""
     def paired_summary(frame, metric):
-        \"\"\"Descriptive stats and a paired Wilcoxon signed-rank test for one
-        metric over one set of before/after pairs.\"\"\"
+        \"\"\"Descriptive stats, a paired Wilcoxon signed-rank test, and a
+        matched-pairs rank-biserial effect size for one metric.\"\"\"
         before = frame[f"before_{metric}"].astype(float)
         after = frame[f"after_{metric}"].astype(float)
         delta = after - before
         nonzero_delta = delta[delta != 0]
 
-        test = None
+        test, rank_biserial = None, 0.0
         if len(nonzero_delta):
             test = stats.wilcoxon(nonzero_delta, alternative="two-sided", method="auto")
+            ranks = stats.rankdata(abs(nonzero_delta))
+            positive_ranks = ranks[nonzero_delta > 0].sum()
+            negative_ranks = ranks[nonzero_delta < 0].sum()
+            rank_biserial = (positive_ranks - negative_ranks) / (positive_ranks + negative_ranks)
 
         return {
             "metric": metric, "n": len(frame),
@@ -587,6 +607,7 @@ cells = [
             "increased_n": int((delta > 0).sum()),
             "wilcoxon_statistic": test.statistic if test else math.nan,
             "wilcoxon_p": test.pvalue if test else math.nan,
+            "rank_biserial_after_minus_before": rank_biserial,
         }
     """),
     code("""
@@ -696,7 +717,8 @@ cells = [
 
     - Do not collapse heterogeneous metrics into one opaque quality score.
     - Report parsing coverage and the wrapper mode used for each pair.
-    - Apply Holm correction across metric-level significance tests.
+    - Apply Holm correction across metric-level significance tests (`holm_p`),
+      and read the paired rank-biserial effect size alongside each p-value.
     - Interpret increases in null checks, catches, throws, and resource handling
       as potentially beneficial when they implement defensive behavior.
     - Manually inspect influential outliers and a random sample of parsed pairs.
