@@ -1,0 +1,170 @@
+[
+  {
+    "url": "https://github.com/actframework/actframework/pull/1434",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit only removes the surrounding UTF8Control wrapper; this PR instead changes HTTP response resource handling.",
+    "output": "\u2713 Closed pull request actframework/actframework#1434 (Close configuration server response)"
+  },
+  {
+    "url": "https://github.com/AddstarMC/Minigames/pull/404",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit only removes the surrounding UTF8Control wrapper; this PR instead rewrites bundle stream handling.",
+    "output": "\u2713 Closed pull request AddstarMC/Minigames#404 (Simplify UTF-8 bundle resource handling)"
+  },
+  {
+    "url": "https://github.com/AdoptOpenJDK/IcedTea-Web/pull/1001",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit concerns piped-stream example code; this PR instead changes list sorting and mutation behavior.",
+    "output": "\u2713 Closed pull request AdoptOpenJDK/IcedTea-Web#1001 (Avoid mutating file lists while rendering)"
+  },
+  {
+    "url": "https://github.com/aicis/fresco/pull/441",
+    "success": true,
+    "reason": "The canonical Stack Overflow before and after snapshots are identical, so there is no snippet edit supporting this cleanup change.",
+    "output": "\u2713 Closed pull request aicis/fresco#441 (Surface recursive test cleanup failures)"
+  },
+  {
+    "url": "https://github.com/airlift/airlift/pull/2086",
+    "success": true,
+    "reason": "The canonical Stack Overflow before and after snapshots are identical, so there is no snippet edit supporting this documentation change.",
+    "output": "\u2713 Closed pull request airlift/airlift#2086 (Clarify JSON parsing exception documentation)"
+  },
+  {
+    "url": "https://github.com/aliyun/aliyun-odps-java-sdk/pull/80",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds a DecimalFormat field; this PR instead introduces ThreadLocal formatting and changes call sites.",
+    "output": "\u2713 Closed pull request aliyun/aliyun-odps-java-sdk#80 (Make human-readable formatting thread-safe)"
+  },
+  {
+    "url": "https://github.com/apache/netbeans/pull/9536",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit refactors a Swing mouse-wheel example; this PR instead changes descriptor property-name matching.",
+    "output": "\u2713 Closed pull request apache/netbeans#9536 (Detect property names at the beginning of events)"
+  },
+  {
+    "url": "https://github.com/apache/rocketmq/pull/10746",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit installs a DiscardServerHandler; this PR instead changes channel-closing behavior.",
+    "output": "\u2713 Closed pull request apache/rocketmq#10746 ([ISSUE #10745] Close both HTTP/2 proxy channels on failure)"
+  },
+  {
+    "url": "https://github.com/apache/pulsar/pull/26261",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit installs a DiscardServerHandler; this PR instead adds reference-count release behavior.",
+    "output": "\u2713 Closed pull request apache/pulsar#26261 ([fix][test] Release unforwarded proxy messages)"
+  },
+  {
+    "url": "https://github.com/arduino/Arduino/pull/12126",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds an alternative classpath approach; this PR instead changes delimiter wording.",
+    "output": "\u2713 Closed pull request arduino/Arduino#12126 (Fix delimiter spelling in split documentation)"
+  },
+  {
+    "url": "https://github.com/aws/amazon-redshift-jdbc-driver/pull/160",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit rewrites JDBC resource cleanup; this PR instead changes utility-class construction.",
+    "output": "\u2713 Closed pull request aws/amazon-redshift-jdbc-driver#160 (Prevent JdbcBlackHole instantiation)"
+  },
+  {
+    "url": "https://github.com/bookdash/bookdash-android-app/pull/69",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit concerns a piped-stream example; this PR instead rewrites ZIP extraction security and resource handling.",
+    "output": "\u2713 Closed pull request bookdash/bookdash-android-app#69 (Secure ZIP extraction)"
+  },
+  {
+    "url": "https://github.com/camunda-community-hub/camunda-8-lowcode-ui-template/pull/118",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit only reformats the security-scheme declaration; this PR instead adds a global OpenAPI security requirement.",
+    "output": "\u2713 Closed pull request camunda-community-hub/camunda-8-lowcode-ui-template#118 (Apply bearer security to the OpenAPI definition)"
+  },
+  {
+    "url": "https://github.com/controlsfx/controlsfx/pull/1622",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit rewrites a side-drawer animation example; this PR instead changes table-filter memory-sample ownership.",
+    "output": "\u2713 Closed pull request controlsfx/controlsfx#1622 (Detach rows in the table-filter memory sample)"
+  },
+  {
+    "url": "https://github.com/CruxFramework/crux/pull/1013",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit only adds diagnostic document output; this PR instead introduces synchronization and parser-state changes.",
+    "output": "\u2713 Closed pull request CruxFramework/crux#1013 (Synchronize view document parsing)"
+  },
+  {
+    "url": "https://github.com/dockstore/dockstore/pull/6330",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds Azure Blob RSS publishing guidance; this PR instead changes null handling in RSS generation.",
+    "output": "\u2713 Closed pull request dockstore/dockstore#6330 (Handle null values in RSS output)"
+  },
+  {
+    "url": "https://github.com/dromara/hodor/pull/68",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds a hexadecimal lookup array; this PR instead adds input validation and new tests.",
+    "output": "\u2713 Closed pull request dromara/hodor#68 (Validate hexadecimal byte input)"
+  },
+  {
+    "url": "https://github.com/eclipse-platform/eclipse.platform.swt/pull/3480",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit changes Shell IDList transfer names and registration; this PR instead changes Display disposal.",
+    "output": "\u2713 Closed pull request eclipse-platform/eclipse.platform.swt#3480 ([GTK] Always dispose the StyledText snippet display)"
+  },
+  {
+    "url": "https://github.com/elastic/elasticsearch/pull/155679",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit changes producer queue increment and termination logic; this PR instead adds latch timeouts.",
+    "output": "\u2713 Closed pull request elastic/elasticsearch#155679 (test: bound TaskExecutorTests latch waits)"
+  },
+  {
+    "url": "https://github.com/gitlab4j/gitlab4j-api/pull/1330",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit corrects a serializer name and exception declaration; this PR instead removes a date formatter.",
+    "output": "\u2713 Closed pull request gitlab4j/gitlab4j-api#1330 (Remove the unused shared date formatter)"
+  },
+  {
+    "url": "https://github.com/jcodec/jcodec/pull/520",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds file streams around a copy operation; this PR instead changes IOUtils construction.",
+    "output": "\u2713 Closed pull request jcodec/jcodec#520 (Prevent IOUtils instantiation)"
+  },
+  {
+    "url": "https://github.com/netty/netty/pull/17186",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit installs a DiscardServerHandler; this PR instead changes proxy-channel closure behavior.",
+    "output": "\u2713 Closed pull request netty/netty#17186 (Close both proxy channels after backend exceptions)"
+  },
+  {
+    "url": "https://github.com/polypheny/Polypheny-DB/pull/573",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit restricts Gson object handling by JSON path; this PR instead changes a varchar metadata comparison.",
+    "output": "\u2713 Closed pull request polypheny/Polypheny-DB#573 (Make the varchar type check null-safe)"
+  },
+  {
+    "url": "https://github.com/robolectric/robolectric/pull/11391",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit changes a concurrency example and shutdown sequence; this PR instead changes handler-thread teardown waits.",
+    "output": "\u2713 Closed pull request robolectric/robolectric#11391 (Bound handler thread teardown waits)"
+  },
+  {
+    "url": "https://github.com/RPTools/maptool/pull/6021",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit changes PDF XObject text-field detection; this PR instead changes marker-stream resource handling.",
+    "output": "\u2713 Closed pull request RPTools/maptool#6021 (Close the extraction marker stream reliably)"
+  },
+  {
+    "url": "https://github.com/sofastack/sofa-jraft/pull/1273",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit adds a hexadecimal lookup array; this PR instead adds input validation and modifies tests.",
+    "output": "\u2713 Closed pull request sofastack/sofa-jraft#1273 (Validate hexadecimal byte input)"
+  },
+  {
+    "url": "https://github.com/spring-projects/spring-tools/pull/1957",
+    "success": true,
+    "reason": "The recorded Stack Overflow edit renames a controller method; this PR instead replaces date-formatting APIs.",
+    "output": "\u2713 Closed pull request spring-projects/spring-tools#1957 (Use modern date formatting in XML validation fixture)"
+  },
+  {
+    "url": "https://github.com/thingsboard/thingsboard/pull/15999",
+    "success": true,
+    "reason": "The source pair is excluded because its original Stack Overflow snapshot is missing, so the proposed logging change cannot be validated against an edit.",
+    "output": "\u2713 Closed pull request thingsboard/thingsboard#15999 (Avoid logging PEM certificate contents)"
+  }
+]

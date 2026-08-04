@@ -1,0 +1,1 @@
+* Create tests for every new code file that you create.
