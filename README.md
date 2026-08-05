@@ -2,6 +2,69 @@
 
 This workspace prepares additional pull requests from the Improving Code recommendations in the Matcha study. The study mines edits to accepted Stack Overflow answers and applies suitable newer revisions to matching code in open-source Java projects.
 
+## Main key file
+
+**`matcha_results_2024-05-07_manual_validation_FINAL.csv` is the main key file
+for this workspace.** It is the authoritative joined dataset for recommendation
+pairs, manual validation, pull-request submission and status, paper-cohort
+membership, and final PR review decisions. Scripts, the `pr-double-check` app,
+the README cohort counts, and publication tables should use this file as their
+primary source of truth.
+
+The CSV currently contains 793 rows and 30 columns. Each row represents one
+matched Stack Overflow-to-GitHub recommendation pair, not necessarily one
+unique PR. Several recommendation rows can point to the same `Open PR Link`;
+there are currently 108 rows with PR links representing 100 unique PR URLs.
+PR-level analyses must therefore normalize and group by `Open PR Link` before
+counting. The `No` column is the stable pair ID used to join this CSV to source
+workbooks such as `Manual_Validation_Result_summary 25Aug25.xlsx`.
+
+### Column structure
+
+| Column group | Columns | Meaning |
+| --- | --- | --- |
+| Pair identity and source | `No`, `GH Project`, `Link SO` | Stable pair ID, project identifier, and associated Stack Overflow question. |
+| Manual answer classification | `Valid SO answer...`, the two `Baltes's Catagories...` columns, `Aspect`, `Useful Recommendation`, `Type of Recommendation`, `Implementation Detail (Open PR)`, `Remarks` | Human validation and classification of whether the answer change is useful, its recommendation type, and the rationale or implementation notes. |
+| GitHub code location | `GitHub Java File Path`, `GitHub Method Name`, `GitHub Start Line`, `GitHub End Line` | Repository code location matched to the older Stack Overflow code. |
+| Stack Overflow code location | `Stack Overflow Java File Path`, `Stack Overflow Method Name`, `Stack Overflow Start Line`, `Stack Overflow End Line` | Local extracted answer revision and matched code range. |
+| Pair matching | `Match Status`, `Useful Pairs Cross-Check` | Whether the code pair matched and whether it was confirmed during the useful-pair cross-check. |
+| PR workflow | `Recommendation PR Status`, `Recommendation PR Reason`, `Open PR Link`, `PR Opened At (UTC)` | Whether a recommendation was submitted, skipped, or closed because of an issue; its rationale; and the resulting PR URL and opening time. |
+| Cohort membership | `Old PR Status`, `Already In Paper?` | PR age classification and the study or paper cohort to which the PR belongs. |
+| Current review state | `PR Status`, `Review Note`, `Valid` | Latest fetched GitHub state and the manual reviewer’s note and Valid/Invalid decision. The review app writes these values back to the CSV. |
+
+### Important values
+
+- `Useful Recommendation` is copied verbatim from `Result Compare Afte Resolve
+  Conflict` in the manual-validation workbook. Its source values are
+  `Agress Yes` and `Agree No`; the original spelling is intentionally
+  preserved.
+- `Type of Recommendation` is copied from `Recommendation Type (Summary)` and
+  contains `Improving Code`, `Bug Fixing`/`Bug fixing`, or a blank value when
+  the recommendation was not accepted.
+- `Recommendation PR Status` uses `SUBMITTED`, `SKIPPED`, and
+  `CLOSED DUE TO ISSUE`. The accompanying reason column records the detailed
+  rationale.
+- `Old PR Status` uses `NEW` and `OLD`. It is a PR-age flag, not the live GitHub
+  state.
+- `Already In Paper?` identifies publication cohorts:
+  - `IN_PAPER` identifies PRs already included in the earlier paper;
+  - `IN_PAPER_REVISION` identifies PRs selected for the revision cohort, subject
+    to removal when `Recommendation PR Status` becomes
+    `CLOSED DUE TO ISSUE`;
+  - `NOT_IN_PAPER_ISSUE` excludes PRs closed because a project or contribution
+    issue prevented inclusion; and
+  - `NOT_IN_PAPER_BAD_PR` excludes the five old PRs judged unsuitable for the
+    revised cohort.
+- `PR Status` records the fetched GitHub state, such as `Open`, `Merged`,
+  `Closed`, or `Unavailable`. It can change over time and should be refreshed
+  before reporting results.
+- `Valid` is the final manual PR-level decision (`Valid`, `Invalid`, or blank
+  for pending), while `Review Note` stores the reviewer’s explanation.
+
+When one PR URL occurs on multiple rows, PR-level flags and decisions should be
+interpreted across the entire URL group. In particular, an exclusion flag such
+as `NOT_IN_PAPER_ISSUE` on any associated row excludes that PR from the cohort.
+
 ## Inputs
 
 - `2026_Matcha_PLOS_One.pdf`: study paper and methodology.
@@ -9,6 +72,91 @@ This workspace prepares additional pull requests from the Improving Code recomme
 - `matcha_recommendation_github_files.csv`: working inventory with a running ID, local recommendation file, current GitHub target URL, and Stack Overflow answer URL.
 - `/Users/chaiyong/Downloads/do_not_delete/Matcha_Study/java_files/<answer-id>/`: extracted Stack Overflow code revisions. Prefer the matching `*_recent.java` file. If it does not exist, use the newest available intermediate revision for the matched code block.
 - `template.md`: reusable pull-request body.
+
+## 33-PR analysis cohort
+
+The current additional-PR analysis cohort contains **33 unique pull requests**.
+It is derived from `matcha_results_2024-05-07_manual_validation_FINAL.csv` by
+grouping rows by the normalized value of `Open PR Link` and retaining a PR only
+when:
+
+1. at least one associated row has `Old PR Status` set to `NEW`; and
+2. none of its associated rows has `Recommendation PR Status` set to
+   `CLOSED DUE TO ISSUE`.
+
+This is a PR-level selection rather than a row-level selection. A PR represented
+by multiple recommendation rows is therefore counted once, and a
+`CLOSED DUE TO ISSUE` value on any associated row excludes the entire PR.
+
+| Selection step | Unique PRs |
+| --- | ---: |
+| All PRs recorded in the validation CSV | 100 |
+| Marked `NEW` | 71 |
+| `NEW` and marked `CLOSED DUE TO ISSUE` | 38 |
+| Final `NEW` cohort excluding `CLOSED DUE TO ISSUE` | **33** |
+
+For the LaTeX summary table, `GH_selection.csv` is the authoritative source for
+the historical `stargazers`, `forks`, and `watchers` values. The displayed
+`stars/forks/watchers` field uses those columns in that order. The H, M, and L
+popularity labels come from `stars_region`, mapped as `3 = H`, `2 = M`, and
+`1 = L`.
+
+Two repositories have been renamed since the metrics snapshot and are joined
+to their historical `GH_selection.csv` records as follows:
+
+| PR repository | Metrics repository in `GH_selection.csv` |
+| --- | --- |
+| `apache/hugegraph-toolchain` | `apache/incubator-hugegraph-toolchain` |
+| `joshiejack/Harvest-Festival` | `penguinsquad/harvest-festival` |
+
+The status snapshot used for the 33-PR LaTeX table contains 24 PRs under review
+(`U`), 3 merged PRs (`M`), and 6 PRs closed without merging (`C`). Its project
+groups contain 18 high-popularity (`H`), 13 medium-popularity (`M`), and 2
+low-popularity (`L`) PRs. PR status is time-dependent and should be fetched
+again before regenerating publication results; the repository metrics remain
+fixed to the `GH_selection.csv` study snapshot.
+
+### Included pull requests
+
+The following PRs form the effective revision cohort: they are marked
+`IN_PAPER_REVISION` and are not marked `CLOSED DUE TO ISSUE` in the validation
+CSV:
+
+| No. | GitHub project | Pull request | Status | Feedback |
+| ---: | --- | --- | --- | --- |
+| 1 | `1024-lab/smart-admin` | [PR #133](https://github.com/1024-lab/smart-admin/pull/133) | Open | |
+| 2 | `AbFab3D/AbFab3D` | [PR #20](https://github.com/AbFab3D/AbFab3D/pull/20) | Open | |
+| 3 | `aionnetwork/aion` | [PR #1180](https://github.com/aionnetwork/aion/pull/1180) | Open | |
+| 4 | `alchitry/Alchitry-Labs` | [PR #38](https://github.com/alchitry/Alchitry-Labs/pull/38) | Open | |
+| 5 | `alibaba/spring-cloud-alibaba` | [PR #4376](https://github.com/alibaba/spring-cloud-alibaba/pull/4376) | Merged | |
+| 6 | `ambiverse-nlu/ambiverse-nlu` | [PR #55](https://github.com/ambiverse-nlu/ambiverse-nlu/pull/55) | Open | |
+| 7 | `ant-media/Ant-Media-Server` | [PR #7990](https://github.com/ant-media/Ant-Media-Server/pull/7990) | Open | |
+| 8 | `Anuken/Arc` | [PR #207](https://github.com/Anuken/Arc/pull/207) | Closed | Feedback |
+| 9 | `apache/hugegraph-toolchain` | [PR #750](https://github.com/apache/hugegraph-toolchain/pull/750) | Open | Feedback |
+| 10 | `artisynth/artisynth_core` | [PR #20](https://github.com/artisynth/artisynth_core/pull/20) | Closed | Feedback |
+| 11 | `atilika/kuromoji` | [PR #143](https://github.com/atilika/kuromoji/pull/143) | Open | |
+| 12 | `ballerina-platform/ballerina-lang` | [PR #44681](https://github.com/ballerina-platform/ballerina-lang/pull/44681) | Open | |
+| 13 | `bcgit/bc-java` | [PR #2386](https://github.com/bcgit/bc-java/pull/2386) | Closed | Feedback |
+| 14 | `carlspring/s3fs-nio` | [PR #973](https://github.com/carlspring/s3fs-nio/pull/973) | Open | |
+| 15 | `chatty/chatty` | [PR #562](https://github.com/chatty/chatty/pull/562) | Open | |
+| 16 | `DaxiaK/MyDiary` | [PR #77](https://github.com/DaxiaK/MyDiary/pull/77) | Open | |
+| 17 | `dietzm/GCodeInfo` | [PR #17](https://github.com/dietzm/GCodeInfo/pull/17) | Open | |
+| 18 | `encryptedsystems/Clusion` | [PR #28](https://github.com/encryptedsystems/Clusion/pull/28) | Open | |
+| 19 | `evgenyzinoviev/gravitydefied` | [PR #13](https://github.com/evgenyzinoviev/gravitydefied/pull/13) | Open | |
+| 20 | `freedomotic/freedomotic` | [PR #535](https://github.com/freedomotic/freedomotic/pull/535) | Open | |
+| 21 | `giginet/CCSocialShare` | [PR #8](https://github.com/giginet/CCSocialShare/pull/8) | Open | |
+| 22 | `Kickflip/kickflip-android-sdk` | [PR #72](https://github.com/Kickflip/kickflip-android-sdk/pull/72) | Open | |
+| 23 | `KnowageLabs/Knowage-Server` | [PR #986](https://github.com/KnowageLabs/Knowage-Server/pull/986) | Merged | |
+| 24 | `liquibase/liquibase` | [PR #7870](https://github.com/liquibase/liquibase/pull/7870) | Closed | |
+| 25 | `MesquiteProject/MesquiteCore` | [PR #135](https://github.com/MesquiteProject/MesquiteCore/pull/135) | Open | |
+| 26 | `mucommander/mucommander` | [PR #1500](https://github.com/mucommander/mucommander/pull/1500) | Closed | |
+| 27 | `p2abcengine/p2abcengine` | [PR #12](https://github.com/p2abcengine/p2abcengine/pull/12) | Open | |
+| 28 | `joshiejack/Harvest-Festival` | [PR #233](https://github.com/joshiejack/Harvest-Festival/pull/233) | Open | |
+| 29 | `pylerSM/XInstaller` | [PR #58](https://github.com/pylerSM/XInstaller/pull/58) | Open | |
+| 30 | `Red5/red5-server` | [PR #448](https://github.com/Red5/red5-server/pull/448) | Open | |
+| 31 | `TheAlgorithms/Java` | [PR #7550](https://github.com/TheAlgorithms/Java/pull/7550) | Merged | |
+| 32 | `tony19/logback-android` | [PR #446](https://github.com/tony19/logback-android/pull/446) | Closed | |
+| 33 | `yahoo/elide` | [PR #3420](https://github.com/yahoo/elide/pull/3420) | Open | |
 
 ## Candidate workflow
 
@@ -149,66 +297,3 @@ For a submitted candidate, also confirm that the local commit matches the pushed
 - [ ] Record a created PR in `matcha_recommendation_github_files.csv` and this README. For a skipped candidate, set the CSV `pr_url` value to `SKIPPED`, put the complete rationale in `notes`, and add it to the README's skipped-candidates table.
 - [ ] Confirm the clone has no uncommitted work and that submitted commits are present on the pushed branch.
 - [ ] Delete the exact local clone directory after the PR is verified or the candidate is conclusively skipped.
-
-
-## Relaxed batch opened 2026-08-01
-
-Candidate-selection criteria were relaxed at the user's direction; all other procedural steps remained applicable.
-
-| Final CSV No. | Repository | Pull request | Change |
-| ---: | --- | --- | --- |
-| 555 | AdoptOpenJDK/IcedTea-Web | [PR](https://github.com/AdoptOpenJDK/IcedTea-Web/pull/1001) | Copied the list before sorting to avoid mutating caller-owned state. |
-| 688 | aliyun/aliyun-odps-java-sdk | [PR](https://github.com/aliyun/aliyun-odps-java-sdk/pull/80) | Made shared number formatting thread-safe with per-thread DecimalFormat state. |
-| 225 | Anuken/Arc | [PR](https://github.com/Anuken/Arc/pull/207) | Handled Long.MIN_VALUE without overflow while formatting durations. |
-| 712 | artisynth/artisynth_core | [PR](https://github.com/artisynth/artisynth_core/pull/20) | Closed the movie metadata reader with try-with-resources. |
-| 793 | atilika/kuromoji | [PR](https://github.com/atilika/kuromoji/pull/143) | Escaped CSV fields and closed converter streams reliably. |
-| 39 | aws/amazon-redshift-jdbc-driver | [PR](https://github.com/aws/amazon-redshift-jdbc-driver/pull/160) | Prevented accidental construction and subclassing of a utility class. |
-| 430 | bookdash/bookdash-android-app | [PR](https://github.com/bookdash/bookdash-android-app/pull/69) | Rejected ZIP entries outside the extraction directory and closed resources. |
-| 115 | camunda-community-hub/camunda-8-lowcode-ui-template | [PR](https://github.com/camunda-community-hub/camunda-8-lowcode-ui-template/pull/118) | Applied the existing bearer scheme as a global OpenAPI security requirement. |
-| 682 | carlspring/s3fs-nio | [PR](https://github.com/carlspring/s3fs-nio/pull/973) | Compared mock base paths by value before cleanup. |
-| 93 | chatty/chatty | [PR](https://github.com/chatty/chatty/pull/562) | Rejected grouped calculator expressions with a missing closing parenthesis. |
-| 504 | controlsfx/controlsfx | [PR](https://github.com/controlsfx/controlsfx/pull/1622) | Detached sample rows from the enclosing memory-test application. |
-| 87 | ConvertAPI/convertapi-library-java | [PR](https://github.com/ConvertAPI/convertapi-library-java/pull/47) | Closed the Okio request source with try-with-resources. |
-| 328 | CruxFramework/crux | [PR](https://github.com/CruxFramework/crux/pull/1013) | Kept shared DocumentBuilder parsing inside a reliably released lock. |
-| 694 | dromara/hodor | [PR](https://github.com/dromara/hodor/pull/68) | Rejected odd-length and invalid hexadecimal input. |
-| 722 | dockstore/dockstore | [PR](https://github.com/dockstore/dockstore/pull/6330) | Normalized absent RSS text values before XML generation. |
-| 674 | ambiverse-nlu/ambiverse-nlu | [PR](https://github.com/ambiverse-nlu/ambiverse-nlu/pull/55) | Preserved directory structure and propagated traversal failures while copying. |
-| 266 | Devil-Chen/DVMediaSelector | [PR](https://github.com/Devil-Chen/DVMediaSelector/pull/14) | Respected the requested image directory and closed the output stream. |
-| 786 | dougkeen/BartRunnerAndroid | [PR](https://github.com/dougkeen/BartRunnerAndroid/pull/33) | Checked wake-lock state before releasing it. |
-| 19 | datastax/dsbulk | [PR](https://github.com/datastax/dsbulk/pull/533) | Propagated file-tree cleanup failures instead of swallowing them. |
-| 231 | ballerina-platform/ballerina-lang | [PR](https://github.com/ballerina-platform/ballerina-lang/pull/44681) | Propagated file-visit failures and deleted visited directories directly. |
-
-
-## Relaxed batch of 27 opened 2026-08-02
-
-Candidate-selection criteria were relaxed at the user's direction; procedural validation, unique-URL checks, PR verification, and clone cleanup remained required.
-
-| Final CSV No. | Repository | Pull request | Change |
-| ---: | --- | --- | --- |
-| 787 | 1024-lab/smart-admin | [PR](https://github.com/1024-lab/smart-admin/pull/133) | Cached successful CORS preflight responses for one hour. |
-| 650 | airlift/airlift | [PR](https://github.com/airlift/airlift/pull/2086) | Clarified malformed-JSON exception behavior in JaxRsJsonMapper documentation. |
-| 434 | alibaba/spring-cloud-alibaba | [PR](https://github.com/alibaba/spring-cloud-alibaba/pull/4376) | Cached gateway CORS preflight responses for one hour. |
-| 514 | apache/netbeans | [PR](https://github.com/apache/netbeans/pull/9536) | Handled matching descriptor property names at index zero. |
-| 522 | apache/hugegraph-toolchain | [PR](https://github.com/apache/hugegraph-toolchain/pull/750) | Cached Hubble CORS preflight responses for one hour. |
-| 523 | apache/rocketmq | [PR](https://github.com/apache/rocketmq/pull/10746) | Closed both HTTP/2 proxy channels on backend failures. |
-| 525 | apache/iotdb | [PR](https://github.com/apache/iotdb/pull/18379) | Stopped snapshot traversal after post-visit directory failures. |
-| 526 | apache/pulsar | [PR](https://github.com/apache/pulsar/pull/26261) | Released reference-counted messages that could not be forwarded. |
-| 655 | arduino/Arduino | [PR](https://github.com/arduino/Arduino/pull/12126) | Corrected delimiter spelling in split method documentation. |
-| 85 | liquibase/liquibase | [PR](https://github.com/liquibase/liquibase/pull/7870) | Propagated post-visit directory traversal failures. |
-| 528 | prometheus/client_java | [PR](https://github.com/prometheus/client_java/pull/2362) | Preserved nested temporary-volume deletion failures. |
-| 164 | netty/netty | [PR](https://github.com/netty/netty/pull/17186) | Closed the inbound proxy peer after backend exceptions. |
-| 581 | robolectric/robolectric | [PR](https://github.com/robolectric/robolectric/pull/11391) | Bound handler-thread teardown waits and asserted completion. |
-| 597 | spring-projects/spring-tools | [PR](https://github.com/spring-projects/spring-tools/pull/1957) | Used locale-aware java.time formatting in the validation fixture. |
-| 680 | OpenLiberty/open-liberty | [PR](https://github.com/OpenLiberty/open-liberty/pull/35407) | Handled JUnit descriptions that do not expose a test class. |
-| 721 | opensearch-project/OpenSearch | [PR](https://github.com/opensearch-project/OpenSearch/pull/22627) | Bound OpenSearch task-executor test latch waits. |
-| 242 | elastic/elasticsearch | [PR](https://github.com/elastic/elasticsearch/pull/155679) | Bound Elasticsearch task-executor test latch waits. |
-| 621 | eugenp/tutorials | [PR](https://github.com/eugenp/tutorials/pull/19287) | Used UTF-8 and decoded only received echo bytes. |
-| 633 | thingsboard/thingsboard | [PR](https://github.com/thingsboard/thingsboard/pull/15999) | Removed PEM certificate contents from TLS failure logs. |
-| 218 | RPTools/maptool | [PR](https://github.com/RPTools/maptool/pull/6021) | Closed the PDF extraction marker stream with try-with-resources. |
-| 723 | jcodec/jcodec | [PR](https://github.com/jcodec/jcodec/pull/520) | Prevented IOUtils construction and subclassing. |
-| 86 | mucommander/mucommander | [PR](https://github.com/mucommander/mucommander/pull/1500) | Tracked the drag origin during incremental image panning. |
-| 350 | sofastack/sofa-jraft | [PR](https://github.com/sofastack/sofa-jraft/pull/1273) | Rejected odd-length and invalid hexadecimal input. |
-| 282 | eclipse-platform/eclipse.platform.swt | [PR](https://github.com/eclipse-platform/eclipse.platform.swt/pull/3480) | Disposed the SWT Display through try/finally. |
-| 240 | gitlab4j/gitlab4j-api | [PR](https://github.com/gitlab4j/gitlab4j-api/pull/1330) | Removed an unused shared mutable date formatter. |
-| 96 | polypheny/Polypheny-DB | [PR](https://github.com/polypheny/Polypheny-DB/pull/573) | Made the varchar metadata comparison null-safe. |
-| 770 | TheAlgorithms/Java | [PR](https://github.com/TheAlgorithms/Java/pull/7550) | Rejected null BitonicSort arrays with a descriptive validation. |
